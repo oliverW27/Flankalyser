@@ -1,0 +1,221 @@
+TSD Summary for ISPsy3
+========================================
+Total accessions: 208
+With TSD:         117 (56.2%)
+Without TSD:      91 (43.8%)
+
+TSD length breakdown:
+  Length  11:     26 accessions (12.5%)
+  Length  12:     56 accessions (26.9%)
+  Length  13:     35 accessions (16.8%)
+
+Per-accession details:
+acc_name                      	tsd_len   	tsd_seq
+SAMD00194465                  	12        	AGGCATGATGCC
+SAMN30525410                  	0         	
+SAMN31778814                  	0         	
+SAMEA114316601                	12        	AGGGCCAGACGG
+SAMN12777764                  	0         	
+SAMN14146754                  	0         	
+SAMEA7225363                  	12        	GCGGTGTTCCGC
+SAMEA2051639                  	0         	
+SAMN31415085                  	13        	CCGGCCAATTGGC
+SAMN17136820                  	11        	GCGCAGATGCG
+SAMN20667238                  	0         	
+SAMN28844366                  	12        	GGCTCCCGCGGG
+SAMN05892873                  	0         	
+SAMN20667234                  	0         	
+SAMN20667248                  	0         	
+SAMEA115474540                	11        	GCCAATTGGCC
+SAMN31151339                  	11        	GCGCAGATGCG
+SAMEA2051653                  	0         	
+SAMEA7225609                  	0         	
+SAMN14147041                  	0         	
+SAMEA7225520                  	0         	
+SAMEA7225490                  	0         	
+SAMEA2051775                  	0         	
+SAMN14146741                  	0         	
+SAMD00320858                  	0         	
+SAMN14146779                  	12        	ACTCCTTGGGTG
+SAMN14146681                  	11        	GCCATCATGGC
+SAMN14147060                  	11        	GCCATCATGGC
+SAMN14147046                  	11        	GCCATCATGGC
+SAMEA7225527                  	11        	GCCATCATGGC
+SAMEA2050027                  	0         	
+SAMN20667233                  	12        	GGCTCGGAGCCC
+SAMD00194384                  	0         	
+SAMEA7225503                  	0         	
+SAMN14146841                  	0         	
+SAMN36340726                  	12        	CCGTCGGGAGCC
+SAMEA7225362                  	0         	
+SAMEA7225366                  	0         	
+SAMEA7225644                  	0         	
+SAMEA104147941                	12        	GCGCCGATGGCG
+SAMN14146804                  	13        	CGCCAGCTGGCGT
+SAMD00320861                  	0         	
+SAMN14146731                  	11        	ACCCTGGTGGT
+SAMN32209600                  	11        	GAGCTTGTGCC
+SAMEA7225589                  	13        	CGCCAGCTGGCGT
+SAMN14146672                  	0         	
+SAMN18524210                  	12        	GAGCAGGGTGCT
+SAMN24282031                  	12        	ACTACAGGGCCC
+SAMN24282032                  	12        	ACTACAGGGCCC
+SAMD00320862                  	0         	
+SAMD00320860                  	0         	
+SAMEA2752401                  	0         	
+SAMN10245536                  	12        	GGGCCAATGGCC
+SAMN35000666                  	11        	CACCTGTTGCG
+SAMN20667243                  	0         	
+SAMN28748616                  	11        	GGCCACTGGCC
+SAMN20667241                  	12        	CGCACTGCGGGG
+SAMN20667246                  	0         	
+SAMN17101845                  	12        	TGCCAGTGGCAG
+SAMN18685274                  	12        	CGCCCGCAGGCG
+SAMN14146992                  	0         	
+SAMN29332685                  	0         	
+SAMEA114316581                	12        	CGCCCAAGCGCC
+SAMN14147047                  	0         	
+SAMEA2052412                  	0         	
+SAMEA115474548                	0         	
+SAMN07312748                  	12        	GGATGCCATGGC
+SAMEA3903240                  	11        	GGCCGATGGCC
+SAMN07312746                  	12        	ACCGCAAGGTCG
+SAMEA5282780                  	0         	
+SAMEA1903611                  	0         	
+SAMN37694225                  	12        	AGGCCGAAGCCC
+SAMN06641940                  	0         	
+SAMN34254622                  	12        	GCCAAAGGCCCC
+SAMEA115474549                	12        	CGCCCTGAGGCG
+SAMN07312774                  	12        	GCCCGCTTGGGG
+SAMEA111270549                	0         	
+SAMEA10301778                 	0         	
+SAMN26198787                  	0         	
+SAMN05223366                  	0         	
+SAMEA115474552                	12        	TGCTGGCGAGCC
+SAMN14146680                  	13        	CCCGACATGGCGG
+SAMN26198786                  	0         	
+SAMN20667236                  	12        	CGCCTGATGGCG
+SAMEA2052284                  	0         	
+SAMEA7225404                  	0         	
+SAMN20667242                  	0         	
+SAMEA7225405                  	0         	
+SAMEA2051798                  	0         	
+SAMEA2051509                  	0         	
+SAMEA2052280                  	0         	
+SAMN14146959                  	0         	
+SAMN14146961                  	0         	
+SAMEA104148139                	0         	
+SAMN32076212                  	0         	
+SAMEA104148143                	13        	GAGGCATCATGCC
+SAMEA7225392                  	0         	
+SAMN14146955                  	0         	
+SAMN41572612                  	13        	GAGGCATCATGCC
+SAMN14147067                  	13        	GAGGCATCATGCC
+SAMN01779542                  	13        	GAGGCATCATGCC
+SAMEA104148147                	13        	GAGGCATCATGCC
+SAMN14146686                  	0         	
+SAMN14146836                  	0         	
+SAMN20667251                  	0         	
+SAMN13283082                  	0         	
+SAMN14908304                  	0         	
+SAMEA7225612                  	13        	CCCGACATGGCGG
+SAMN14146948                  	13        	CCCGACATGGCGG
+SAMN14146882                  	13        	CCCGACATGGCGG
+SAMEA7225396                  	13        	CCCGACATGGCGG
+SAMEA7225426                  	13        	CCCGACATGGCGG
+SAMEA7225422                  	13        	CCCGACATGGCGG
+SAMN14146690                  	0         	
+SAMN14146915                  	13        	GAGGCATCATGCC
+SAMN16357546                  	13        	GAGGCATCATGCC
+SAMN04123818                  	0         	
+SAMN03021519                  	0         	
+SAMN07312779                  	12        	TGCACAAGCACC
+SAMN10245532                  	0         	
+SAMN34254626                  	12        	GAACCGCGAGGT
+SAMN14146688                  	0         	
+SAMEA7225572                  	12        	GGCTCGGAGCCC
+SAMN14146926                  	12        	GGCTCGGAGCCC
+SAMEA2051776                  	0         	
+SAMN14146675                  	0         	
+SAMEA7225629                  	0         	
+SAMEA1965934                  	0         	
+SAMN14146908                  	0         	
+SAMN14146655                  	0         	
+SAMEA2052391                  	11        	GGCCGATGGCC
+SAMEA7225501                  	11        	GGCCGATGGCC
+SAMN14146736                  	11        	GGCCGATGGCC
+SAMN14147028                  	11        	GGCCGATGGCC
+SAMN14146850                  	11        	GGCCGATGGCC
+SAMEA7225657                  	0         	
+SAMN14146653                  	12        	GGCGCCTCAGGG
+SAMN24500827                  	13        	GGCATATGGATGC
+SAMN33426550                  	12        	ACCTCGCGGTGG
+SAMN17106055                  	12        	ACCGCAAGGTCG
+SAMEA7225357                  	0         	
+SAMN20667232                  	0         	
+SAMN07312750                  	11        	CGCCAGTGGCG
+SAMN04123825                  	13        	GAGGCATCATGCC
+SAMN04123833                  	13        	GAGGCATCATGCC
+SAMN04123823                  	13        	GAGGCATCATGCC
+SAMN04123837                  	13        	GAGGCATCATGCC
+SAMN04123829                  	13        	GAGGCATCATGCC
+SAMN04123828                  	13        	GAGGCATCATGCC
+SAMN04123838                  	13        	GAGGCATCATGCC
+SAMN04123842                  	13        	GAGGCATCATGCC
+SAMN04123827                  	13        	GAGGCATCATGCC
+SAMN04123839                  	13        	GAGGCATCATGCC
+SAMN04123831                  	13        	GAGGCATCATGCC
+SAMN04123819                  	13        	GAGGCATCATGCC
+SAMN04123830                  	13        	GAGGCATCATGCC
+SAMN04123840                  	13        	GAGGCATCATGCC
+SAMN04123834                  	13        	GAGGCATCATGCC
+SAMN04123832                  	13        	GAGGCATCATGCC
+SAMN04123835                  	13        	GAGGCATCATGCC
+SAMEA2051789                  	11        	GGCCGATGGCC
+SAMN24500830                  	11        	GGCCGATGGCC
+SAMD00012193                  	12        	GCCGAAAGGCCC
+SAMEA7225620                  	0         	
+SAMN14146707                  	12        	TGCACAAGCACC
+SAMEA7225375                  	12        	TGCACAAGCACC
+SAMN07312753                  	0         	
+SAMN31141795                  	0         	
+SAMN29332636                  	12        	CGCCTTGATGGC
+SAMN29332666                  	12        	CGCCTTGATGGC
+SAMN07312744                  	12        	CAGCCAAAGCTG
+SAMN07312741                  	0         	
+SAMN34254623                  	11        	GCCTACGGGCC
+SAMN17105787                  	0         	
+SAMN17769405                  	11        	GGCCTTTTGGC
+SAMEA115474547                	11        	GCCACCTGGCT
+SAMEA2752414                  	0         	
+SAMN07312771                  	12        	CGGCCAATGTGC
+SAMN04123845                  	12        	CGGCCAATGTGC
+SAMN14908297                  	12        	CCCATATCGGGA
+SAMN14908274                  	12        	CCCATATCGGGA
+SAMN07312777                  	12        	GCCTCGAAGGCG
+SAMEA115474538                	12        	TGCACAAGCACC
+SAMEA115474545                	12        	TGCACAAGCACC
+SAMN34254620                  	12        	GGCGCAGGGCCG
+SAMEA2752403                  	12        	AGGCGATGGCCT
+SAMN14146660                  	0         	
+SAMN34254621                  	0         	
+SAMN29332643                  	12        	CGCCTTGATGGC
+SAMD00194521                  	12        	GAGCCCGCAGGC
+SAMD00194630                  	12        	GAGCCCGCAGGC
+SAMEA5282783                  	11        	GGCCGAAGGCC
+SAMN31169402                  	12        	ACCTTCTGGTGC
+SAMN29332633                  	12        	ACCTCAGGGTCG
+SAMN29332635                  	12        	CGCCTTGATGGC
+SAMN42278449                  	0         	
+SAMEA7225386                  	0         	
+SAMEA7225367                  	0         	
+SAMD00194618                  	12        	GGGCCAAGGCCC
+SAMN11952138                  	0         	
+SAMN26198799                  	12        	CGCCTTCTGGCG
+SAMN29332637                  	11        	GGAGCAATGCT
+SAMN13631568                  	12        	ACTCCTTGGGTG
+SAMN20396757                  	11        	GGAGCAATGCT
+SAMN20667237                  	0         	
+SAMN42040463                  	12        	GGTCGTAAGGCC
+SAMN26198666                  	0         	
+SAMN18099582                  	0         	

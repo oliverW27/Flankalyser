@@ -1,0 +1,28 @@
+REP Stem-Loop Analysis for IS26
+========================================
+Parameters: min_stem=4, min_loop=3, max_mismatches=1, n_permutations=10
+Total accessions: 940
+With stem-loop:   935 (99.5%)
+Without:          5 (0.5%)
+
+Observed stem length distribution:
+  Stem length   5:     31 accessions (3.3%)
+  Stem length   6:    319 accessions (33.9%)
+  Stem length   7:    327 accessions (34.8%)
+  Stem length   8:    158 accessions (16.8%)
+  Stem length   9:     68 accessions (7.2%)
+  Stem length  10:     19 accessions (2.0%)
+  Stem length  11:      3 accessions (0.3%)
+  Stem length  12:      6 accessions (0.6%)
+  Stem length  13:      1 accessions (0.1%)
+  Stem length  14:      3 accessions (0.3%)
+
+Observed mean:   7.04
+Observed median: 7.00
+
+Null (n=2000, shuffled, capped at 200 seqs):
+  Mean:          6.39
+  95th pct:      8.00
+  Any stem:      98.5%
+
+Empirical p-value (obs mean >= null): 0.1475

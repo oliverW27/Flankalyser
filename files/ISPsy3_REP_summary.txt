@@ -1,0 +1,25 @@
+REP Stem-Loop Analysis for ISPsy3
+========================================
+Parameters: min_stem=4, min_loop=3, max_mismatches=1, n_permutations=10
+Total accessions: 70
+With stem-loop:   69 (98.6%)
+Without:          1 (1.4%)
+
+Observed stem length distribution:
+  Stem length   5:      6 accessions (8.6%)
+  Stem length   6:     25 accessions (35.7%)
+  Stem length   7:     29 accessions (41.4%)
+  Stem length   8:      6 accessions (8.6%)
+  Stem length   9:      1 accessions (1.4%)
+  Stem length  10:      1 accessions (1.4%)
+  Stem length  12:      1 accessions (1.4%)
+
+Observed mean:   6.70
+Observed median: 7.00
+
+Null (n=690, shuffled, capped at 200 seqs):
+  Mean:          6.11
+  95th pct:      8.00
+  Any stem:      98.6%
+
+Empirical p-value (obs mean >= null): 0.3130

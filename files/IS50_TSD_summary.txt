@@ -1,0 +1,3942 @@
+TSD Summary for IS50
+========================================
+Total accessions: 3927
+With TSD:         734 (18.7%)
+Without TSD:      3193 (81.3%)
+
+TSD length breakdown:
+  Length   2:    619 accessions (15.8%)
+  Length   3:      5 accessions (0.1%)
+  Length   5:      9 accessions (0.2%)
+  Length   9:    100 accessions (2.5%)
+  Length  10:      1 accessions (0.0%)
+
+Per-accession details:
+acc_name                      	tsd_len   	tsd_seq
+SAMN37429635                  	0         	
+SAMN04293294                  	0         	
+SAMN33699497                  	0         	
+SAMN05439333                  	0         	
+SAMN05439354                  	0         	
+SAMN07645982                  	0         	
+SAMN24059055                  	0         	
+SAMN24059054                  	0         	
+SAMN05439392                  	2         	CC
+SAMN08902751                  	0         	
+SAMEA5375800                  	0         	
+SAMN18849080                  	0         	
+SAMN01087967                  	0         	
+SAMN18849089                  	0         	
+SAMN18849090                  	0         	
+SAMN05440357                  	0         	
+SAMN18849088                  	0         	
+SAMN18849083                  	2         	CC
+SAMN05440363                  	9         	GCTGGTTAT
+SAMN05440361                  	2         	CC
+SAMN05440392                  	0         	
+SAMN29151485                  	0         	
+SAMN05440399                  	0         	
+SAMN13699802                  	0         	
+SAMN30024515                  	9         	GTGCTGATG
+SAMN38924739                  	0         	
+SAMN04279349                  	2         	CC
+SAMEA4644084                  	0         	
+SAMN05440465                  	9         	GGTCTGAGC
+SAMN08581719                  	0         	
+SAMN08581718                  	0         	
+SAMN08581901                  	0         	
+SAMN18435499                  	0         	
+SAMN15969067                  	0         	
+SAMEA5553655                  	0         	
+SAMEA5553654                  	0         	
+SAMN37210314                  	0         	
+SAMN10353521                  	0         	
+SAMN14911297                  	2         	CC
+SAMN25654669                  	0         	
+SAMD00194673                  	0         	
+SAMN22565551                  	0         	
+SAMN30603956                  	0         	
+SAMN05464497                  	0         	
+SAMN13413297                  	0         	
+SAMN05464510                  	0         	
+SAMD00195990                  	0         	
+SAMN08930673                  	0         	
+SAMN33746163                  	0         	
+SAMN27963083                  	0         	
+SAMN27963082                  	0         	
+SAMN12130741                  	0         	
+SAMN05504950                  	2         	CC
+SAMN10661790                  	0         	
+SAMN02367713                  	0         	
+SAMN07482181                  	2         	CC
+SAMN02367702                  	9         	CACCAGTAC
+SAMEA104027679                	0         	
+SAMEA104027680                	0         	
+SAMEA104027681                	0         	
+SAMEA104027683                	0         	
+SAMEA104027682                	0         	
+SAMN02367677                  	0         	
+SAMEA104027686                	0         	
+SAMEA104027685                	0         	
+SAMN19110657                  	9         	CCTTAGTAC
+SAMN31778847                  	0         	
+SAMEA104027688                	0         	
+SAMEA104027684                	0         	
+SAMEA104027687                	0         	
+SAMN07482179                  	2         	CC
+SAMN02927717                  	0         	
+SAMN31774991                  	0         	
+SAMN26796378                  	2         	CC
+SAMN14146976                  	9         	GGATAAAAC
+SAMN14146973                  	9         	GGATAAAAC
+SAMN26796369                  	2         	CC
+SAMN26796352                  	2         	CC
+SAMN26796348                  	0         	
+SAMN26796340                  	0         	
+SAMN08863900                  	9         	CCTATGACC
+SAMEA7225382                  	9         	GGATAAAAC
+SAMEA7225425                  	9         	GGATAAAAC
+SAMEA7225540                  	9         	GGATAAAAC
+SAMEA7225583                  	9         	GCCAAGGTG
+SAMEA7225611                  	9         	GGATAAAAC
+SAMN08851685                  	0         	
+SAMN39964298                  	0         	
+SAMN08624228                  	0         	
+SAMN32739119                  	0         	
+SAMN32738625                  	9         	CTGTATGAC
+SAMN16454176                  	0         	
+SAMN29332685                  	0         	
+SAMN12438284                  	9         	CCCGAGTCC
+SAMN12438277                  	9         	ACCTGGGGC
+SAMN12438272                  	9         	GCTGGTTAT
+SAMEA5098389                  	9         	GCCATGGTC
+SAMN10620984                  	0         	
+SAMN32919560                  	0         	
+SAMEA5376343                  	0         	
+SAMN35558312                  	0         	
+SAMN38335030                  	0         	
+SAMEA5376355                  	0         	
+SAMN12943557                  	0         	
+SAMN07608076                  	0         	
+SAMEA5855648                  	2         	CC
+SAMEA9697018                  	0         	
+SAMEA5855716                  	0         	
+SAMEA5855730                  	0         	
+SAMEA5855732                  	0         	
+SAMEA5855754                  	0         	
+SAMN32941602                  	0         	
+SAMN16451856                  	2         	CC
+SAMN16982492                  	0         	
+SAMN16982491                  	0         	
+SAMN02442841                  	2         	CC
+SAMN20173855                  	0         	
+SAMEA5375507                  	0         	
+SAMN38790473                  	9         	GGTGTAGGT
+SAMN16552490                  	0         	
+SAMN09917913                  	0         	
+SAMN40526767                  	0         	
+SAMN40526357                  	0         	
+SAMN41619993                  	0         	
+SAMN07955775                  	2         	CC
+SAMN17898356                  	0         	
+SAMN12913391                  	0         	
+SAMN25415092                  	0         	
+SAMEA110461617                	9         	GGTTAATGC
+SAMN40748938                  	9         	GTGCCAGGT
+SAMN31099281                  	0         	
+SAMN33406872                  	0         	
+SAMEA5375506                  	0         	
+SAMEA5375505                  	0         	
+SAMEA5375503                  	0         	
+SAMN33406864                  	0         	
+SAMN33406805                  	0         	
+SAMN39623894                  	0         	
+SAMN26677044                  	0         	
+SAMN34998381                  	0         	
+SAMN39621674                  	0         	
+SAMN26011404                  	9         	CATCTAGAC
+SAMN23839475                  	0         	
+SAMN21238819                  	0         	
+SAMN14007651                  	0         	
+SAMN19016423                  	0         	
+SAMN19016422                  	0         	
+SAMN19016425                  	0         	
+SAMN19016420                  	0         	
+SAMN19016421                  	0         	
+SAMN19016418                  	0         	
+SAMN19016417                  	0         	
+SAMN19016414                  	0         	
+SAMN09005344                  	0         	
+SAMN11419568                  	0         	
+SAMN04396047                  	0         	
+SAMN07677641                  	9         	GTACAAGGG
+SAMN13558930                  	2         	CC
+SAMN13558926                  	2         	CC
+SAMN07677934                  	0         	
+SAMN04992190                  	0         	
+SAMN14049453                  	0         	
+SAMN07678402                  	0         	
+SAMN10084363                  	0         	
+SAMN21238489                  	0         	
+SAMN07678439                  	0         	
+SAMN14049630                  	0         	
+SAMN14049645                  	0         	
+SAMN06645667                  	9         	GTTATGTAT
+SAMN06645714                  	0         	
+SAMN06645725                  	0         	
+SAMN04420142                  	2         	CC
+SAMN06645789                  	0         	
+SAMN06645788                  	0         	
+SAMN21238424                  	0         	
+SAMN04420187                  	2         	CC
+SAMN06645825                  	0         	
+SAMEA7584320                  	2         	GG
+SAMN04993115                  	0         	
+SAMN20710165                  	0         	
+SAMEA1687855                  	0         	
+SAMEA1687829                  	0         	
+SAMN04993201                  	0         	
+SAMN05591536                  	0         	
+SAMN23796876                  	0         	
+SAMN31065162                  	9         	CTGTTAATC
+SAMN31065146                  	0         	
+SAMN14519928                  	0         	
+SAMN18875256                  	0         	
+SAMN13828665                  	0         	
+SAMN05595956                  	0         	
+SAMN15889473                  	2         	CC
+SAMN15889469                  	0         	
+SAMN02628622                  	0         	
+SAMN07678912                  	0         	
+SAMN05596104                  	0         	
+SAMN15889459                  	0         	
+SAMN15889460                  	0         	
+SAMN12568099                  	0         	
+SAMEA4061709                  	9         	GTCCAGGCG
+SAMEA4061707                  	9         	GTCCAGGCG
+SAMN10423947                  	0         	
+SAMEA104280130                	0         	
+SAMN06290875                  	0         	
+SAMN12392918                  	0         	
+SAMEA5375378                  	0         	
+SAMEA5375376                  	0         	
+SAMN07679150                  	2         	CC
+SAMN09060755                  	2         	CC
+SAMN37073174                  	0         	
+SAMN09060935                  	2         	CC
+SAMN12392852                  	0         	
+SAMN07500528                  	0         	
+SAMN20747998                  	0         	
+SAMN12392795                  	0         	
+SAMN07679443                  	0         	
+SAMN37907917                  	9         	ACGTGTGAC
+SAMN21217599                  	0         	
+SAMEA6514474                  	0         	
+SAMN10485850                  	0         	
+SAMEA4726299                  	0         	
+SAMN26582955                  	0         	
+SAMN08167614                  	9         	ACTCACACC
+SAMN26578235                  	0         	
+SAMN07500534                  	0         	
+SAMN14165646                  	0         	
+SAMN07500539                  	0         	
+SAMN16320286                  	0         	
+SAMN11168337                  	2         	CC
+SAMN09405868                  	0         	
+SAMN26198791                  	0         	
+SAMN09866952                  	0         	
+SAMN27524668                  	0         	
+SAMN40933428                  	0         	
+SAMN27524714                  	2         	CC
+SAMN27524712                  	2         	CC
+SAMN20776005                  	0         	
+SAMN30861606                  	0         	
+SAMN09784435                  	0         	
+SAMN32172043                  	0         	
+SAMN18718221                  	0         	
+SAMN18718219                  	0         	
+SAMN27524988                  	0         	
+SAMN10237211                  	0         	
+SAMN32605410                  	0         	
+SAMN36893817                  	0         	
+SAMEA8571691                  	0         	
+SAMN40442833                  	9         	CTCCGGTAC
+SAMN40442816                  	9         	CTCCGGTAC
+SAMN40442813                  	0         	
+SAMN40442809                  	0         	
+SAMN40442790                  	0         	
+SAMN14503622                  	0         	
+SAMN12251461                  	0         	
+SAMEA2051515                  	9         	GGATAAAAC
+SAMEA3981230                  	0         	
+SAMN16688356                  	0         	
+SAMN39572640                  	0         	
+SAMN38413495                  	0         	
+SAMEA6375468                  	0         	
+SAMEA6375474                  	2         	CC
+SAMEA6375476                  	2         	CC
+SAMEA6375584                  	0         	
+SAMN06240037                  	0         	
+SAMEA6375585                  	2         	CC
+SAMEA6375590                  	0         	
+SAMN38414390                  	0         	
+SAMN15249629                  	9         	ACTCACACC
+SAMN08289313                  	0         	
+SAMEA6375609                  	0         	
+SAMN15096117                  	0         	
+SAMEA1324854                  	0         	
+SAMN18098657                  	0         	
+SAMEA6375618                  	0         	
+SAMN38414407                  	0         	
+SAMN38414406                  	0         	
+SAMEA6375626                  	0         	
+SAMEA6375628                  	0         	
+SAMN36827341                  	0         	
+SAMN38414478                  	0         	
+SAMN38414482                  	0         	
+SAMN14086374                  	0         	
+SAMN38414531                  	0         	
+SAMN38414551                  	0         	
+SAMN20838242                  	9         	GTGCTGATG
+SAMN09460094                  	0         	
+SAMN13615900                  	0         	
+SAMEA6813699                  	0         	
+SAMN12586792                  	2         	CC
+SAMN12586797                  	2         	CC
+SAMN26525074                  	0         	
+SAMN42207663                  	0         	
+SAMN31684557                  	0         	
+SAMN08797064                  	2         	CC
+SAMN37544332                  	0         	
+SAMN33436148                  	0         	
+SAMEA110363089                	0         	
+SAMEA110363086                	0         	
+SAMEA110363083                	0         	
+SAMEA110363078                	0         	
+SAMEA110363076                	0         	
+SAMN37875470                  	0         	
+SAMEA110363077                	0         	
+SAMEA110363019                	0         	
+SAMN11252348                  	0         	
+SAMN16278091                  	0         	
+SAMN19783243                  	0         	
+SAMN29503448                  	0         	
+SAMEA5732493                  	0         	
+SAMN15850768                  	0         	
+SAMN14125652                  	0         	
+SAMN41082392                  	9         	CCCTTGCGC
+SAMEA6425122                  	0         	
+SAMN29503567                  	2         	CC
+SAMEA6425181                  	0         	
+SAMEA6425507                  	0         	
+SAMEA6425510                  	0         	
+SAMEA6425515                  	0         	
+SAMN41524667                  	9         	GCCATAATG
+SAMN12359999                  	0         	
+SAMN30941654                  	9         	ACTCACACC
+SAMN39402550                  	9         	GCCTCAAGC
+SAMEA5976593                  	0         	
+SAMEA5976594                  	0         	
+SAMEA5976607                  	0         	
+SAMEA5976612                  	0         	
+SAMEA5976624                  	0         	
+SAMEA5976646                  	2         	CC
+SAMN08368004                  	0         	
+SAMN37429578                  	0         	
+SAMN36864134                  	0         	
+SAMN24849552                  	0         	
+SAMN12359596                  	0         	
+SAMN20394488                  	0         	
+SAMN06767773                  	0         	
+SAMD00755347                  	0         	
+SAMEA7225626                  	0         	
+SAMN02640818                  	2         	CC
+SAMEA104034221                	0         	
+SAMEA115553135                	0         	
+SAMN03941172                  	0         	
+SAMN33697060                  	0         	
+SAMN06812066                  	2         	CC
+SAMN30416223                  	0         	
+SAMN03853192                  	2         	CC
+SAMN04293338                  	0         	
+SAMEA6144351                  	0         	
+SAMN06806017                  	2         	CC
+SAMN07440313                  	0         	
+SAMN30416174                  	0         	
+SAMN12359594                  	0         	
+SAMEA6144360                  	0         	
+SAMN20394551                  	0         	
+SAMN30416303                  	0         	
+SAMN41084444                  	0         	
+SAMN12856772                  	0         	
+SAMN03857172                  	2         	CC
+SAMN30416321                  	0         	
+SAMEA6144361                  	0         	
+SAMN22212247                  	0         	
+SAMN08367942                  	2         	CC
+SAMN30413995                  	0         	
+SAMEA954632                   	0         	
+SAMN20884528                  	0         	
+SAMN17216131                  	2         	CC
+SAMEA6144368                  	0         	
+SAMN03842390                  	2         	CC
+SAMN30416393                  	0         	
+SAMN17317001                  	0         	
+SAMN17317003                  	0         	
+SAMN17317004                  	0         	
+SAMN11320634                  	0         	
+SAMN03857171                  	2         	CC
+SAMN03842377                  	2         	CC
+SAMN19776878                  	0         	
+SAMN30349468                  	0         	
+SAMD00498761                  	2         	CC
+SAMN19693783                  	0         	
+SAMN30416454                  	0         	
+SAMN38228324                  	0         	
+SAMN30416450                  	0         	
+SAMEA2298779                  	0         	
+SAMN30416464                  	0         	
+SAMN17321155                  	0         	
+SAMN09843791                  	2         	CC
+SAMN17321159                  	0         	
+SAMN30416472                  	0         	
+SAMN38228323                  	0         	
+SAMEA2298777                  	0         	
+SAMEA6144379                  	0         	
+SAMN03842330                  	2         	CC
+SAMN08794903                  	2         	CC
+SAMN02721424                  	0         	
+SAMN37855983                  	0         	
+SAMN08226015                  	2         	CC
+SAMN37429441                  	0         	
+SAMN03842294                  	2         	CC
+SAMN03842281                  	2         	CC
+SAMN07505010                  	0         	
+SAMN03842277                  	2         	CC
+SAMEA2298778                  	0         	
+SAMEA6832648                  	0         	
+SAMN20883146                  	0         	
+SAMN03842268                  	2         	CC
+SAMN03842267                  	2         	CC
+SAMN20883145                  	0         	
+SAMN20883147                  	0         	
+SAMEA954605                   	0         	
+SAMN25143793                  	0         	
+SAMN18779620                  	0         	
+SAMN03842249                  	2         	CC
+SAMN03842231                  	2         	CC
+SAMN03842237                  	2         	CC
+SAMN31230987                  	0         	
+SAMN23302488                  	0         	
+SAMN13291941                  	2         	CC
+SAMN17213263                  	0         	
+SAMD00498010                  	0         	
+SAMN06760378                  	2         	CC
+SAMN18191140                  	2         	CC
+SAMN18191141                  	2         	CC
+SAMN20879975                  	0         	
+SAMN07501630                  	2         	CC
+SAMN39484556                  	0         	
+SAMN12344226                  	0         	
+SAMN10449178                  	2         	CC
+SAMN00623087                  	0         	
+SAMN18191164                  	2         	CC
+SAMN07737846                  	0         	
+SAMN18191184                  	2         	CC
+SAMN05201663                  	2         	CC
+SAMN06837676                  	2         	CC
+SAMN42035122                  	0         	
+SAMN20934084                  	0         	
+SAMN12851044                  	0         	
+SAMN02709135                  	2         	CC
+SAMN12098797                  	0         	
+SAMN02709134                  	2         	CC
+SAMN37529098                  	0         	
+SAMN02709130                  	2         	CC
+SAMN30416033                  	0         	
+SAMN02709132                  	2         	CC
+SAMN11350408                  	0         	
+SAMN02709126                  	2         	CC
+SAMN02709128                  	2         	CC
+SAMN02709124                  	2         	CC
+SAMN40583349                  	0         	
+SAMN34381549                  	0         	
+SAMN12344180                  	0         	
+SAMN30414011                  	0         	
+SAMN23567552                  	0         	
+SAMEA12944269                 	0         	
+SAMEA104370090                	0         	
+SAMN15317424                  	0         	
+SAMEA12944253                 	0         	
+SAMN26427037                  	0         	
+SAMN25153853                  	2         	CC
+SAMEA6832307                  	2         	CC
+SAMN30416031                  	0         	
+SAMN16828514                  	0         	
+SAMN33830172                  	9         	GAGTGGCGA
+SAMEA104305599                	0         	
+SAMN30416032                  	0         	
+SAMN15856766                  	2         	CC
+SAMN30416034                  	0         	
+SAMN02699786                  	0         	
+SAMN07782559                  	0         	
+SAMN07782556                  	0         	
+SAMN07782560                  	0         	
+SAMN07782558                  	0         	
+SAMN07782566                  	0         	
+SAMN26441640                  	0         	
+SAMN07782562                  	0         	
+SAMN07782572                  	0         	
+SAMN07782581                  	0         	
+SAMN07782580                  	0         	
+SAMN41594184                  	0         	
+SAMN07782704                  	0         	
+SAMN10221386                  	0         	
+SAMN10221391                  	3         	GGG
+SAMN16828661                  	0         	
+SAMN12364126                  	0         	
+SAMN08273709                  	2         	CC
+SAMN02699734                  	0         	
+SAMN18492492                  	0         	
+SAMN02699638                  	2         	CC
+SAMN04039315                  	0         	
+SAMN15859084                  	2         	CC
+SAMEA5557315                  	2         	CC
+SAMN11359560                  	2         	CC
+SAMN41537392                  	0         	
+SAMN02699626                  	2         	CC
+SAMN23583215                  	0         	
+SAMN30416035                  	0         	
+SAMEA103950020                	0         	
+SAMN22045350                  	0         	
+SAMN30416004                  	0         	
+SAMN35676456                  	0         	
+SAMN16748883                  	2         	CC
+SAMN02699603                  	2         	CC
+SAMN25820440                  	0         	
+SAMN32811366                  	0         	
+SAMN09761692                  	2         	CC
+SAMN02699588                  	2         	CC
+SAMN02699572                  	2         	CC
+SAMEA110363110                	0         	
+SAMN38982117                  	0         	
+SAMN12876051                  	2         	CC
+SAMEA6144831                  	0         	
+SAMEA8227334                  	2         	CC
+SAMN22045444                  	0         	
+SAMN02699546                  	2         	CC
+SAMEA6144832                  	0         	
+SAMEA6144833                  	0         	
+SAMN07519642                  	0         	
+SAMN33436829                  	0         	
+SAMN39540441                  	0         	
+SAMN03798173                  	2         	CC
+SAMN37397389                  	2         	CC
+SAMN05907748                  	0         	
+SAMN05907760                  	2         	CC
+SAMN10222556                  	0         	
+SAMN42206398                  	0         	
+SAMN12370150                  	0         	
+SAMN03798172                  	2         	CC
+SAMN08902752                  	0         	
+SAMEA26829418                 	0         	
+SAMN22045467                  	0         	
+SAMN03798164                  	2         	CC
+SAMN03798163                  	2         	CC
+SAMN02699500                  	2         	CC
+SAMEA110355118                	0         	
+SAMN02699492                  	2         	CC
+SAMN03795474                  	0         	
+SAMEA7129707                  	2         	CC
+SAMN02699434                  	0         	
+SAMN09199038                  	2         	CC
+SAMN18836829                  	0         	
+SAMN03465805                  	0         	
+SAMN09199031                  	2         	CC
+SAMEA5671497                  	2         	CC
+SAMN05440371                  	0         	
+SAMN06732558                  	0         	
+SAMN17191754                  	0         	
+SAMN09198058                  	0         	
+SAMN41516093                  	0         	
+SAMN06732497                  	0         	
+SAMN15515904                  	0         	
+SAMN03358067                  	2         	CC
+SAMN11806976                  	0         	
+SAMN05440372                  	0         	
+SAMEA110354893                	0         	
+SAMN14111983                  	0         	
+SAMN17188793                  	0         	
+SAMN07427358                  	2         	CC
+SAMEA12943549                 	0         	
+SAMN06186999                  	2         	CC
+SAMN07146587                  	2         	CC
+SAMN03291645                  	2         	CC
+SAMN20848463                  	0         	
+SAMN20848464                  	0         	
+SAMN02378200                  	2         	CC
+SAMN08380125                  	2         	CC
+SAMN11372923                  	0         	
+SAMN37545845                  	0         	
+SAMN33211679                  	2         	CC
+SAMN33443697                  	0         	
+SAMN03291578                  	2         	CC
+SAMN03291537                  	2         	CC
+SAMN31647228                  	0         	
+SAMN09101803                  	2         	CC
+SAMN03291520                  	2         	CC
+SAMN31647271                  	0         	
+SAMN03358069                  	2         	CC
+SAMN10461409                  	0         	
+SAMN38711385                  	0         	
+SAMN05440370                  	0         	
+SAMN09788991                  	2         	CC
+SAMN03360196                  	0         	
+SAMN39321124                  	0         	
+SAMN02844115                  	0         	
+SAMEA1324967                  	0         	
+SAMN32393136                  	0         	
+SAMN07420489                  	0         	
+SAMN07420485                  	0         	
+SAMN30379448                  	2         	CC
+SAMN07420472                  	2         	CC
+SAMN07420460                  	2         	CC
+SAMN30415933                  	0         	
+SAMN07420446                  	0         	
+SAMN02378152                  	2         	CC
+SAMN17730333                  	2         	CC
+SAMN07420434                  	0         	
+SAMN13013405                  	0         	
+SAMN07420422                  	2         	CC
+SAMN07420423                  	2         	CC
+SAMN06175238                  	0         	
+SAMN04279529                  	0         	
+SAMEA6416444                  	0         	
+SAMN07450603                  	0         	
+SAMN22047683                  	0         	
+SAMEA110347728                	0         	
+SAMN32574132                  	0         	
+SAMEA115097880                	0         	
+SAMN09504431                  	2         	CC
+SAMN02378086                  	2         	CC
+SAMN28687552                  	0         	
+SAMN03289375                  	2         	CC
+SAMN03289376                  	2         	CC
+SAMN03289367                  	2         	CC
+SAMEA110347690                	0         	
+SAMN30413870                  	0         	
+SAMN20959391                  	0         	
+SAMN06689630                  	0         	
+SAMN20959390                  	0         	
+SAMEA3981716                  	9         	GTAATGAGG
+SAMN03466297                  	0         	
+SAMN12629272                  	0         	
+SAMN12882213                  	0         	
+SAMN26538350                  	0         	
+SAMN05292334                  	0         	
+SAMN21175731                  	0         	
+SAMN14503309                  	0         	
+SAMN26538355                  	0         	
+SAMN12599991                  	2         	GG
+SAMN06173332                  	2         	CC
+SAMN12324905                  	2         	CC
+SAMN10905305                  	2         	CC
+SAMN14503405                  	0         	
+SAMN36276782                  	0         	
+SAMN10905405                  	2         	CC
+SAMN14503540                  	0         	
+SAMN14503537                  	0         	
+SAMN08291430                  	0         	
+SAMN03894112                  	2         	CC
+SAMN32228834                  	0         	
+SAMN16248643                  	0         	
+SAMN16248642                  	0         	
+SAMN16248641                  	2         	CC
+SAMN09092898                  	0         	
+SAMEA1484059                  	0         	
+SAMEA115471760                	0         	
+SAMEA115471764                	0         	
+SAMEA115471759                	0         	
+SAMN03894127                  	2         	CC
+SAMN06240052                  	0         	
+SAMEA10640343                 	2         	CC
+SAMN03894124                  	2         	CC
+SAMN24669195                  	2         	CC
+SAMN07415518                  	2         	CC
+SAMN09091293                  	2         	CC
+SAMN09091287                  	2         	CC
+SAMN30414096                  	0         	
+SAMEA6375395                  	0         	
+SAMN08743520                  	2         	CC
+SAMN36825749                  	0         	
+SAMN16688406                  	0         	
+SAMN41820556                  	0         	
+SAMEA115833038                	0         	
+SAMN08898035                  	2         	CC
+SAMN31430950                  	2         	CC
+SAMN13167688                  	0         	
+SAMEA115832979                	0         	
+SAMN04279445                  	0         	
+SAMN13575690                  	0         	
+SAMN23520872                  	0         	
+SAMN14503614                  	2         	CC
+SAMN25242238                  	0         	
+SAMN12251573                  	0         	
+SAMN06677870                  	0         	
+SAMN05859741                  	2         	CC
+SAMN13810038                  	0         	
+SAMN31428094                  	2         	CC
+SAMN02378020                  	0         	
+SAMN03894192                  	2         	CC
+SAMN10853553                  	0         	
+SAMN30386835                  	0         	
+SAMN03894262                  	2         	CC
+SAMD00075926                  	0         	
+SAMN12775432                  	0         	
+SAMN05440397                  	0         	
+SAMN03894335                  	2         	CC
+SAMN14891681                  	0         	
+SAMN07537151                  	0         	
+SAMN03894334                  	2         	CC
+SAMN06677717                  	2         	CC
+SAMN27531292                  	2         	CC
+SAMN06677716                  	2         	CC
+SAMN06677715                  	2         	CC
+SAMN03358915                  	0         	
+SAMN06677714                  	2         	CC
+SAMN10236728                  	0         	
+SAMN10236724                  	2         	CC
+SAMN12078821                  	0         	
+SAMN16911771                  	0         	
+SAMN28553595                  	2         	CC
+SAMN10236727                  	0         	
+SAMN10236726                  	2         	CC
+SAMN12078818                  	0         	
+SAMN07411105                  	2         	CC
+SAMN27531291                  	2         	CC
+SAMN27531290                  	2         	CC
+SAMN03358934                  	2         	CC
+SAMN14848290                  	0         	
+SAMN11388433                  	0         	
+SAMN14165500                  	0         	
+SAMN06677689                  	2         	CC
+SAMN12078819                  	0         	
+SAMN06677690                  	2         	CC
+SAMN02777643                  	2         	CC
+SAMN12581589                  	0         	
+SAMN13571591                  	0         	
+SAMN30619234                  	0         	
+SAMN14127911                  	0         	
+SAMN27524971                  	0         	
+SAMN38253144                  	0         	
+SAMN09784421                  	2         	CC
+SAMN32173644                  	0         	
+SAMN02777649                  	2         	CC
+SAMN07690399                  	0         	
+SAMN07410331                  	0         	
+SAMN20966836                  	2         	CC
+SAMN02777679                  	2         	CC
+SAMN26200547                  	2         	CC
+SAMEA5671476                  	2         	CC
+SAMN26200339                  	2         	CC
+SAMN02849799                  	0         	
+SAMN33139507                  	0         	
+SAMN17170164                  	0         	
+SAMN33139500                  	0         	
+SAMN14465432                  	0         	
+SAMN07690180                  	0         	
+SAMN17168468                  	0         	
+SAMN17168465                  	0         	
+SAMN27524744                  	0         	
+SAMEA3980711                  	9         	GTAATGAGG
+SAMN02777678                  	2         	CC
+SAMN03894410                  	2         	CC
+SAMN02777764                  	2         	CC
+SAMN16320266                  	0         	
+SAMEA7584616                  	0         	
+SAMN05859732                  	2         	CC
+SAMN09074984                  	0         	
+SAMN12250800                  	0         	
+SAMN30853958                  	0         	
+SAMN13568847                  	0         	
+SAMN13568848                  	0         	
+SAMN13568845                  	0         	
+SAMN24589359                  	0         	
+SAMN03276120                  	2         	CC
+SAMN12078809                  	0         	
+SAMN12078812                  	0         	
+SAMN15077533                  	0         	
+SAMN12078036                  	0         	
+SAMN05324091                  	0         	
+SAMN03276104                  	2         	CC
+SAMN40443432                  	0         	
+SAMN12078006                  	0         	
+SAMN03276106                  	2         	CC
+SAMN03276099                  	2         	CC
+SAMN07376244                  	0         	
+SAMN09074631                  	0         	
+SAMN03276047                  	2         	CC
+SAMN07375704                  	0         	
+SAMN02849867                  	0         	
+SAMN03276021                  	2         	CC
+SAMN03276025                  	2         	CC
+SAMN03276024                  	0         	
+SAMN03276019                  	2         	CC
+SAMN03276006                  	2         	CC
+SAMN18443483                  	0         	
+SAMN07549111                  	0         	
+SAMEA104455688                	0         	
+SAMN03275972                  	2         	CC
+SAMN03275971                  	2         	CC
+SAMN10425378                  	2         	CC
+SAMEA8271475                  	2         	CC
+SAMN33055079                  	0         	
+SAMN21216945                  	0         	
+SAMN38253140                  	0         	
+SAMN35820636                  	0         	
+SAMN14165630                  	0         	
+SAMN09505313                  	0         	
+SAMN02646904                  	0         	
+SAMN02646892                  	2         	CC
+SAMN41046078                  	2         	CC
+SAMN03275369                  	2         	CC
+SAMN14449754                  	0         	
+SAMN08167625                  	0         	
+SAMN14449745                  	0         	
+SAMN14449749                  	2         	CC
+SAMN38253155                  	0         	
+SAMN27993014                  	0         	
+SAMN05440437                  	0         	
+SAMN14449737                  	0         	
+SAMEA6514175                  	0         	
+SAMN14165680                  	0         	
+SAMN04558460                  	0         	
+SAMN08386776                  	0         	
+SAMN30414100                  	0         	
+SAMN08386781                  	0         	
+SAMN30413861                  	0         	
+SAMN08386797                  	0         	
+SAMN08386801                  	0         	
+SAMEA6086542                  	2         	CC
+SAMN14449730                  	0         	
+SAMN05440462                  	0         	
+SAMN04558503                  	0         	
+SAMEA5671458                  	2         	CC
+SAMN10485426                  	9         	GTCAGAAGT
+SAMN08167610                  	0         	
+SAMN03275327                  	2         	CC
+SAMEA8581515                  	0         	
+SAMN05605299                  	0         	
+SAMEA5671449                  	2         	CC
+SAMN02646828                  	0         	
+SAMN02646821                  	0         	
+SAMN39923539                  	0         	
+SAMN02646795                  	0         	
+SAMN10425126                  	2         	CC
+SAMN13149319                  	0         	
+SAMN10425115                  	2         	CC
+SAMEA104399978                	0         	
+SAMN28667844                  	2         	CC
+SAMN12571671                  	0         	
+SAMN12571661                  	0         	
+SAMN30274386                  	0         	
+SAMEA104280550                	2         	CC
+SAMN02645793                  	2         	CC
+SAMN07682205                  	0         	
+SAMN07255358                  	2         	CC
+SAMN09071329                  	2         	CC
+SAMN28667845                  	2         	CC
+SAMN20748738                  	0         	
+SAMN10240789                  	2         	CC
+SAMEA104455619                	0         	
+SAMN08387066                  	0         	
+SAMN20748733                  	0         	
+SAMN26175408                  	0         	
+SAMN08387082                  	0         	
+SAMN03269434                  	2         	CC
+SAMEA7584612                  	0         	
+SAMN08387162                  	0         	
+SAMN33285321                  	0         	
+SAMD00077348                  	0         	
+SAMN30487354                  	0         	
+SAMN06660855                  	2         	CC
+SAMN14504539                  	2         	CC
+SAMN06287506                  	2         	CC
+SAMN07560965                  	2         	CC
+SAMD00077388                  	0         	
+SAMN03269403                  	2         	CC
+SAMN13928859                  	0         	
+SAMN03269398                  	2         	CC
+SAMN03269397                  	2         	CC
+SAMN28817067                  	0         	
+SAMN03269395                  	0         	
+SAMN03269394                  	2         	CC
+SAMN08810305                  	0         	
+SAMN38372838                  	0         	
+SAMD00077504                  	0         	
+SAMN11156857                  	0         	
+SAMN14504533                  	0         	
+SAMN21434853                  	0         	
+SAMN02782319                  	0         	
+SAMD00077558                  	0         	
+SAMD00077565                  	0         	
+SAMN03269370                  	2         	CC
+SAMN14504553                  	2         	CC
+SAMN11156851                  	0         	
+SAMEA112275203                	2         	CC
+SAMN11156848                  	0         	
+SAMN09060959                  	0         	
+SAMN02640901                  	2         	CC
+SAMN31538206                  	0         	
+SAMEA7584615                  	0         	
+SAMN02640873                  	0         	
+SAMN02640875                  	0         	
+SAMN36785308                  	0         	
+SAMEA104280198                	2         	CC
+SAMEA104280190                	2         	CC
+SAMN04437782                  	0         	
+SAMEA8997017                  	2         	CC
+SAMN05001790                  	0         	
+SAMN17974906                  	0         	
+SAMN25226666                  	0         	
+SAMN07638958                  	2         	CC
+SAMN02640819                  	2         	CC
+SAMN40088412                  	0         	
+SAMN07255603                  	0         	
+SAMN13691189                  	0         	
+SAMEA773654                   	2         	CC
+SAMN09060727                  	9         	GGCAATATC
+SAMN31538241                  	0         	
+SAMD00077661                  	0         	
+SAMN30058333                  	0         	
+SAMD00077686                  	0         	
+SAMD00077699                  	0         	
+SAMEA7584585                  	0         	
+SAMN12107700                  	2         	CC
+SAMN03938761                  	2         	CC
+SAMN09060708                  	0         	
+SAMN09060705                  	0         	
+SAMN41579725                  	0         	
+SAMN28496902                  	2         	CC
+SAMN16231215                  	9         	ATGCTTGAG
+SAMN09060663                  	0         	
+SAMN09060660                  	0         	
+SAMN29635138                  	0         	
+SAMN10423913                  	2         	CC
+SAMN02894035                  	2         	CC
+SAMN09381067                  	0         	
+SAMN13279654                  	0         	
+SAMN02894041                  	2         	CC
+SAMN16069853                  	0         	
+SAMN10423903                  	2         	CC
+SAMN02894047                  	2         	CC
+SAMN09060562                  	0         	
+SAMN09060564                  	0         	
+SAMN09479611                  	2         	CC
+SAMN02894055                  	2         	CC
+SAMN05596179                  	9         	CTCCAGTAG
+SAMN02894060                  	2         	CC
+SAMN02894064                  	2         	CC
+SAMN07361275                  	2         	CC
+SAMN05596157                  	0         	
+SAMN02894065                  	2         	CC
+SAMN08045652                  	0         	
+SAMEA112764274                	0         	
+SAMN08045654                  	0         	
+SAMN38224930                  	0         	
+SAMEA10147069                 	2         	CC
+SAMN03098722                  	2         	CC
+SAMN36943052                  	0         	
+SAMN15889463                  	0         	
+SAMN12698087                  	0         	
+SAMN14504675                  	2         	CC
+SAMN07218940                  	2         	CC
+SAMN14504674                  	2         	CC
+SAMN03098720                  	0         	
+SAMN17307439                  	0         	
+SAMN14519975                  	2         	CC
+SAMN02261150                  	2         	CC
+SAMN07218939                  	2         	CC
+SAMN09881616                  	2         	CC
+SAMN02261159                  	2         	CC
+SAMN31462603                  	9         	GGTGTGCCC
+SAMEA104279858                	2         	CC
+SAMN07358743                  	2         	CC
+SAMN11405606                  	0         	
+SAMN03098721                  	2         	CC
+SAMEA5081893                  	0         	
+SAMN07358744                  	2         	CC
+SAMN03264921                  	0         	
+SAMEA5081903                  	0         	
+SAMN03988267                  	2         	CC
+SAMN13245798                  	0         	
+SAMN12500126                  	0         	
+SAMN13115454                  	0         	
+SAMN11961017                  	0         	
+SAMN03938801                  	2         	CC
+SAMN35800715                  	0         	
+SAMN14504712                  	2         	CC
+SAMN04574535                  	0         	
+SAMN04993198                  	0         	
+SAMEA5375473                  	0         	
+SAMN11961241                  	0         	
+SAMN11149720                  	0         	
+SAMEA6658666                  	2         	CC
+SAMN03938803                  	2         	CC
+SAMN07678726                  	0         	
+SAMN24040643                  	0         	
+SAMN07678725                  	0         	
+SAMEA9334512                  	2         	CC
+SAMN35439523                  	0         	
+SAMEA6658638                  	0         	
+SAMEA9334517                  	2         	CC
+SAMN03938807                  	2         	CC
+SAMN04993134                  	0         	
+SAMN07678698                  	0         	
+SAMEA5375476                  	0         	
+SAMN07678687                  	0         	
+SAMN04574787                  	0         	
+SAMN04993083                  	0         	
+SAMN24466112                  	0         	
+SAMN39243834                  	0         	
+SAMN06297969                  	2         	CC
+SAMN02265265                  	2         	CC
+SAMN06297980                  	2         	CC
+SAMEA5375472                  	0         	
+SAMN02265299                  	0         	
+SAMN28036769                  	0         	
+SAMN15041719                  	2         	CC
+SAMEA5671185                  	2         	CC
+SAMN06645806                  	9         	GTTATGTAT
+SAMN40873313                  	0         	
+SAMN03418399                  	2         	CC
+SAMN30414612                  	0         	
+SAMN06645776                  	9         	GTTATGTAT
+SAMN30414614                  	0         	
+SAMN29403116                  	0         	
+SAMEA5611910                  	2         	CC
+SAMN13901381                  	0         	
+SAMN30414611                  	0         	
+SAMN30414615                  	0         	
+SAMN13482849                  	0         	
+SAMN04992513                  	2         	CC
+SAMN13703331                  	0         	
+SAMN08536308                  	0         	
+SAMN08536301                  	2         	CC
+SAMN10085458                  	2         	CC
+SAMN03938820                  	2         	CC
+SAMN10085138                  	0         	
+SAMN02782524                  	2         	CC
+SAMN03938832                  	2         	CC
+SAMN10085087                  	0         	
+SAMN08412404                  	2         	CC
+SAMN30414579                  	0         	
+SAMN02368722                  	0         	
+SAMN31389222                  	0         	
+SAMN08146293                  	3         	GGG
+SAMN03940990                  	2         	CC
+SAMEA5671428                  	0         	
+SAMN07678357                  	0         	
+SAMN07678330                  	0         	
+SAMN07678328                  	0         	
+SAMN40864089                  	0         	
+SAMN04992264                  	0         	
+SAMEA112764410                	0         	
+SAMEA8272994                  	2         	CC
+SAMN14504748                  	0         	
+SAMN31461954                  	9         	GGTGTGCCC
+SAMN30414578                  	0         	
+SAMN06111755                  	2         	CC
+SAMN02595834                  	2         	CC
+SAMN02595030                  	2         	CC
+SAMN08916400                  	0         	
+SAMEA104711770                	0         	
+SAMEA104711768                	0         	
+SAMEA104711767                	0         	
+SAMEA104711766                	0         	
+SAMEA5930240                  	0         	
+SAMN13024650                  	0         	
+SAMN06110516                  	2         	CC
+SAMN06110513                  	2         	CC
+SAMN06110504                  	2         	CC
+SAMD00281866                  	2         	CC
+SAMEA104034217                	0         	
+SAMN03938833                  	2         	CC
+SAMD00281850                  	0         	
+SAMN17924426                  	0         	
+SAMN11655290                  	0         	
+SAMN15399553                  	0         	
+SAMEA104034223                	0         	
+SAMN06449193                  	2         	CC
+SAMEA104034219                	0         	
+SAMEA115553146                	0         	
+SAMN04396041                  	0         	
+SAMEA9849676                  	0         	
+SAMN07677507                  	2         	CC
+SAMEA104034216                	0         	
+SAMEA104034220                	0         	
+SAMN11129376                  	0         	
+SAMEA104034212                	0         	
+SAMEA104034214                	0         	
+SAMEA104034211                	0         	
+SAMEA104034206                	0         	
+SAMEA5671421                  	2         	CC
+SAMEA104034215                	0         	
+SAMEA104034213                	0         	
+SAMEA104034204                	0         	
+SAMN17137936                  	2         	CC
+SAMN10315899                  	0         	
+SAMN07677369                  	0         	
+SAMEA104034207                	0         	
+SAMN03938839                  	2         	CC
+SAMN13340317                  	0         	
+SAMN17137786                  	2         	CC
+SAMN02902813                  	0         	
+SAMN16957699                  	0         	
+SAMN35768950                  	0         	
+SAMN12414416                  	0         	
+SAMN35768951                  	0         	
+SAMN14912035                  	0         	
+SAMN07260985                  	0         	
+SAMN18321706                  	0         	
+SAMEA104034203                	0         	
+SAMN09908942                  	0         	
+SAMEA104034209                	0         	
+SAMN36410432                  	2         	CC
+SAMN17910733                  	0         	
+SAMN10315748                  	0         	
+SAMN19917526                  	2         	CC
+SAMN15623067                  	0         	
+SAMN36733091                  	0         	
+SAMN32660376                  	0         	
+SAMEA5671415                  	2         	CC
+SAMEA5610849                  	2         	CC
+SAMD00262399                  	2         	CC
+SAMD00262401                  	2         	CC
+SAMN12912140                  	0         	
+SAMN02908509                  	2         	CC
+SAMEA104034210                	0         	
+SAMD00262398                  	2         	CC
+SAMD00262391                  	2         	CC
+SAMN07159014                  	2         	CC
+SAMN08524627                  	2         	CC
+SAMN02782533                  	2         	CC
+SAMD00262389                  	2         	CC
+SAMEA104034199                	0         	
+SAMD00262394                  	2         	CC
+SAMD00262390                  	2         	CC
+SAMN02908631                  	0         	
+SAMN02908633                  	2         	CC
+SAMN02908635                  	2         	CC
+SAMEA6145937                  	0         	
+SAMD00262388                  	2         	CC
+SAMEA5671416                  	2         	CC
+SAMD00262384                  	2         	CC
+SAMN14000804                  	0         	
+SAMN31185649                  	0         	
+SAMEA104034202                	0         	
+SAMD00194530                  	0         	
+SAMD00262383                  	2         	CC
+SAMN37210896                  	2         	CC
+SAMD00262381                  	2         	CC
+SAMN41474387                  	0         	
+SAMD00262353                  	2         	CC
+SAMEA104034201                	0         	
+SAMD00262295                  	2         	CC
+SAMD00262263                  	2         	CC
+SAMN04577361                  	0         	
+SAMD00262262                  	2         	CC
+SAMN13898694                  	0         	
+SAMN02908681                  	2         	CC
+SAMN02908686                  	2         	CC
+SAMD00262223                  	2         	CC
+SAMN05452856                  	0         	
+SAMN02908692                  	2         	CC
+SAMN05452858                  	2         	CC
+SAMD00194537                  	0         	
+SAMN05452860                  	0         	
+SAMN02908700                  	2         	CC
+SAMN05452871                  	0         	
+SAMN05452877                  	0         	
+SAMEA104034200                	0         	
+SAMN30414515                  	0         	
+SAMN05452892                  	0         	
+SAMN02368365                  	2         	CC
+SAMN26678429                  	0         	
+SAMD00262230                  	2         	CC
+SAMN05452891                  	0         	
+SAMD00262227                  	2         	CC
+SAMD00262229                  	2         	CC
+SAMN05452893                  	0         	
+SAMN40630009                  	0         	
+SAMEA6146084                  	0         	
+SAMEA7077321                  	0         	
+SAMN14999442                  	0         	
+SAMN18140547                  	0         	
+SAMN14504749                  	2         	CC
+SAMEA6146094                  	0         	
+SAMN04577469                  	0         	
+SAMN03476175                  	0         	
+SAMN06624531                  	2         	CC
+SAMN04577476                  	0         	
+SAMN02911921                  	2         	CC
+SAMN04388300                  	0         	
+SAMN03400356                  	0         	
+SAMN17129677                  	0         	
+SAMN04577500                  	0         	
+SAMN14504751                  	2         	CC
+SAMN14504753                  	0         	
+SAMN18140549                  	0         	
+SAMEA6146095                  	0         	
+SAMN37734082                  	0         	
+SAMN10253381                  	2         	CC
+SAMN11625687                  	0         	
+SAMN40748599                  	0         	
+SAMN37734080                  	0         	
+SAMN09267230                  	0         	
+SAMN35538398                  	0         	
+SAMN33444125                  	0         	
+SAMN09267233                  	0         	
+SAMN07338490                  	0         	
+SAMN19489065                  	0         	
+SAMN37734074                  	0         	
+SAMN03651476                  	2         	CC
+SAMN07163926                  	2         	CC
+SAMN40739558                  	0         	
+SAMN37649348                  	0         	
+SAMN23893689                  	0         	
+SAMN19024163                  	2         	CC
+SAMEA7540886                  	2         	CC
+SAMN41898106                  	0         	
+SAMEA5671407                  	2         	CC
+SAMD00658890                  	2         	CC
+SAMN36677141                  	0         	
+SAMN16450775                  	0         	
+SAMN22137282                  	0         	
+SAMN10255260                  	0         	
+SAMN14504750                  	2         	CC
+SAMN33601534                  	0         	
+SAMN03476687                  	0         	
+SAMN04208157                  	2         	CC
+SAMN31891966                  	0         	
+SAMN04208162                  	2         	CC
+SAMN04208159                  	2         	CC
+SAMN04208158                  	2         	CC
+SAMN04208163                  	2         	CC
+SAMN04208170                  	2         	CC
+SAMN14519029                  	0         	
+SAMEA5867094                  	0         	
+SAMN19949798                  	2         	CC
+SAMN38790284                  	0         	
+SAMN08631243                  	9         	AGTGAAGAG
+SAMN02463306                  	0         	
+SAMN02463291                  	0         	
+SAMN14504752                  	0         	
+SAMEA5758804                  	2         	CC
+SAMN02463248                  	0         	
+SAMN17128256                  	2         	CC
+SAMN08055014                  	0         	
+SAMN08978147                  	0         	
+SAMN30160209                  	0         	
+SAMN38882326                  	0         	
+SAMN08127238                  	2         	CC
+SAMN28194854                  	0         	
+SAMEA4428388                  	2         	CC
+SAMN09928124                  	0         	
+SAMN29265655                  	0         	
+SAMN06350879                  	0         	
+SAMN14504754                  	0         	
+SAMN08978067                  	0         	
+SAMN16140833                  	0         	
+SAMN14504756                  	0         	
+SAMN17861320                  	0         	
+SAMN12731729                  	0         	
+SAMN07332348                  	2         	CC
+SAMN07625519                  	0         	
+SAMN04913820                  	0         	
+SAMEA104188791                	9         	GTAATGAGG
+SAMN16451852                  	0         	
+SAMN14504770                  	2         	CC
+SAMN12175431                  	0         	
+SAMN12174778                  	0         	
+SAMN21365126                  	2         	CC
+SAMEA788096                   	2         	CC
+SAMN08606817                  	0         	
+SAMEA5671406                  	0         	
+SAMN08967101                  	2         	CC
+SAMN12174608                  	0         	
+SAMN08967074                  	0         	
+SAMN14504769                  	2         	CC
+SAMN16451911                  	0         	
+SAMN10774879                  	0         	
+SAMEA7112804                  	2         	CC
+SAMN08115136                  	2         	CC
+SAMN40710397                  	0         	
+SAMN16129665                  	0         	
+SAMN07488861                  	0         	
+SAMN14504771                  	2         	CC
+SAMN02782563                  	2         	CC
+SAMN12925430                  	0         	
+SAMN27737688                  	2         	CC
+SAMN08025037                  	0         	
+SAMN04363647                  	0         	
+SAMN30414418                  	0         	
+SAMN17840445                  	0         	
+SAMN04363590                  	0         	
+SAMN14504786                  	2         	CC
+SAMN14229701                  	0         	
+SAMN13057288                  	0         	
+SAMN42742084                  	2         	CC
+SAMN08114290                  	2         	CC
+SAMN38336025                  	0         	
+SAMN38336013                  	0         	
+SAMN06555277                  	9         	GGATGACTC
+SAMN07312841                  	0         	
+SAMEA6146231                  	0         	
+SAMN12943505                  	0         	
+SAMN07608073                  	0         	
+SAMEA3697173                  	0         	
+SAMN12161937                  	2         	CC
+SAMN05464484                  	2         	CC
+SAMN04218114                  	0         	
+SAMEA6146260                  	0         	
+SAMN04218118                  	2         	CC
+SAMN22481383                  	0         	
+SAMN03938882                  	2         	CC
+SAMN06555240                  	0         	
+SAMEA114771158                	0         	
+SAMN35525433                  	0         	
+SAMN04218162                  	2         	CC
+SAMN04218169                  	2         	CC
+SAMN07664342                  	9         	GCCATACGC
+SAMN12430168                  	0         	
+SAMN04218185                  	2         	CC
+SAMN04218188                  	2         	CC
+SAMN32926724                  	0         	
+SAMN12943625                  	0         	
+SAMEA4364657                  	0         	
+SAMEA114771192                	0         	
+SAMEA5671409                  	2         	CC
+SAMN14504787                  	2         	CC
+SAMEA114771201                	0         	
+SAMN15793531                  	0         	
+SAMEA8273096                  	0         	
+SAMN05464523                  	2         	CC
+SAMN05464522                  	2         	CC
+SAMN04218240                  	2         	CC
+SAMN07312166                  	2         	CC
+SAMN07312167                  	2         	CC
+SAMN41694172                  	0         	
+SAMN04881304                  	0         	
+SAMN32919565                  	0         	
+SAMN22483140                  	2         	CC
+SAMN18375737                  	0         	
+SAMN18375734                  	0         	
+SAMN08774699                  	2         	CC
+SAMN13852307                  	0         	
+SAMN19272662                  	2         	CC
+SAMN30414363                  	0         	
+SAMN32919543                  	3         	GGG
+SAMN04362981                  	0         	
+SAMN07304652                  	2         	CC
+SAMN40545842                  	0         	
+SAMN06048858                  	2         	CC
+SAMEA4663309                  	0         	
+SAMN14504825                  	2         	CC
+SAMN32919466                  	0         	
+SAMN12532189                  	0         	
+SAMEA4663308                  	0         	
+SAMN12438242                  	0         	
+SAMN12438235                  	0         	
+SAMEA4663306                  	0         	
+SAMEA4663307                  	0         	
+SAMEA4663305                  	0         	
+SAMN32874536                  	0         	
+SAMEA6147580                  	0         	
+SAMEA4663261                  	0         	
+SAMN08951205                  	0         	
+SAMN08951204                  	0         	
+SAMEA4663263                  	0         	
+SAMN02368071                  	2         	CC
+SAMN32732180                  	0         	
+SAMEA7583976                  	0         	
+SAMEA5376324                  	2         	CC
+SAMEA4663260                  	0         	
+SAMEA4663262                  	0         	
+SAMN03938926                  	2         	CC
+SAMN04224266                  	2         	CC
+SAMN04224282                  	2         	CC
+SAMEA4663257                  	0         	
+SAMN04224316                  	0         	
+SAMEA4663243                  	0         	
+SAMEA4663242                  	0         	
+SAMN07299008                  	0         	
+SAMN12438332                  	0         	
+SAMN04224323                  	2         	CC
+SAMN30695906                  	0         	
+SAMN12438331                  	0         	
+SAMN27063483                  	0         	
+SAMN02782625                  	0         	
+SAMN08774606                  	2         	CC
+SAMN04224355                  	2         	CC
+SAMN06046041                  	0         	
+SAMN12438367                  	0         	
+SAMN36702350                  	0         	
+SAMN12990636                  	0         	
+SAMN33796436                  	0         	
+SAMN36452815                  	0         	
+SAMN31098506                  	0         	
+SAMN08057823                  	0         	
+SAMN08951129                  	0         	
+SAMN08951126                  	0         	
+SAMN08773204                  	2         	CC
+SAMN41568165                  	0         	
+SAMN08611156                  	0         	
+SAMN12438455                  	0         	
+SAMN08951097                  	0         	
+SAMN12438467                  	0         	
+SAMEA104127832                	0         	
+SAMN29226659                  	0         	
+SAMN16113807                  	0         	
+SAMN29224662                  	0         	
+SAMEA5529524                  	0         	
+SAMN05468012                  	2         	CC
+SAMN08623823                  	0         	
+SAMN06328382                  	0         	
+SAMN08467272                  	0         	
+SAMN10638623                  	0         	
+SAMN05468016                  	0         	
+SAMEA5529585                  	0         	
+SAMN09941023                  	2         	CC
+SAMN16333226                  	0         	
+SAMN39734356                  	2         	CC
+SAMN06006075                  	2         	CC
+SAMN06006076                  	0         	
+SAMEA6141324                  	0         	
+SAMN05468020                  	9         	ATCCTGATC
+SAMN21386285                  	0         	
+SAMN10268402                  	2         	CC
+SAMN08943189                  	0         	
+SAMN33785758                  	0         	
+SAMN08057839                  	0         	
+SAMEA114494589                	0         	
+SAMN03478062                  	2         	CC
+SAMN07283970                  	2         	CC
+SAMN33683874                  	3         	GGG
+SAMN33683871                  	0         	
+SAMN33683875                  	0         	
+SAMEA5671372                  	2         	CC
+SAMN33783709                  	2         	CC
+SAMN07184380                  	2         	CC
+SAMN33783711                  	2         	CC
+SAMN30414322                  	0         	
+SAMN38329942                  	9         	GGTGTGCCC
+SAMEA5147588                  	0         	
+SAMEA5671371                  	2         	CC
+SAMN38329869                  	9         	GGTGTGCCC
+SAMN15957268                  	2         	CC
+SAMN08939286                  	2         	CC
+SAMN08939281                  	2         	CC
+SAMN08017409                  	0         	
+SAMN08774509                  	0         	
+SAMEA104162233                	2         	CC
+SAMN03577628                  	0         	
+SAMN03359681                  	2         	CC
+SAMN12993962                  	0         	
+SAMN15934550                  	0         	
+SAMEA5532838                  	2         	CC
+SAMN14246947                  	0         	
+SAMN14246950                  	0         	
+SAMN14246953                  	0         	
+SAMEA5671379                  	2         	CC
+SAMN06464611                  	2         	CC
+SAMN18614580                  	2         	CC
+SAMN14504925                  	2         	CC
+SAMN08057838                  	0         	
+SAMN03577593                  	0         	
+SAMN18614564                  	2         	CC
+SAMN30414299                  	0         	
+SAMEA5671387                  	0         	
+SAMN06464281                  	2         	CC
+SAMN30414296                  	0         	
+SAMN25076173                  	2         	CC
+SAMN08481391                  	0         	
+SAMN08481393                  	0         	
+SAMN25076174                  	2         	CC
+SAMD00755344                  	2         	CC
+SAMN08481399                  	2         	CC
+SAMN08611184                  	0         	
+SAMN12660103                  	0         	
+SAMN33616988                  	2         	CC
+SAMN03577537                  	0         	
+SAMN05468025                  	0         	
+SAMN06033888                  	0         	
+SAMN03577526                  	0         	
+SAMN03577553                  	2         	CC
+SAMN06033889                  	0         	
+SAMN09954420                  	0         	
+SAMN03577549                  	2         	CC
+SAMN09631602                  	2         	CC
+SAMN03577545                  	2         	CC
+SAMN25076164                  	2         	CC
+SAMN15947164                  	0         	
+SAMD00755326                  	2         	CC
+SAMN04255132                  	2         	CC
+SAMN04255148                  	2         	CC
+SAMN03577547                  	2         	CC
+SAMN05468031                  	2         	CC
+SAMN04255182                  	2         	CC
+SAMN08000969                  	2         	CC
+SAMN04255191                  	2         	CC
+SAMN08057843                  	0         	
+SAMN09223382                  	2         	CC
+SAMN03577530                  	0         	
+SAMN04255211                  	2         	CC
+SAMN04255207                  	2         	CC
+SAMN12710200                  	0         	
+SAMN06033970                  	2         	CC
+SAMN03577543                  	2         	CC
+SAMN32875937                  	0         	
+SAMN25076165                  	2         	CC
+SAMN03577527                  	0         	
+SAMN06033995                  	2         	CC
+SAMN14257792                  	2         	CC
+SAMN03577524                  	2         	CC
+SAMN32875930                  	0         	
+SAMN04255275                  	2         	CC
+SAMEA8273111                  	0         	
+SAMN04255305                  	2         	CC
+SAMN03577528                  	0         	
+SAMN25076155                  	2         	CC
+SAMN37703976                  	0         	
+SAMN09666536                  	2         	CC
+SAMEA8273097                  	0         	
+SAMN07482189                  	0         	
+SAMN28956639                  	0         	
+SAMN03577521                  	0         	
+SAMN25076152                  	2         	CC
+SAMN30414236                  	0         	
+SAMN04256053                  	2         	CC
+SAMEA5671388                  	2         	CC
+SAMN03577522                  	2         	CC
+SAMN07199573                  	2         	CC
+SAMEA8273174                  	0         	
+SAMN10661789                  	0         	
+SAMN38858329                  	0         	
+SAMN35648265                  	0         	
+SAMEA8273110                  	0         	
+SAMN17088982                  	0         	
+SAMN24020384                  	2         	CC
+SAMN41326029                  	0         	
+SAMN03577520                  	2         	CC
+SAMN31273749                  	2         	CC
+SAMN03577465                  	2         	CC
+SAMN28103864                  	0         	
+SAMN03577435                  	2         	CC
+SAMN03577443                  	2         	CC
+SAMD00210508                  	2         	CC
+SAMN13945475                  	0         	
+SAMN25943323                  	0         	
+SAMD00210464                  	2         	CC
+SAMN08016474                  	0         	
+SAMN30102843                  	0         	
+SAMN04338472                  	0         	
+SAMN04255225                  	0         	
+SAMN03938804                  	2         	CC
+SAMN09761646                  	2         	CC
+SAMN13429607                  	0         	
+SAMN03577493                  	2         	CC
+SAMN03577523                  	2         	CC
+SAMN08874450                  	0         	
+SAMN08874445                  	0         	
+SAMN03577525                  	2         	CC
+SAMN09293727                  	2         	CC
+SAMN04255387                  	2         	CC
+SAMN04255306                  	2         	CC
+SAMN04255276                  	2         	CC
+SAMN03577536                  	2         	CC
+SAMN03577540                  	0         	
+SAMN08016442                  	0         	
+SAMN03577518                  	0         	
+SAMN03577542                  	2         	CC
+SAMN18835719                  	0         	
+SAMN04255198                  	2         	CC
+SAMN04255180                  	2         	CC
+SAMN03577546                  	2         	CC
+SAMN03577555                  	2         	CC
+SAMN07482178                  	0         	
+SAMN06330642                  	2         	CC
+SAMN03577564                  	2         	CC
+SAMN09284853                  	2         	CC
+SAMN08939282                  	2         	CC
+SAMN16109947                  	0         	
+SAMN03478168                  	0         	
+SAMN03853191                  	0         	
+SAMN08471004                  	2         	CC
+SAMN38330141                  	9         	GGTGTGCCC
+SAMN08567651                  	2         	CC
+SAMN01902395                  	2         	CC
+SAMN09283997                  	2         	CC
+SAMN03938933                  	2         	CC
+SAMN04224324                  	2         	CC
+SAMN29332607                  	9         	CCTTAGGAG
+SAMN12531023                  	0         	
+SAMN09211108                  	2         	CC
+SAMN04218278                  	2         	CC
+SAMN04218277                  	2         	CC
+SAMN02368083                  	2         	CC
+SAMN04218256                  	2         	CC
+SAMN04218242                  	2         	CC
+SAMN25520173                  	2         	CC
+SAMN03842419                  	2         	CC
+SAMN04218199                  	2         	CC
+SAMN27737706                  	2         	CC
+SAMN04218192                  	2         	CC
+SAMN07625239                  	2         	CC
+SAMN16127798                  	2         	CC
+SAMN06555237                  	2         	CC
+SAMN13056731                  	0         	
+SAMN08606827                  	0         	
+SAMN02782564                  	2         	CC
+SAMN08606818                  	0         	
+SAMN34140483                  	0         	
+SAMN13019436                  	2         	CC
+SAMN31746606                  	0         	
+SAMN11320799                  	0         	
+SAMN02782545                  	2         	CC
+SAMN02782544                  	2         	CC
+SAMN22428081                  	2         	CC
+SAMN20970139                  	0         	
+SAMN13528527                  	2         	CC
+SAMN20970141                  	0         	
+SAMN08437473                  	2         	CC
+SAMN30526303                  	2         	CC
+SAMN10391076                  	2         	CC
+SAMN13027744                  	0         	
+SAMN06616178                  	2         	CC
+SAMN03842395                  	2         	CC
+SAMN20970143                  	0         	
+SAMN04577451                  	2         	CC
+SAMN10037279                  	2         	CC
+SAMN08226092                  	2         	CC
+SAMN19693980                  	0         	
+SAMN03842329                  	2         	CC
+SAMN02368362                  	2         	CC
+SAMN25754554                  	0         	
+SAMN02368384                  	2         	CC
+SAMN16056750                  	0         	
+SAMN13898370                  	0         	
+SAMN18078089                  	2         	CC
+SAMN05201682                  	2         	CC
+SAMN03941168                  	0         	
+SAMN02908693                  	2         	CC
+SAMN02908691                  	2         	CC
+SAMN02908690                  	2         	CC
+SAMN02908687                  	2         	CC
+SAMN02908680                  	2         	CC
+SAMN34165336                  	2         	CC
+SAMN31018629                  	2         	CC
+SAMN10246339                  	2         	CC
+SAMN05201576                  	2         	CC
+SAMN05201571                  	2         	CC
+SAMN15894736                  	2         	CC
+SAMN16202770                  	2         	CC
+SAMN09001017                  	2         	CC
+SAMN02989056                  	2         	CC
+SAMN16432450                  	2         	CC
+SAMN03702142                  	0         	
+SAMN30689679                  	2         	CC
+SAMN16956015                  	2         	CC
+SAMN27387493                  	2         	CC
+SAMN17715034                  	0         	
+SAMN20220624                  	2         	CC
+SAMN06110505                  	2         	CC
+SAMN39224168                  	2         	CC
+SAMN15642243                  	0         	
+SAMN39933345                  	2         	CC
+SAMN03938837                  	2         	CC
+SAMN12910455                  	2         	CC
+SAMN12360730                  	0         	
+SAMN02782527                  	2         	CC
+SAMN41492554                  	0         	
+SAMN03938819                  	2         	CC
+SAMN16634423                  	2         	CC
+SAMN04992550                  	0         	
+SAMN03938810                  	2         	CC
+SAMN02699649                  	2         	CC
+SAMN08016403                  	0         	
+SAMN02367838                  	2         	CC
+SAMN02908651                  	2         	CC
+SAMN02782477                  	2         	CC
+SAMN03941149                  	0         	
+SAMN02782468                  	2         	CC
+SAMN16812865                  	0         	
+SAMN02894078                  	2         	CC
+SAMN02894077                  	2         	CC
+SAMN02894076                  	2         	CC
+SAMN08543230                  	2         	CC
+SAMN02894068                  	2         	CC
+SAMN10242973                  	2         	CC
+SAMN09880455                  	0         	
+SAMN07656079                  	2         	CC
+SAMN02699631                  	2         	CC
+SAMN02894040                  	2         	CC
+SAMN28626122                  	0         	
+SAMN42057597                  	2         	CC
+SAMN02640809                  	2         	CC
+SAMN02640810                  	2         	CC
+SAMN02640817                  	2         	CC
+SAMN07679192                  	0         	
+SAMN02640921                  	2         	CC
+SAMN31669494                  	2         	CC
+SAMN02699606                  	2         	CC
+SAMN08387047                  	0         	
+SAMN09071328                  	2         	CC
+SAMN02646813                  	2         	CC
+SAMN19231583                  	0         	
+SAMN02646860                  	0         	
+SAMN09636721                  	2         	CC
+SAMN12692714                  	0         	
+SAMN08386803                  	0         	
+SAMN08386783                  	0         	
+SAMN12898063                  	2         	CC
+SAMN02646865                  	2         	CC
+SAMN03921962                  	2         	CC
+SAMN08386758                  	0         	
+SAMN06132012                  	2         	CC
+SAMN03275978                  	2         	CC
+SAMN02777776                  	2         	CC
+SAMN03276098                  	2         	CC
+SAMN03276100                  	2         	CC
+SAMN02777775                  	0         	
+SAMN07376319                  	0         	
+SAMN32171776                  	0         	
+SAMN33013699                  	0         	
+SAMN06677648                  	0         	
+SAMN28814482                  	0         	
+SAMN05301301                  	2         	CC
+SAMN12581611                  	0         	
+SAMN02699605                  	2         	CC
+SAMN19231584                  	0         	
+SAMN12582362                  	0         	
+SAMN40442793                  	0         	
+SAMN11178746                  	0         	
+SAMN03894142                  	2         	CC
+SAMN09091288                  	2         	CC
+SAMN20959389                  	0         	
+SAMN15868670                  	0         	
+SAMN12821702                  	2         	CC
+SAMN07420416                  	2         	CC
+SAMN07420433                  	2         	CC
+SAMN07420435                  	2         	CC
+SAMN07420449                  	2         	CC
+SAMN09761658                  	2         	CC
+SAMN07420495                  	2         	CC
+SAMN03291514                  	2         	CC
+SAMN05925214                  	2         	CC
+SAMN03487709                  	2         	CC
+SAMN03291516                  	2         	CC
+SAMN03291604                  	2         	CC
+SAMN02699219                  	2         	CC
+SAMN02699270                  	2         	CC
+SAMN02699355                  	2         	CC
+SAMN10438128                  	2         	CC
+SAMN09199036                  	2         	CC
+SAMN08332039                  	2         	CC
+SAMN02699454                  	2         	CC
+SAMN03941143                  	0         	
+SAMN32542809                  	2         	CC
+SAMN37006452                  	0         	
+SAMN03938802                  	2         	CC
+SAMN15738170                  	0         	
+SAMN09060580                  	0         	
+SAMN02403350                  	0         	
+SAMN07482188                  	0         	
+SAMEA1695743                  	0         	
+SAMEA757059                   	0         	
+SAMEA1695741                  	0         	
+SAMEA1695739                  	0         	
+SAMEA1695736                  	0         	
+SAMEA1695745                  	0         	
+SAMEA1695735                  	0         	
+SAMEA1695738                  	0         	
+SAMN36652234                  	0         	
+SAMN33406886                  	0         	
+SAMN10097127                  	0         	
+SAMN33785709                  	0         	
+SAMN11634803                  	0         	
+SAMN35530149                  	0         	
+SAMN32605299                  	0         	
+SAMN30941650                  	0         	
+SAMN36385724                  	0         	
+SAMN02699849                  	0         	
+SAMN06314442                  	3         	CCG
+SAMN06314405                  	0         	
+SAMN06314534                  	0         	
+SAMN06314279                  	0         	
+SAMN24849103                  	0         	
+SAMN14504691                  	0         	
+SAMN18652400                  	0         	
+SAMN16451846                  	2         	TC
+SAMN41136168                  	0         	
+SAMEA4428020                  	0         	
+SAMN08719214                  	0         	
+SAMN05452876                  	0         	
+SAMEA5855709                  	0         	
+SAMN12098973                  	2         	CA
+SAMN30631314                  	0         	
+SAMN06048949                  	0         	
+SAMN21238572                  	0         	
+SAMD00194648                  	0         	
+SAMN16913872                  	0         	
+SAMN12911928                  	0         	
+SAMN30413977                  	0         	
+SAMN14146639                  	0         	
+SAMEA5162781                  	0         	
+SAMN41901467                  	0         	
+SAMN40584558                  	0         	
+SAMN14861215                  	0         	
+SAMN30413926                  	0         	
+SAMN14861214                  	0         	
+SAMN35670609                  	0         	
+SAMN40584545                  	0         	
+SAMEA5556928                  	0         	
+SAMN30413925                  	0         	
+SAMN35670551                  	0         	
+SAMN11058072                  	0         	
+SAMN35670541                  	0         	
+SAMN11494120                  	0         	
+SAMN11494115                  	0         	
+SAMD00607275                  	0         	
+SAMEA5786853                  	0         	
+SAMEA5556889                  	0         	
+SAMN11494114                  	0         	
+SAMN19193621                  	0         	
+SAMN11494112                  	0         	
+SAMN09377490                  	0         	
+SAMN11494113                  	0         	
+SAMN11494111                  	0         	
+SAMN16533299                  	0         	
+SAMN30413954                  	0         	
+SAMEA111343207                	0         	
+SAMN30413999                  	0         	
+SAMEA8272778                  	0         	
+SAMN27684694                  	0         	
+SAMN27684232                  	0         	
+SAMN11494101                  	0         	
+SAMEA5557294                  	0         	
+SAMN11494098                  	0         	
+SAMN20085595                  	0         	
+SAMN11494100                  	0         	
+SAMN14852476                  	0         	
+SAMN30414037                  	0         	
+SAMN30413888                  	0         	
+SAMN30414026                  	0         	
+SAMN14852477                  	0         	
+SAMN14852475                  	0         	
+SAMN30028659                  	0         	
+SAMN15515963                  	0         	
+SAMN15515957                  	0         	
+SAMN15515965                  	0         	
+SAMN29044328                  	0         	
+SAMN35670425                  	0         	
+SAMN15515925                  	0         	
+SAMN15515924                  	0         	
+SAMN15515905                  	0         	
+SAMN30613866                  	0         	
+SAMN30661329                  	0         	
+SAMN15515901                  	0         	
+SAMN26933955                  	0         	
+SAMEA7129653                  	0         	
+SAMN35670339                  	0         	
+SAMN35670338                  	0         	
+SAMN35670322                  	0         	
+SAMN38924504                  	0         	
+SAMEA5162254                  	0         	
+SAMN30414052                  	0         	
+SAMN31819750                  	0         	
+SAMN18443472                  	0         	
+SAMN42518114                  	0         	
+SAMN08554945                  	0         	
+SAMN30675119                  	0         	
+SAMN08554944                  	0         	
+SAMN16064731                  	0         	
+SAMN08554943                  	0         	
+SAMN10335030                  	0         	
+SAMEA4644799                  	0         	
+SAMEA4644797                  	0         	
+SAMN09380522                  	0         	
+SAMEA7160561                  	0         	
+SAMN08581715                  	0         	
+SAMN35670003                  	0         	
+SAMN11052382                  	0         	
+SAMN08554925                  	0         	
+SAMN08554929                  	0         	
+SAMEA4644845                  	0         	
+SAMEA4644847                  	0         	
+SAMN41660879                  	0         	
+SAMN03480330                  	0         	
+SAMEA4644862                  	0         	
+SAMN16551209                  	0         	
+SAMN16551208                  	0         	
+SAMN13166907                  	0         	
+SAMN16551218                  	0         	
+SAMN16551212                  	0         	
+SAMEA5162077                  	0         	
+SAMN16551226                  	0         	
+SAMN16551228                  	0         	
+SAMN16551234                  	0         	
+SAMN16551236                  	0         	
+SAMN16551239                  	0         	
+SAMN16551247                  	0         	
+SAMN17038403                  	0         	
+SAMN16551268                  	0         	
+SAMN16551269                  	0         	
+SAMN16551267                  	0         	
+SAMEA7160950                  	0         	
+SAMN16551273                  	0         	
+SAMN16551272                  	0         	
+SAMN16551276                  	0         	
+SAMN17038405                  	0         	
+SAMN17038402                  	0         	
+SAMN11086282                  	0         	
+SAMN24102760                  	0         	
+SAMN17038404                  	0         	
+SAMN38983817                  	0         	
+SAMN35669889                  	0         	
+SAMN35669884                  	0         	
+SAMN17038401                  	0         	
+SAMN17038400                  	0         	
+SAMN36663105                  	0         	
+SAMN36663117                  	0         	
+SAMN36663130                  	0         	
+SAMN41449321                  	0         	
+SAMN36664871                  	0         	
+SAMN36664875                  	0         	
+SAMN36664874                  	0         	
+SAMN06248011                  	0         	
+SAMN12069763                  	0         	
+SAMN35669790                  	0         	
+SAMN35669680                  	0         	
+SAMN41279079                  	0         	
+SAMN12059983                  	0         	
+SAMN40571605                  	0         	
+SAMN40571600                  	0         	
+SAMN41449417                  	0         	
+SAMN38266137                  	0         	
+SAMN39048580                  	0         	
+SAMN11092020                  	0         	
+SAMN39048594                  	0         	
+SAMN30414089                  	0         	
+SAMN37474549                  	0         	
+SAMN14349701                  	0         	
+SAMN41449503                  	0         	
+SAMN11523836                  	0         	
+SAMN38266241                  	0         	
+SAMN38266239                  	0         	
+SAMN38266243                  	0         	
+SAMN30414093                  	0         	
+SAMN41680053                  	0         	
+SAMN39048655                  	0         	
+SAMN39843078                  	0         	
+SAMN19238247                  	0         	
+SAMN19238243                  	0         	
+SAMN19238253                  	0         	
+SAMN19238245                  	0         	
+SAMN39843077                  	0         	
+SAMN28045347                  	0         	
+SAMEA5671485                  	0         	
+SAMN39843079                  	0         	
+SAMN39048766                  	0         	
+SAMN39048767                  	0         	
+SAMN39048770                  	0         	
+SAMN30413852                  	0         	
+SAMN39048775                  	0         	
+SAMEA5161718                  	0         	
+SAMN36943048                  	0         	
+SAMN13003133                  	0         	
+SAMN30414104                  	0         	
+SAMN15234861                  	0         	
+SAMN30689712                  	0         	
+SAMN30414134                  	0         	
+SAMN15234850                  	0         	
+SAMN09658750                  	0         	
+SAMD00194426                  	0         	
+SAMN09475120                  	0         	
+SAMN14912142                  	0         	
+SAMN39048893                  	0         	
+SAMN39048894                  	0         	
+SAMN09222435                  	0         	
+SAMD00194455                  	0         	
+SAMEA5161714                  	0         	
+SAMN14912213                  	0         	
+SAMN30414173                  	0         	
+SAMEA5807362                  	0         	
+SAMN25869331                  	0         	
+SAMN39048937                  	0         	
+SAMN14835848                  	0         	
+SAMN28063145                  	0         	
+SAMN30414183                  	0         	
+SAMN30414194                  	0         	
+SAMN30414224                  	0         	
+SAMEA112322496                	0         	
+SAMN16515992                  	0         	
+SAMN33949178                  	0         	
+SAMEA3472080                  	0         	
+SAMN30414231                  	0         	
+SAMN12125259                  	0         	
+SAMN39049011                  	0         	
+SAMN30082884                  	0         	
+SAMN39842349                  	0         	
+SAMN39049016                  	0         	
+SAMN14278959                  	0         	
+SAMN14278960                  	0         	
+SAMEA5161557                  	0         	
+SAMEA8997868                  	0         	
+SAMN30360220                  	0         	
+SAMN30414270                  	0         	
+SAMN30360216                  	0         	
+SAMN42439672                  	0         	
+SAMEA5161480                  	0         	
+SAMEA104449847                	0         	
+SAMN33763560                  	0         	
+SAMN41918526                  	0         	
+SAMN30414277                  	0         	
+SAMN18387539                  	0         	
+SAMN30414301                  	0         	
+SAMN30414309                  	0         	
+SAMN28668874                  	0         	
+SAMN25046065                  	0         	
+SAMN11046516                  	0         	
+SAMN38200972                  	0         	
+SAMN19764322                  	0         	
+SAMN30413970                  	0         	
+SAMN35667768                  	0         	
+SAMD00501357                  	0         	
+SAMN33949290                  	0         	
+SAMN09298389                  	0         	
+SAMN30414320                  	0         	
+SAMN10666929                  	0         	
+SAMD00500769                  	0         	
+SAMN19764367                  	0         	
+SAMN30414330                  	0         	
+SAMD00501381                  	0         	
+SAMN27655698                  	0         	
+SAMN30414346                  	0         	
+SAMN20967395                  	0         	
+SAMN31262647                  	0         	
+SAMN30414348                  	0         	
+SAMN36679602                  	0         	
+SAMN30414352                  	0         	
+SAMN30414359                  	0         	
+SAMN27655632                  	0         	
+SAMN39049220                  	0         	
+SAMEA114307393                	0         	
+SAMN15488549                  	0         	
+SAMN30414378                  	0         	
+SAMN15488550                  	0         	
+SAMN42106135                  	0         	
+SAMN32800327                  	0         	
+SAMN40636271                  	0         	
+SAMN28985943                  	0         	
+SAMN41644040                  	0         	
+SAMN40636287                  	0         	
+SAMN40636284                  	0         	
+SAMN41644030                  	0         	
+SAMN10289894                  	0         	
+SAMN39942664                  	0         	
+SAMN15488485                  	0         	
+SAMN40636295                  	0         	
+SAMN39942668                  	0         	
+SAMN30694306                  	0         	
+SAMN40636303                  	0         	
+SAMN06018712                  	0         	
+SAMN40636316                  	0         	
+SAMEA104140548                	0         	
+SAMN40636322                  	0         	
+SAMN40636320                  	0         	
+SAMN14923854                  	0         	
+SAMN30414416                  	0         	
+SAMN39049304                  	0         	
+SAMN40636336                  	0         	
+SAMN40636339                  	0         	
+SAMN40636342                  	0         	
+SAMN39049321                  	0         	
+SAMN39049325                  	0         	
+SAMEA104140539                	0         	
+SAMN40636346                  	0         	
+SAMN40636347                  	0         	
+SAMN40636355                  	0         	
+SAMN40636356                  	0         	
+SAMN40636357                  	0         	
+SAMN40636361                  	0         	
+SAMN40636363                  	0         	
+SAMN40636366                  	0         	
+SAMN40636365                  	0         	
+SAMN40636367                  	0         	
+SAMEA104140559                	0         	
+SAMN22136682                  	0         	
+SAMEA104140542                	0         	
+SAMN16088409                  	0         	
+SAMN41314205                  	0         	
+SAMEA104140543                	0         	
+SAMEA104030446                	0         	
+SAMN40636378                  	0         	
+SAMN40636377                  	0         	
+SAMEA104140505                	0         	
+SAMEA104140513                	0         	
+SAMEA104140522                	0         	
+SAMEA104140518                	0         	
+SAMEA104140499                	0         	
+SAMN11042973                  	0         	
+SAMN11042975                  	0         	
+SAMN11042974                  	0         	
+SAMN41643935                  	0         	
+SAMN29981085                  	0         	
+SAMN21397448                  	0         	
+SAMN41643741                  	0         	
+SAMN40636392                  	0         	
+SAMN22136654                  	0         	
+SAMN20033302                  	0         	
+SAMN12040933                  	0         	
+SAMN20033255                  	0         	
+SAMN25649686                  	0         	
+SAMN31896739                  	0         	
+SAMEA3886737                  	0         	
+SAMEA3886736                  	0         	
+SAMN33759047                  	0         	
+SAMN31896777                  	0         	
+SAMN36688003                  	0         	
+SAMN30414445                  	0         	
+SAMN28968413                  	0         	
+SAMN41704061                  	0         	
+SAMEA3886734                  	0         	
+SAMN39051580                  	0         	
+SAMEA3886735                  	0         	
+SAMN11042371                  	0         	
+SAMN03154399                  	0         	
+SAMEA3886733                  	0         	
+SAMEA3886706                  	0         	
+SAMEA3886708                  	0         	
+SAMD00210411                  	0         	
+SAMD00210423                  	0         	
+SAMEA5376438                  	0         	
+SAMD00210442                  	0         	
+SAMD00210446                  	0         	
+SAMN10282829                  	0         	
+SAMN27655591                  	0         	
+SAMN27655583                  	0         	
+SAMD00210475                  	0         	
+SAMN19291395                  	0         	
+SAMD00210494                  	0         	
+SAMN21396642                  	0         	
+SAMN12663102                  	0         	
+SAMN02941915                  	0         	
+SAMD00210527                  	0         	
+SAMD00210533                  	0         	
+SAMD00210536                  	0         	
+SAMEA4652173                  	0         	
+SAMN11553457                  	0         	
+SAMN30578120                  	0         	
+SAMEA115627241                	0         	
+SAMD00755290                  	0         	
+SAMN11042277                  	0         	
+SAMEA5376440                  	0         	
+SAMN33689632                  	0         	
+SAMN31791274                  	0         	
+SAMN12137484                  	0         	
+SAMN30414466                  	0         	
+SAMN10661787                  	0         	
+SAMN14783468                  	0         	
+SAMN05389655                  	0         	
+SAMN09628543                  	0         	
+SAMN06015109                  	0         	
+SAMN12995397                  	0         	
+SAMN30964587                  	0         	
+SAMN30414473                  	0         	
+SAMN12995389                  	0         	
+SAMD00412545                  	0         	
+SAMN30414483                  	0         	
+SAMN30964612                  	0         	
+SAMN04600620                  	0         	
+SAMN09624505                  	0         	
+SAMN30414500                  	0         	
+SAMN09624472                  	0         	
+SAMN30414509                  	0         	
+SAMD00330187                  	0         	
+SAMN30414532                  	0         	
+SAMN21389258                  	0         	
+SAMD00330170                  	0         	
+SAMN11035423                  	0         	
+SAMD00330131                  	0         	
+SAMN11031768                  	0         	
+SAMN11031754                  	0         	
+SAMN11031761                  	0         	
+SAMN30414544                  	0         	
+SAMN09666580                  	0         	
+SAMN41575700                  	0         	
+SAMN42106303                  	0         	
+SAMN41069221                  	0         	
+SAMN24199027                  	0         	
+SAMN17813936                  	0         	
+SAMN28668102                  	0         	
+SAMN26366958                  	0         	
+SAMN27655572                  	0         	
+SAMN41069224                  	0         	
+SAMN41069223                  	0         	
+SAMN29932949                  	0         	
+SAMN41069226                  	0         	
+SAMN41069232                  	0         	
+SAMN29932951                  	0         	
+SAMN29932952                  	0         	
+SAMN29932946                  	0         	
+SAMN29932944                  	0         	
+SAMN29932945                  	0         	
+SAMN27655564                  	0         	
+SAMN29932947                  	0         	
+SAMN29932943                  	0         	
+SAMN13041915                  	0         	
+SAMN27655556                  	0         	
+SAMEA10300692                 	0         	
+SAMN19094650                  	0         	
+SAMN41069233                  	0         	
+SAMN17584961                  	0         	
+SAMEA5375479                  	0         	
+SAMEA104437406                	0         	
+SAMN30718881                  	0         	
+SAMN09610222                  	0         	
+SAMN42106408                  	0         	
+SAMN04599378                  	0         	
+SAMN10642495                  	0         	
+SAMN07180841                  	0         	
+SAMN07180800                  	0         	
+SAMN28668080                  	0         	
+SAMN13869870                  	0         	
+SAMN03478011                  	0         	
+SAMEA5375475                  	0         	
+SAMN25988210                  	0         	
+SAMN15569734                  	0         	
+SAMN19317227                  	0         	
+SAMN39963080                  	0         	
+SAMN39963078                  	0         	
+SAMN39963083                  	0         	
+SAMN03168513                  	0         	
+SAMN39963079                  	0         	
+SAMN08623816                  	0         	
+SAMEA5098731                  	0         	
+SAMN10267046                  	0         	
+SAMN30548025                  	0         	
+SAMN30548015                  	0         	
+SAMN10638549                  	0         	
+SAMN23492929                  	0         	
+SAMN30414674                  	0         	
+SAMD00110477                  	0         	
+SAMN28668074                  	0         	
+SAMN16354336                  	0         	
+SAMN38638940                  	0         	
+SAMEA5098566                  	0         	
+SAMN31289075                  	0         	
+SAMN30414700                  	0         	
+SAMN12657157                  	0         	
+SAMN08624630                  	0         	
+SAMN30414701                  	0         	
+SAMN12023932                  	0         	
+SAMN08624680                  	0         	
+SAMN30414702                  	0         	
+SAMN03168789                  	0         	
+SAMN12145232                  	0         	
+SAMN28668059                  	0         	
+SAMN28668057                  	0         	
+SAMN08624698                  	0         	
+SAMN41074071                  	0         	
+SAMN42378643                  	0         	
+SAMN28668049                  	0         	
+SAMN24252317                  	0         	
+SAMN24252309                  	0         	
+SAMN26764357                  	0         	
+SAMN28668047                  	0         	
+SAMN28668046                  	0         	
+SAMN28668045                  	0         	
+SAMN41465330                  	0         	
+SAMN28668040                  	0         	
+SAMN07660899                  	0         	
+SAMN30414782                  	0         	
+SAMN28668039                  	0         	
+SAMN30414784                  	0         	
+SAMN30414786                  	0         	
+SAMN20603424                  	0         	
+SAMEA5376935                  	0         	
+SAMN09683620                  	0         	
+SAMN28668025                  	0         	
+SAMN28668018                  	0         	
+SAMN20967193                  	0         	
+SAMEA5671080                  	0         	
+SAMEA114771309                	0         	
+SAMN04362972                  	0         	
+SAMN28667973                  	0         	
+SAMEA114771301                	0         	
+SAMN41466429                  	0         	
+SAMEA114771295                	0         	
+SAMEA114771275                	0         	
+SAMEA7113196                  	0         	
+SAMN13050917                  	0         	
+SAMN41724976                  	0         	
+SAMN06048974                  	0         	
+SAMN06048982                  	0         	
+SAMN06048989                  	0         	
+SAMN09684024                  	0         	
+SAMN28667969                  	0         	
+SAMN40702716                  	0         	
+SAMN08957372                  	0         	
+SAMN28158587                  	0         	
+SAMN28158362                  	0         	
+SAMN41725121                  	0         	
+SAMN12724470                  	0         	
+SAMN41466624                  	0         	
+SAMEA114771248                	0         	
+SAMN28667968                  	0         	
+SAMN07609154                  	0         	
+SAMN39140600                  	0         	
+SAMN39140599                  	0         	
+SAMN35719106                  	0         	
+SAMN39140618                  	0         	
+SAMN18618466                  	0         	
+SAMN35719123                  	0         	
+SAMN39140617                  	0         	
+SAMEA3447684                  	0         	
+SAMEA114771162                	0         	
+SAMN33826289                  	0         	
+SAMN27150388                  	0         	
+SAMN27150389                  	0         	
+SAMN27150394                  	0         	
+SAMEA114771154                	0         	
+SAMD00112503                  	0         	
+SAMN27150413                  	0         	
+SAMN27150417                  	0         	
+SAMN28667967                  	0         	
+SAMN27150414                  	0         	
+SAMN28667965                  	0         	
+SAMN35440209                  	0         	
+SAMN21366076                  	0         	
+SAMN27150437                  	0         	
+SAMN27150440                  	0         	
+SAMN27150445                  	0         	
+SAMN21366077                  	0         	
+SAMN27150450                  	0         	
+SAMN21366097                  	0         	
+SAMN27150452                  	0         	
+SAMD00111753                  	0         	
+SAMN27150451                  	0         	
+SAMN27150456                  	0         	
+SAMN27150460                  	0         	
+SAMN21366087                  	0         	
+SAMN11585244                  	0         	
+SAMN28667963                  	0         	
+SAMN21366092                  	0         	
+SAMEA10301724                 	0         	
+SAMN24274023                  	0         	
+SAMN39143820                  	0         	
+SAMN21366085                  	0         	
+SAMN28667956                  	0         	
+SAMN21366065                  	0         	
+SAMEA104113098                	0         	
+SAMN28667958                  	0         	
+SAMN21366042                  	0         	
+SAMEA9696995                  	0         	
+SAMN21590405                  	0         	
+SAMN21590404                  	0         	
+SAMN21590406                  	0         	
+SAMEA786291                   	0         	
+SAMN21590422                  	0         	
+SAMN28667954                  	0         	
+SAMEA4938509                  	0         	
+SAMEA14449079                 	0         	
+SAMN29251986                  	0         	
+SAMN21366014                  	0         	
+SAMN21366000                  	0         	
+SAMEA104113068                	0         	
+SAMEA4938508                  	0         	
+SAMEA104113053                	0         	
+SAMEA104113048                	0         	
+SAMN21365159                  	0         	
+SAMEA104113031                	0         	
+SAMEA14449775                 	0         	
+SAMEA4938609                  	0         	
+SAMN31201935                  	0         	
+SAMN18619015                  	0         	
+SAMEA5375336                  	0         	
+SAMD00243950                  	0         	
+SAMD00243971                  	0         	
+SAMEA5375337                  	0         	
+SAMN21365146                  	0         	
+SAMN37664209                  	0         	
+SAMN07605643                  	0         	
+SAMN42746265                  	0         	
+SAMEA7281044                  	0         	
+SAMN21365136                  	0         	
+SAMN21365133                  	0         	
+SAMN14395490                  	0         	
+SAMN28667949                  	0         	
+SAMN28667947                  	0         	
+SAMN41629965                  	0         	
+SAMN31327346                  	0         	
+SAMN28667945                  	0         	
+SAMN32719079                  	0         	
+SAMN28667939                  	0         	
+SAMEA3531644                  	0         	
+SAMN04364053                  	0         	
+SAMEA4938958                  	0         	
+SAMEA4938957                  	0         	
+SAMEA4682712                  	0         	
+SAMN28190196                  	0         	
+SAMN35732293                  	0         	
+SAMEA3531678                  	0         	
+SAMN28190208                  	0         	
+SAMN12731673                  	0         	
+SAMEA1920248                  	0         	
+SAMN41805414                  	0         	
+SAMEA5039539                  	0         	
+SAMEA104653419                	0         	
+SAMN28667929                  	0         	
+SAMN27279015                  	0         	
+SAMEA4428247                  	0         	
+SAMN09387949                  	0         	
+SAMEA3531741                  	0         	
+SAMN18619795                  	0         	
+SAMN41629962                  	0         	
+SAMEA3531758                  	0         	
+SAMEA3531759                  	0         	
+SAMEA104107547                	0         	
+SAMEA3531781                  	0         	
+SAMN41413992                  	0         	
+SAMN09566772                  	0         	
+SAMN12009236                  	0         	
+SAMN12009226                  	0         	
+SAMEA104107482                	0         	
+SAMN31259967                  	0         	
+SAMN19025504                  	0         	
+SAMN31259985                  	0         	
+SAMN31259992                  	0         	
+SAMN12920439                  	0         	
+SAMN40731448                  	0         	
+SAMN41884106                  	0         	
+SAMN09566334                  	0         	
+SAMN15904825                  	0         	
+SAMN15904798                  	0         	
+SAMN30160588                  	0         	
+SAMN41884090                  	0         	
+SAMEA4428459                  	0         	
+SAMN31275306                  	0         	
+SAMN28667927                  	0         	
+SAMN13065287                  	0         	
+SAMN12008859                  	0         	
+SAMN15904776                  	0         	
+SAMEA4428585                  	0         	
+SAMEA4064199                  	0         	
+SAMN29269609                  	0         	
+SAMN28667932                  	0         	
+SAMN28667917                  	0         	
+SAMN02483551                  	0         	
+SAMN28667915                  	0         	
+SAMN28667914                  	0         	
+SAMN31988402                  	0         	
+SAMN28667916                  	0         	
+SAMN31988399                  	0         	
+SAMN31988373                  	0         	
+SAMN36726447                  	0         	
+SAMN28667907                  	0         	
+SAMN28667911                  	0         	
+SAMN28667909                  	0         	
+SAMN28667912                  	0         	
+SAMN28667906                  	0         	
+SAMN31988440                  	0         	
+SAMN28667908                  	0         	
+SAMEA4429052                  	0         	
+SAMN28667901                  	0         	
+SAMN31988444                  	0         	
+SAMN31988438                  	0         	
+SAMN28667905                  	0         	
+SAMN11025537                  	0         	
+SAMN28667898                  	0         	
+SAMEA7540902                  	0         	
+SAMN31988466                  	0         	
+SAMN15411671                  	0         	
+SAMN31988471                  	0         	
+SAMN31988488                  	0         	
+SAMN31988489                  	0         	
+SAMEA4429111                  	0         	
+SAMN28667897                  	0         	
+SAMN09388777                  	0         	
+SAMN41412879                  	0         	
+SAMN20967092                  	0         	
+SAMN21342545                  	0         	
+SAMEA5757824                  	0         	
+SAMN15599751                  	0         	
+SAMN15599752                  	0         	
+SAMN30173724                  	0         	
+SAMN30173730                  	0         	
+SAMN40498036                  	0         	
+SAMN09237747                  	0         	
+SAMN20181503                  	0         	
+SAMN26680262                  	0         	
+SAMN41561889                  	0         	
+SAMEA3538945                  	0         	
+SAMN10076128                  	0         	
+SAMEA3538957                  	0         	
+SAMEA3538959                  	0         	
+SAMEA3538964                  	0         	
+SAMN10076160                  	0         	
+SAMEA3538972                  	0         	
+SAMEA4429648                  	0         	
+SAMN20688954                  	0         	
+SAMN28667883                  	0         	
+SAMN28667869                  	0         	
+SAMN28667865                  	0         	
+SAMN14999235                  	0         	
+SAMEA7965549                  	0         	
+SAMN28667862                  	0         	
+SAMD00099755                  	0         	
+SAMEA7965587                  	0         	
+SAMN10076956                  	0         	
+SAMN09534666                  	0         	
+SAMN41752725                  	0         	
+SAMN11441197                  	0         	
+SAMN28667852                  	0         	
+SAMN31350201                  	0         	
+SAMEA14516021                 	0         	
+SAMN25413104                  	0         	
+SAMN28667856                  	0         	
+SAMN28667848                  	0         	
+SAMN25413082                  	0         	
+SAMN25413072                  	0         	
+SAMN40478386                  	0         	
+SAMD00262237                  	0         	
+SAMN28667834                  	0         	
+SAMN22896163                  	0         	
+SAMN28667831                  	0         	
+SAMN41143062                  	0         	
+SAMN25413029                  	0         	
+SAMN18643025                  	0         	
+SAMN40478376                  	0         	
+SAMN15006907                  	0         	
+SAMN15007168                  	0         	
+SAMN41752980                  	0         	
+SAMN28667829                  	0         	
+SAMD00262331                  	0         	
+SAMN28667817                  	0         	
+SAMN29358560                  	0         	
+SAMN29358525                  	0         	
+SAMN25413009                  	0         	
+SAMN15007251                  	0         	
+SAMN28667809                  	0         	
+SAMN16320522                  	0         	
+SAMN28667804                  	0         	
+SAMN30396283                  	0         	
+SAMN28667784                  	0         	
+SAMN41411038                  	0         	
+SAMN28667781                  	0         	
+SAMN13544838                  	0         	
+SAMD00500298                  	0         	
+SAMN28667771                  	0         	
+SAMN09531198                  	0         	
+SAMN09531186                  	0         	
+SAMN09531178                  	0         	
+SAMN15007292                  	0         	
+SAMN15007299                  	0         	
+SAMN15007306                  	0         	
+SAMN15007308                  	0         	
+SAMN15007312                  	0         	
+SAMN13087633                  	0         	
+SAMN13087661                  	0         	
+SAMN41410898                  	0         	
+SAMN41233980                  	0         	
+SAMN15007327                  	0         	
+SAMN15007332                  	0         	
+SAMN28667770                  	0         	
+SAMN12911932                  	0         	
+SAMN03468978                  	0         	
+SAMN13087690                  	0         	
+SAMN21238950                  	0         	
+SAMN21238952                  	0         	
+SAMN11644873                  	0         	
+SAMN28667768                  	0         	
+SAMN41043312                  	0         	
+SAMN07843377                  	0         	
+SAMN06309456                  	0         	
+SAMN07843378                  	0         	
+SAMN41561762                  	0         	
+SAMD00092874                  	0         	
+SAMN35768984                  	0         	
+SAMN35768988                  	0         	
+SAMN28667761                  	0         	
+SAMN28667764                  	0         	
+SAMN41561756                  	0         	
+SAMN28667750                  	0         	
+SAMN35769036                  	0         	
+SAMN28667748                  	0         	
+SAMEA3545789                  	0         	
+SAMN10599802                  	0         	
+SAMN20966944                  	0         	
+SAMN21238774                  	0         	
+SAMN21238769                  	0         	
+SAMD00500252                  	0         	
+SAMN21238750                  	0         	
+SAMN28667727                  	0         	
+SAMN32058448                  	0         	
+SAMN12910888                  	0         	
+SAMN28667711                  	0         	
+SAMN10080067                  	0         	
+SAMN28667709                  	0         	
+SAMN41878075                  	0         	
+SAMEA7038660                  	0         	
+SAMN27404329                  	0         	
+SAMEA7038659                  	0         	
+SAMEA7038657                  	0         	
+SAMEA7038661                  	0         	
+SAMEA7038668                  	0         	
+SAMEA7038656                  	0         	
+SAMN21841560                  	0         	
+SAMEA3753300                  	0         	
+SAMEA7038634                  	0         	
+SAMEA7038646                  	0         	
+SAMEA7038651                  	0         	
+SAMEA7038643                  	0         	
+SAMN28667708                  	0         	
+SAMN27404421                  	0         	
+SAMEA7038644                  	0         	
+SAMN07155818                  	0         	
+SAMEA7038639                  	0         	
+SAMEA7038641                  	0         	
+SAMEA7038638                  	0         	
+SAMEA7038640                  	0         	
+SAMEA7038635                  	0         	
+SAMEA7038636                  	0         	
+SAMEA5930299                  	0         	
+SAMEA5930298                  	0         	
+SAMEA5930308                  	0         	
+SAMN37319839                  	0         	
+SAMN37319840                  	0         	
+SAMEA5930323                  	0         	
+SAMN14049400                  	0         	
+SAMN14049402                  	0         	
+SAMEA7038629                  	0         	
+SAMN14049408                  	0         	
+SAMEA7038630                  	0         	
+SAMN14049414                  	0         	
+SAMN14049416                  	0         	
+SAMEA7038628                  	0         	
+SAMN14049427                  	0         	
+SAMN14049429                  	0         	
+SAMEA7038627                  	0         	
+SAMN14049401                  	0         	
+SAMN14049426                  	0         	
+SAMN14049444                  	0         	
+SAMN14049450                  	0         	
+SAMN14049446                  	0         	
+SAMN14049458                  	0         	
+SAMN28453436                  	0         	
+SAMN21238623                  	0         	
+SAMN14049454                  	0         	
+SAMEA7038620                  	0         	
+SAMN14049480                  	0         	
+SAMN14049483                  	0         	
+SAMN14049486                  	0         	
+SAMEA7038626                  	0         	
+SAMN14049482                  	0         	
+SAMN14049488                  	0         	
+SAMN14049492                  	0         	
+SAMN28667694                  	0         	
+SAMN14049498                  	0         	
+SAMN41142482                  	0         	
+SAMN14049503                  	0         	
+SAMN35440214                  	0         	
+SAMN28667683                  	0         	
+SAMN21238617                  	0         	
+SAMN14049523                  	0         	
+SAMN14049525                  	0         	
+SAMN15643598                  	0         	
+SAMEA7038619                  	0         	
+SAMN14049539                  	0         	
+SAMN14049532                  	0         	
+SAMN14049542                  	0         	
+SAMN21238557                  	0         	
+SAMN14049545                  	0         	
+SAMN14049551                  	0         	
+SAMN14049555                  	0         	
+SAMEA8598526                  	0         	
+SAMEA3753100                  	0         	
+SAMN14049603                  	0         	
+SAMN28667686                  	0         	
+SAMN21238529                  	0         	
+SAMN24439616                  	0         	
+SAMN04575279                  	0         	
+SAMN21238492                  	0         	
+SAMN14049629                  	0         	
+SAMN09521864                  	0         	
+SAMEA112701327                	0         	
+SAMN32977730                  	0         	
+SAMN19016128                  	0         	
+SAMN14049640                  	0         	
+SAMN14049639                  	0         	
+SAMN19016127                  	0         	
+SAMN28667688                  	0         	
+SAMN21238480                  	0         	
+SAMEA104411049                	0         	
+SAMN14049649                  	0         	
+SAMN14049657                  	0         	
+SAMN09521844                  	0         	
+SAMN21238458                  	0         	
+SAMN14049671                  	0         	
+SAMN14049673                  	0         	
+SAMN19016106                  	0         	
+SAMEA13457532                 	0         	
+SAMN14049681                  	0         	
+SAMN14049685                  	0         	
+SAMN14049684                  	0         	
+SAMN14049690                  	0         	
+SAMN14049693                  	0         	
+SAMN07155589                  	0         	
+SAMEA13457529                 	0         	
+SAMN14049695                  	0         	
+SAMN29403102                  	0         	
+SAMEA13457531                 	0         	
+SAMN14049686                  	0         	
+SAMN31390989                  	0         	
+SAMEA13457530                 	0         	
+SAMN19016087                  	0         	
+SAMN27480571                  	0         	
+SAMN21238440                  	0         	
+SAMN41987015                  	0         	
+SAMN41410196                  	0         	
+SAMEA13457506                 	0         	
+SAMEA13457502                 	0         	
+SAMEA13457501                 	0         	
+SAMN33277574                  	0         	
+SAMN21238409                  	0         	
+SAMN34565599                  	0         	
+SAMN34565609                  	0         	
+SAMN28667679                  	0         	
+SAMN18148126                  	0         	
+SAMN18148127                  	0         	
+SAMN34565651                  	0         	
+SAMN21238368                  	0         	
+SAMN33277575                  	0         	
+SAMN37607471                  	0         	
+SAMN27629986                  	0         	
+SAMN37607468                  	0         	
+SAMD00019976                  	0         	
+SAMN37607463                  	0         	
+SAMN03473988                  	0         	
+SAMN28667671                  	0         	
+SAMEA3752558                  	0         	
+SAMN28667672                  	0         	
+SAMN04574711                  	0         	
+SAMEA6100944                  	0         	
+SAMEA6100951                  	0         	
+SAMEA4470186                  	0         	
+SAMN33277567                  	0         	
+SAMN28667669                  	0         	
+SAMN33277563                  	0         	
+SAMN19015888                  	0         	
+SAMD00019975                  	0         	
+SAMN28667658                  	0         	
+SAMN14437608                  	0         	
+SAMEA4061874                  	0         	
+SAMN14437618                  	0         	
+SAMN14437619                  	0         	
+SAMN40044471                  	0         	
+SAMN14437643                  	0         	
+SAMEA4061864                  	0         	
+SAMN32646114                  	0         	
+SAMN14437635                  	0         	
+SAMN09244453                  	0         	
+SAMN14437647                  	0         	
+SAMN33277549                  	0         	
+SAMEA13423295                 	0         	
+SAMN14437677                  	0         	
+SAMN14437680                  	0         	
+SAMN41409815                  	0         	
+SAMN09060248                  	0         	
+SAMN33277550                  	0         	
+SAMN33277542                  	0         	
+SAMN14437705                  	0         	
+SAMN19012531                  	0         	
+SAMN40887377                  	0         	
+SAMN12768798                  	0         	
+SAMN04431408                  	0         	
+SAMN19012532                  	0         	
+SAMN19012512                  	0         	
+SAMN41992877                  	0         	
+SAMN41992922                  	0         	
+SAMEA8101018                  	0         	
+SAMN28667640                  	0         	
+SAMN19012510                  	0         	
+SAMN19012511                  	0         	
+SAMN19012509                  	0         	
+SAMN19012508                  	0         	
+SAMN15058890                  	0         	
+SAMN19012504                  	0         	
+SAMN15058876                  	0         	
+SAMN18523569                  	0         	
+SAMEA104280079                	0         	
+SAMN19012500                  	0         	
+SAMN19012502                  	0         	
+SAMN19012492                  	0         	
+SAMN28667627                  	0         	
+SAMN19012501                  	0         	
+SAMN19012494                  	0         	
+SAMN15058915                  	0         	
+SAMN19012496                  	0         	
+SAMN15058924                  	0         	
+SAMN19012488                  	0         	
+SAMN19012489                  	0         	
+SAMN13825640                  	0         	
+SAMN03894372                  	0         	
+SAMN28667622                  	0         	
+SAMN28667613                  	0         	
+SAMD00019974                  	0         	
+SAMN28667604                  	0         	
+SAMN28667607                  	0         	
+SAMN28667592                  	0         	
+SAMN10907621                  	0         	
+SAMN42044263                  	0         	
+SAMN27623897                  	0         	
+SAMN03894286                  	0         	
+SAMN42044237                  	0         	
+SAMN42044200                  	0         	
+SAMN10907496                  	0         	
+SAMD00499941                  	0         	
+SAMN11319184                  	0         	
+SAMEA7519451                  	0         	
+SAMEA7519447                  	0         	
+SAMEA7519449                  	0         	
+SAMEA7519453                  	0         	
+SAMEA7519452                  	0         	
+SAMEA7519450                  	0         	
+SAMN41794033                  	0         	
+SAMEA5049880                  	0         	
+SAMN23013864                  	0         	
+SAMN23013861                  	0         	
+SAMN14443933                  	0         	
+SAMN23413139                  	0         	
+SAMN10173699                  	0         	
+SAMN28527216                  	0         	
+SAMN41081269                  	0         	
+SAMEA4061583                  	0         	
+SAMEA4061580                  	0         	
+SAMN41998697                  	0         	
+SAMN38756077                  	0         	
+SAMN12326936                  	0         	
+SAMN41550962                  	0         	
+SAMN41998713                  	0         	
+SAMN07371089                  	0         	
+SAMN31058875                  	0         	
+SAMN10587078                  	0         	
+SAMN10587064                  	0         	
+SAMN12326927                  	0         	
+SAMN33970561                  	0         	
+SAMN10587036                  	0         	
+SAMN10587043                  	0         	
+SAMN10586998                  	0         	
+SAMN10586981                  	0         	
+SAMN41550960                  	0         	
+SAMN10173844                  	0         	
+SAMN27621016                  	0         	
+SAMN41998896                  	0         	
+SAMEA5075617                  	0         	
+SAMN41862642                  	0         	
+SAMN16913986                  	0         	
+SAMN30415833                  	0         	
+SAMEA10113604                 	0         	
+SAMN09071332                  	0         	
+SAMN16913981                  	0         	
+SAMN16913979                  	0         	
+SAMN30415831                  	0         	
+SAMN20748824                  	0         	
+SAMN31058520                  	0         	
+SAMN16913952                  	0         	
+SAMN41999012                  	0         	
+SAMEA5075635                  	0         	
+SAMN16913955                  	0         	
+SAMN16913953                  	0         	
+SAMN30415834                  	0         	
+SAMN14596663                  	0         	
+SAMN16913948                  	0         	
+SAMN10425095                  	0         	
+SAMN10425094                  	0         	
+SAMN10425096                  	0         	
+SAMN30415832                  	0         	
+SAMN10425112                  	0         	
+SAMN16913936                  	0         	
+SAMN10425132                  	0         	
+SAMN16913898                  	0         	
+SAMN10425116                  	0         	
+SAMN10425137                  	0         	
+SAMN10425138                  	0         	
+SAMN10425140                  	0         	
+SAMN16913920                  	0         	
+SAMN10425141                  	0         	
+SAMN16913919                  	0         	
+SAMD00397280                  	0         	
+SAMN10425170                  	0         	
+SAMN29421298                  	0         	
+SAMN10425179                  	0         	
+SAMN33184225                  	0         	
+SAMN16913894                  	0         	
+SAMN10425185                  	0         	
+SAMN10425188                  	0         	
+SAMN10425183                  	0         	
+SAMN10425186                  	0         	
+SAMD00499621                  	0         	
+SAMEA104399647                	0         	
+SAMN08287588                  	0         	
+SAMN16913902                  	0         	
+SAMN16913896                  	0         	
+SAMN08287589                  	0         	
+SAMN17981844                  	0         	
+SAMN10425212                  	0         	
+SAMN16913876                  	0         	
+SAMN15007324                  	0         	
+SAMEA5162799                  	0         	
+SAMEA4429523                  	0         	
+SAMN08287590                  	0         	
+SAMN31058381                  	0         	
+SAMN30415848                  	0         	
+SAMN10425234                  	0         	
+SAMN19836112                  	0         	
+SAMN40446883                  	0         	
+SAMN41793683                  	0         	
+SAMN41862389                  	0         	
+SAMN38725263                  	0         	
+SAMN10425254                  	0         	
+SAMN31058341                  	0         	
+SAMN41862371                  	0         	
+SAMN10425269                  	0         	
+SAMN17393601                  	0         	
+SAMN07682597                  	0         	
+SAMN41081320                  	0         	
+SAMN07682598                  	0         	
+SAMN07682603                  	0         	
+SAMN10425285                  	0         	
+SAMN07682609                  	0         	
+SAMN07682608                  	0         	
+SAMN07682615                  	0         	
+SAMN17393595                  	0         	
+SAMN07682617                  	0         	
+SAMN07682621                  	0         	
+SAMN17393597                  	0         	
+SAMN10425296                  	0         	
+SAMN07682627                  	0         	
+SAMN14450156                  	0         	
+SAMN14450152                  	0         	
+SAMN14450154                  	0         	
+SAMN14450159                  	0         	
+SAMN07682629                  	0         	
+SAMN07682634                  	0         	
+SAMN14450163                  	0         	
+SAMN14450169                  	0         	
+SAMN07682640                  	0         	
+SAMN14450171                  	0         	
+SAMN14450172                  	0         	
+SAMN14450173                  	0         	
+SAMN14450174                  	0         	
+SAMN10425328                  	0         	
+SAMN07682653                  	0         	
+SAMN07682633                  	0         	
+SAMN12250469                  	0         	
+SAMN07682664                  	0         	
+SAMN07682671                  	0         	
+SAMN07682672                  	0         	
+SAMN07682654                  	0         	
+SAMN07682679                  	0         	
+SAMEA3593562                  	0         	
+SAMN07682677                  	0         	
+SAMN07682678                  	0         	
+SAMN07682676                  	0         	
+SAMN07682684                  	0         	
+SAMN07682651                  	0         	
+SAMN07682681                  	0         	
+SAMN17393584                  	0         	
+SAMN07682686                  	0         	
+SAMN17393590                  	0         	
+SAMN07682685                  	0         	
+SAMN07682688                  	0         	
+SAMN07682683                  	0         	
+SAMN07682691                  	0         	
+SAMN07682690                  	0         	
+SAMN10425385                  	0         	
+SAMN10425383                  	0         	
+SAMN17393587                  	0         	
+SAMD00076222                  	0         	
+SAMN17393582                  	0         	
+SAMN17393581                  	0         	
+SAMN24588084                  	0         	
+SAMN17393580                  	0         	
+SAMN17393579                  	0         	
+SAMN17393578                  	0         	
+SAMN12573516                  	0         	
+SAMN17393577                  	0         	
+SAMN17393574                  	0         	
+SAMEA81158668                 	0         	
+SAMN17393568                  	0         	
+SAMN17393569                  	0         	
+SAMN32132121                  	0         	
+SAMN17393566                  	0         	
+SAMN30415891                  	0         	
+SAMN17393567                  	0         	
+SAMN17393565                  	0         	
+SAMN17393563                  	0         	
+SAMN17393562                  	0         	
+SAMN17393551                  	0         	
+SAMN17393552                  	0         	
+SAMN17393546                  	0         	
+SAMN17393549                  	0         	
+SAMEA3980568                  	0         	
+SAMN17393547                  	0         	
+SAMN17393542                  	0         	
+SAMEA2272895                  	0         	
+SAMN21215633                  	0         	
+SAMN37453550                  	0         	
+SAMN17393540                  	0         	
+SAMN17393544                  	0         	
+SAMN30415911                  	0         	
+SAMN17393539                  	0         	
+SAMN27524609                  	0         	
+SAMN04450818                  	0         	
+SAMEA3980575                  	0         	
+SAMD00499464                  	0         	
+SAMN31058246                  	0         	
+SAMN05770917                  	0         	
+SAMN17393534                  	0         	
+SAMN17393538                  	0         	
+SAMN17393536                  	0         	
+SAMEA1061969                  	0         	
+SAMN17393531                  	0         	
+SAMEA1061979                  	0         	
+SAMN05770908                  	0         	
+SAMN17393530                  	0         	
+SAMN17393527                  	0         	
+SAMN05770907                  	0         	
+SAMN07450666                  	0         	
+SAMN32091772                  	0         	
+SAMN17393524                  	0         	
+SAMN17393522                  	0         	
+SAMN17393521                  	0         	
+SAMN17393520                  	0         	
+SAMN17393518                  	0         	
+SAMN17393514                  	0         	
+SAMEA3980742                  	0         	
+SAMN07690253                  	0         	
+SAMEA3980767                  	0         	
+SAMN17393519                  	0         	
+SAMN17393517                  	0         	
+SAMN17393513                  	0         	
+SAMN17393511                  	0         	
+SAMEA3980828                  	0         	
+SAMN17393507                  	0         	
+SAMN37453456                  	0         	
+SAMN17393508                  	0         	
+SAMN17393503                  	0         	
+SAMN07690369                  	0         	
+SAMN12575931                  	0         	
+SAMN17393506                  	0         	
+SAMN12575932                  	0         	
+SAMN17393504                  	0         	
+SAMN12575965                  	0         	
+SAMN17393502                  	0         	
+SAMN17393499                  	0         	
+SAMN12575969                  	0         	
+SAMN12575970                  	0         	
+SAMN12575974                  	0         	
+SAMN07690413                  	0         	
+SAMEA3980919                  	0         	
+SAMEA5038486                  	0         	
+SAMN12575984                  	0         	
+SAMN12575987                  	0         	
+SAMN17393501                  	0         	
+SAMN17393493                  	0         	
+SAMN17393495                  	0         	
+SAMN12575990                  	0         	
+SAMN17171021                  	0         	
+SAMN17393485                  	0         	
+SAMEA5038463                  	0         	
+SAMN12576026                  	0         	
+SAMN12576021                  	0         	
+SAMN17393491                  	0         	
+SAMN12576032                  	0         	
+SAMN12576036                  	0         	
+SAMN12576037                  	0         	
+SAMN17171093                  	0         	
+SAMN17393486                  	0         	
+SAMN17393489                  	0         	
+SAMN41852282                  	0         	
+SAMN17393484                  	0         	
+SAMN17393476                  	0         	
+SAMN07450571                  	0         	
+SAMN17393461                  	0         	
+SAMN17393460                  	0         	
+SAMN17393459                  	0         	
+SAMN17393458                  	0         	
+SAMN17393455                  	0         	
+SAMN17393442                  	0         	
+SAMN17393439                  	0         	
+SAMN17393444                  	0         	
+SAMN17393441                  	0         	
+SAMN27531273                  	0         	
+SAMN17393438                  	0         	
+SAMN07450570                  	0         	
+SAMN31510019                  	0         	
+SAMN16679791                  	0         	
+SAMN16679852                  	0         	
+SAMN27531285                  	0         	
+SAMN27531297                  	0         	
+SAMN16679854                  	0         	
+SAMN27531310                  	0         	
+SAMN41763509                  	0         	
+SAMN30415950                  	0         	
+SAMN27531311                  	0         	
+SAMN27531308                  	0         	
+SAMN12375506                  	0         	
+SAMEA8196342                  	0         	
+SAMN34435514                  	0         	
+SAMN41763542                  	0         	
+SAMD00075893                  	0         	
+SAMD00499321                  	0         	
+SAMN32604037                  	0         	
+SAMN20813320                  	0         	
+SAMEA115829951                	0         	
+SAMN34435469                  	0         	
+SAMN23136932                  	0         	
+SAMN34435464                  	0         	
+SAMN34435458                  	0         	
+SAMEA110347147                	0         	
+SAMEA5277959                  	0         	
+SAMEA5277967                  	0         	
+SAMN41596249                  	0         	
+SAMEA115830035                	0         	
+SAMEA115830038                	0         	
+SAMEA115830037                	0         	
+SAMN34435450                  	0         	
+SAMN30415987                  	0         	
+SAMN10461407                  	0         	
+SAMEA115830049                	0         	
+SAMEA115830048                	0         	
+SAMN34435448                  	0         	
+SAMN21893162                  	0         	
+SAMN21893174                  	0         	
+SAMN30415966                  	0         	
+SAMN06680459                  	0         	
+SAMN10098116                  	0         	
+SAMN34435439                  	0         	
+SAMN30415964                  	0         	
+SAMN07695376                  	0         	
+SAMN34435437                  	0         	
+SAMN34435432                  	0         	
+SAMN07695388                  	0         	
+SAMN12356537                  	0         	
+SAMN06680557                  	0         	
+SAMN34435419                  	0         	
+SAMN06680580                  	0         	
+SAMN41391689                  	0         	
+SAMN32977899                  	0         	
+SAMN07695467                  	0         	
+SAMN32977896                  	0         	
+SAMN41852046                  	0         	
+SAMN38414223                  	0         	
+SAMN34435359                  	0         	
+SAMN32977873                  	0         	
+SAMN15256077                  	0         	
+SAMN32977864                  	0         	
+SAMN41501064                  	0         	
+SAMN14163505                  	0         	
+SAMN38414254                  	0         	
+SAMN38414257                  	0         	
+SAMN36825974                  	0         	
+SAMN14163523                  	0         	
+SAMN14163508                  	0         	
+SAMN30415989                  	0         	
+SAMN07739151                  	0         	
+SAMN14163506                  	0         	
+SAMN14163512                  	0         	
+SAMN25236406                  	0         	
+SAMN14163503                  	0         	
+SAMN30875525                  	0         	
+SAMN38414293                  	0         	
+SAMN14163500                  	0         	
+SAMN14163502                  	0         	
+SAMN38414317                  	0         	
+SAMN12776332                  	0         	
+SAMN14163498                  	0         	
+SAMN14163499                  	0         	
+SAMN28569335                  	0         	
+SAMN38414340                  	0         	
+SAMN38414350                  	0         	
+SAMN14163483                  	0         	
+SAMN14163470                  	0         	
+SAMN41501194                  	0         	
+SAMN14163485                  	0         	
+SAMN38414372                  	0         	
+SAMN14163484                  	0         	
+SAMN38414375                  	0         	
+SAMN23167910                  	0         	
+SAMN38414389                  	0         	
+SAMN14163479                  	0         	
+SAMN14163477                  	0         	
+SAMN14163480                  	0         	
+SAMN14163475                  	0         	
+SAMN14163471                  	0         	
+SAMN02847557                  	0         	
+SAMN28784438                  	0         	
+SAMN14163400                  	0         	
+SAMN07739150                  	0         	
+SAMN38414423                  	0         	
+SAMN38414424                  	0         	
+SAMN32977668                  	0         	
+SAMN38414429                  	0         	
+SAMN38414432                  	0         	
+SAMN38414436                  	0         	
+SAMN38414447                  	0         	
+SAMEA4533611                  	0         	
+SAMN38414460                  	0         	
+SAMN38033943                  	0         	
+SAMN38414466                  	0         	
+SAMN38414469                  	0         	
+SAMN42227268                  	0         	
+SAMN42227271                  	0         	
+SAMN42227269                  	0         	
+SAMN42227259                  	0         	
+SAMN38414490                  	0         	
+SAMEA3981752                  	0         	
+SAMEA3981750                  	0         	
+SAMN38414508                  	0         	
+SAMN42227260                  	0         	
+SAMN42227265                  	0         	
+SAMN42227267                  	0         	
+SAMN42227266                  	0         	
+SAMN30415993                  	0         	
+SAMN42227258                  	0         	
+SAMN38033875                  	0         	
+SAMN38033873                  	0         	
+SAMEA4533708                  	0         	
+SAMN23701284                  	0         	
+SAMN30416001                  	0         	
+SAMN38414566                  	0         	
+SAMN10867044                  	0         	
+SAMN23701283                  	0         	
+SAMN38414586                  	0         	
+SAMN38414608                  	0         	
+SAMN38414613                  	0         	
+SAMN38414633                  	0         	
+SAMN09100738                  	0         	
+SAMN29481578                  	0         	
+SAMN23701257                  	0         	
+SAMN29481591                  	0         	
+SAMN38414699                  	0         	
+SAMN40198037                  	0         	
+SAMN38414696                  	0         	
+SAMN38414721                  	0         	
+SAMN23701267                  	0         	
+SAMN23701268                  	0         	
+SAMN30416006                  	0         	
+SAMN23701250                  	0         	
+SAMEA5075811                  	0         	
+SAMN23701254                  	0         	
+SAMN23701256                  	0         	
+SAMN23701252                  	0         	
+SAMN23701253                  	0         	
+SAMN23701249                  	0         	
+SAMN23701246                  	0         	
+SAMN23701247                  	0         	
+SAMN23701245                  	0         	
+SAMN23701244                  	0         	
+SAMEA3982049                  	0         	
+SAMEA3982055                  	0         	
+SAMN23701243                  	0         	
+SAMN23701241                  	0         	
+SAMN23701207                  	0         	
+SAMN18051696                  	0         	
+SAMN23701205                  	0         	
+SAMEA6813725                  	0         	
+SAMN23701200                  	0         	
+SAMN02847197                  	0         	
+SAMN40198214                  	0         	
+SAMN40198222                  	0         	
+SAMN12586850                  	0         	
+SAMN18742821                  	0         	
+SAMN12586865                  	0         	
+SAMN12586858                  	0         	
+SAMN12586886                  	0         	
+SAMN12586895                  	0         	
+SAMN16260671                  	0         	
+SAMD00499191                  	0         	
+SAMN07714558                  	0         	
+SAMD00499189                  	0         	
+SAMN24694690                  	0         	
+SAMN02847195                  	0         	
+SAMN07714622                  	0         	
+SAMD00499190                  	0         	
+SAMN30416038                  	0         	
+SAMN23606335                  	0         	
+SAMN41537515                  	0         	
+SAMN21925815                  	0         	
+SAMN40983018                  	0         	
+SAMN30416042                  	0         	
+SAMEA12943397                 	0         	
+SAMN09459306                  	0         	
+SAMEA7005611                  	0         	
+SAMN07714712                  	0         	
+SAMN40242779                  	0         	
+SAMN30416041                  	0         	
+SAMN15344972                  	0         	
+SAMD00502354                  	0         	
+SAMN24718502                  	0         	
+SAMN13324163                  	0         	
+SAMN15147970                  	0         	
+SAMN13324165                  	0         	
+SAMN10871191                  	0         	
+SAMN02844233                  	0         	
+SAMN24718547                  	0         	
+SAMN32494344                  	0         	
+SAMN16360726                  	0         	
+SAMN13324157                  	0         	
+SAMN13324164                  	0         	
+SAMN30901661                  	0         	
+SAMN13324162                  	0         	
+SAMN15148133                  	0         	
+SAMN13324161                  	0         	
+SAMN15148139                  	0         	
+SAMN15148134                  	0         	
+SAMN15148138                  	0         	
+SAMN10104839                  	0         	
+SAMN15148137                  	0         	
+SAMN15148136                  	0         	
+SAMN19676663                  	0         	
+SAMN13324159                  	0         	
+SAMN09195629                  	0         	
+SAMN13324156                  	0         	
+SAMN13324155                  	0         	
+SAMN13324158                  	0         	
+SAMN41516078                  	0         	
+SAMN13324154                  	0         	
+SAMN13324152                  	0         	
+SAMN10437976                  	0         	
+SAMN13324153                  	0         	
+SAMN13324151                  	0         	
+SAMN15148269                  	0         	
+SAMN13324149                  	0         	
+SAMN15148274                  	0         	
+SAMN15148286                  	0         	
+SAMN13324146                  	0         	
+SAMN15148291                  	0         	
+SAMN15148292                  	0         	
+SAMN15148287                  	0         	
+SAMN15148297                  	0         	
+SAMN15148298                  	0         	
+SAMN15148296                  	0         	
+SAMN15148295                  	0         	
+SAMN13324148                  	0         	
+SAMN13324147                  	0         	
+SAMD00499080                  	0         	
+SAMN33440967                  	0         	
+SAMN03465778                  	0         	
+SAMN33440949                  	0         	
+SAMN33440950                  	0         	
+SAMN13749996                  	0         	
+SAMN09433639                  	0         	
+SAMD00497422                  	0         	
+SAMD00497425                  	0         	
+SAMN11319501                  	0         	
+SAMN33440899                  	0         	
+SAMD00497439                  	0         	
+SAMN33440863                  	0         	
+SAMN33440867                  	0         	
+SAMN29757253                  	0         	
+SAMN10438984                  	0         	
+SAMN41769905                  	0         	
+SAMN12879509                  	0         	
+SAMN28744276                  	0         	
+SAMN26508403                  	0         	
+SAMEA5379025                  	0         	
+SAMN11885451                  	0         	
+SAMD00053171                  	0         	
+SAMN41537219                  	0         	
+SAMEA8227314                  	0         	
+SAMN22247164                  	0         	
+SAMN18923267                  	0         	
+SAMN41770003                  	0         	
+SAMN10535889                  	0         	
+SAMEA110363113                	0         	
+SAMEA110363100                	0         	
+SAMEA110363099                	0         	
+SAMEA110363097                	0         	
+SAMN11877932                  	0         	
+SAMN11877930                  	0         	
+SAMN07718355                  	0         	
+SAMD00499023                  	0         	
+SAMN10534843                  	0         	
+SAMN15769406                  	0         	
+SAMEA100269418                	0         	
+SAMN33231753                  	0         	
+SAMN33231749                  	0         	
+SAMN16722153                  	0         	
+SAMEA6504113                  	0         	
+SAMN33237129                  	0         	
+SAMN16722170                  	0         	
+SAMEA12944034                 	0         	
+SAMD00497607                  	0         	
+SAMN16722194                  	0         	
+SAMN16722193                  	0         	
+SAMN16722203                  	0         	
+SAMN16722202                  	0         	
+SAMN16722208                  	0         	
+SAMN16722211                  	0         	
+SAMN15769393                  	0         	
+SAMN16722222                  	0         	
+SAMN16722231                  	0         	
+SAMN41839424                  	0         	
+SAMN18914338                  	0         	
+SAMN13191646                  	0         	
+SAMN23572398                  	0         	
+SAMN15769387                  	0         	
+SAMN40210775                  	0         	
+SAMN30416087                  	0         	
+SAMN39419097                  	0         	
+SAMN10875445                  	0         	
+SAMN18912830                  	0         	
+SAMN37851193                  	0         	
+SAMN30416112                  	0         	
+SAMN07719044                  	0         	
+SAMN10527461                  	0         	
+SAMN07510260                  	0         	
+SAMEA5378387                  	0         	
+SAMEA5075906                  	0         	
+SAMN19783106                  	0         	
+SAMEA4559647                  	0         	
+SAMN10525367                  	0         	
+SAMN10525366                  	0         	
+SAMN30416106                  	0         	
+SAMEA111547260                	0         	
+SAMN30416122                  	0         	
+SAMN30416140                  	0         	
+SAMN40232040                  	0         	
+SAMEA111547233                	0         	
+SAMEA5378213                  	0         	
+SAMN30416141                  	0         	
+SAMEA103924612                	0         	
+SAMD00498821                  	0         	
+SAMN20873941                  	0         	
+SAMEA5378205                  	0         	
+SAMEA5075927                  	0         	
+SAMN28608228                  	0         	
+SAMN07768275                  	0         	
+SAMN30431517                  	0         	
+SAMN10922125                  	0         	
+SAMD00498735                  	0         	
+SAMN30416167                  	0         	
+SAMN30937225                  	0         	
+SAMEA5342596                  	0         	
+SAMN20875987                  	0         	
+SAMN20879008                  	0         	
+SAMN30416168                  	0         	
+SAMN40219448                  	0         	
+SAMD00498633                  	0         	
+SAMN18766748                  	0         	
+SAMN30927509                  	0         	
+SAMN39400019                  	0         	
+SAMN30416169                  	0         	
+SAMEA5623984                  	0         	
+SAMN20881008                  	0         	
+SAMN15158832                  	0         	
+SAMN15158833                  	0         	
+SAMN15158840                  	0         	
+SAMN15158838                  	0         	
+SAMN15158837                  	0         	
+SAMN15158835                  	0         	
+SAMN15158841                  	0         	
+SAMN15158836                  	0         	
+SAMN15158834                  	0         	
+SAMN15158839                  	0         	
+SAMN15158842                  	0         	
+SAMN15158846                  	0         	
+SAMN29503695                  	0         	
+SAMN15158845                  	0         	
+SAMN15158849                  	0         	
+SAMN29503694                  	0         	
+SAMN15158853                  	0         	
+SAMN15158852                  	0         	
+SAMN15158850                  	0         	
+SAMN15158851                  	0         	
+SAMN15158844                  	0         	
+SAMN15158855                  	0         	
+SAMN15158843                  	0         	
+SAMEA5623428                  	0         	
+SAMN30416185                  	0         	
+SAMN40371297                  	0         	
+SAMN41783375                  	0         	
+SAMN30416206                  	0         	
+SAMEA13259723                 	0         	
+SAMN07508955                  	0         	
+SAMN40371270                  	0         	
+SAMN09765956                  	0         	
+SAMN10521843                  	0         	
+SAMN30416219                  	0         	
+SAMN09445432                  	0         	
+SAMN09227996                  	0         	
+SAMN02712508                  	0         	
+SAMN16824691                  	0         	
+SAMN27753334                  	0         	
+SAMN27753333                  	0         	
+SAMEA111545947                	0         	
+SAMN30416225                  	0         	
+SAMN16824664                  	0         	
+SAMN17214844                  	0         	
+SAMN11335933                  	0         	
+SAMN41783314                  	0         	
+SAMN30416229                  	0         	
+SAMN14490817                  	0         	
+SAMN14490821                  	0         	
+SAMN14490819                  	0         	
+SAMN14490818                  	0         	
+SAMN14490820                  	0         	
+SAMN14490816                  	0         	
+SAMN37516886                  	0         	
+SAMN41783287                  	0         	
+SAMN16824624                  	0         	
+SAMN21988173                  	0         	
+SAMN37429465                  	0         	
+SAMN14118488                  	0         	
+SAMN21988183                  	0         	
+SAMN16824581                  	0         	
+SAMD00498421                  	0         	
+SAMN16824576                  	0         	
+SAMN32314171                  	0         	
+SAMN11853899                  	0         	
+SAMN24849025                  	0         	
+SAMN30416234                  	0         	
+SAMN30416256                  	0         	
+SAMN30416267                  	0         	
+SAMN30416458                  	0         	
+SAMN30416447                  	0         	
+SAMN16824505                  	0         	
+SAMN20887881                  	0         	
+SAMN30416440                  	0         	
+SAMN30416432                  	0         	
+SAMN30416420                  	0         	
+SAMN20887874                  	0         	
+SAMN30416373                  	0         	
+SAMN30416367                  	0         	
+SAMN30416325                  	0         	
+SAMN40348392                  	0         	
+SAMN20886717                  	0         	
+SAMN13197356                  	0         	
+SAMN17316871                  	0         	
+SAMN41783126                  	0         	
+SAMN08826592                  	0         	
+SAMN12438410                  	0         	
+SAMN11507379                  	0         	
+SAMN06767776                  	0         	
+SAMN08367941                  	0         	
+SAMN13448964                  	0         	
+SAMN05439369                  	0         	
+SAMN04279348                  	0         	
+SAMN08226271                  	0         	
+SAMN15969066                  	0         	
+SAMN08535024                  	0         	
+SAMN09343315                  	0         	
+SAMN18869131                  	0         	
+SAMN07482183                  	5         	GTTTT
+SAMN07482187                  	0         	
+SAMN07482186                  	0         	
+SAMN37210897                  	0         	
+SAMN07482184                  	0         	
+SAMN05452866                  	0         	
+SAMN09489541                  	0         	
+SAMN07482182                  	0         	
+SAMN05452865                  	0         	
+SAMN05452908                  	0         	
+SAMN07482180                  	5         	GTTTT
+SAMN05452917                  	0         	
+SAMN05452919                  	0         	
+SAMN13413415                  	0         	
+SAMN19272673                  	0         	
+SAMN08611151                  	0         	
+SAMN08611205                  	0         	
+SAMN15483437                  	0         	
+SAMN15483436                  	0         	
+SAMN23302489                  	0         	
+SAMN39785587                  	5         	GTTTT
+SAMN09954446                  	0         	
+SAMN14519072                  	0         	
+SAMN37979271                  	0         	
+SAMN12994713                  	0         	
+SAMN12994709                  	0         	
+SAMN16451860                  	0         	
+SAMN26418547                  	0         	
+SAMEA104127837                	0         	
+SAMN24849553                  	0         	
+SAMN12438458                  	0         	
+SAMN12438423                  	0         	
+SAMN12438428                  	0         	
+SAMN06767775                  	0         	
+SAMN16454204                  	0         	
+SAMN06767774                  	0         	
+SAMN12438320                  	0         	
+SAMN11320636                  	0         	
+SAMN12438261                  	0         	
+SAMN12438253                  	0         	
+SAMN15153870                  	0         	
+SAMN15153869                  	0         	
+SAMN11320631                  	0         	
+SAMN21373979                  	0         	
+SAMEA5098429                  	0         	
+SAMN12438240                  	0         	
+SAMN12438236                  	0         	
+SAMN12438222                  	0         	
+SAMN01933087                  	0         	
+SAMEA5098383                  	0         	
+SAMN16828550                  	0         	
+SAMN16828566                  	0         	
+SAMN07500524                  	0         	
+SAMN07500521                  	0         	
+SAMN05258218                  	0         	
+SAMN13221198                  	0         	
+SAMN07500520                  	0         	
+SAMN33436164                  	0         	
+SAMEA5098381                  	0         	
+SAMEA5098354                  	5         	GTTTT
+SAMEA5098328                  	5         	GTTTT
+SAMEA5098307                  	0         	
+SAMN18347615                  	0         	
+SAMN12783988                  	0         	
+SAMN07500519                  	0         	
+SAMN16451927                  	0         	
+SAMN24718448                  	0         	
+SAMEA5747386                  	0         	
+SAMEA5747416                  	0         	
+SAMN42371305                  	0         	
+SAMN10965823                  	0         	
+SAMN16451863                  	0         	
+SAMN16451853                  	0         	
+SAMN16451848                  	0         	
+SAMEA4607572                  	0         	
+SAMN36830433                  	0         	
+SAMN02782351                  	0         	
+SAMN07500522                  	0         	
+SAMEA5867092                  	0         	
+SAMN09693209                  	0         	
+SAMD00075747                  	0         	
+SAMEA4686398                  	0         	
+SAMN02782339                  	0         	
+SAMN07500523                  	0         	
+SAMN07500525                  	0         	
+SAMN13575692                  	0         	
+SAMN07500527                  	0         	
+SAMN37648162                  	5         	GTTTT
+SAMN07500529                  	0         	
+SAMN12219755                  	0         	
+SAMN07500531                  	0         	
+SAMN07500530                  	0         	
+SAMN08783857                  	0         	
+SAMN42038121                  	0         	
+SAMN42038122                  	0         	
+SAMN42038123                  	0         	
+SAMN08783860                  	0         	
+SAMN20692131                  	5         	GTTTT
+SAMN08783845                  	0         	
+SAMN23098989                  	0         	
+SAMN20692144                  	0         	
+SAMN07500535                  	0         	
+SAMN07500533                  	0         	
+SAMN08996151                  	0         	
+SAMN27524710                  	0         	
+SAMN27524709                  	0         	
+SAMN07500532                  	0         	
+SAMN07500537                  	0         	
+SAMN07500536                  	0         	
+SAMN26365914                  	0         	
+SAMN07500538                  	0         	
+SAMN08362352                  	0         	
+SAMN14449783                  	0         	
+SAMN14165662                  	0         	
+SAMN26578238                  	0         	
+SAMN14449731                  	0         	
+SAMN16320280                  	0         	
+SAMN07500540                  	0         	
+SAMN14503334                  	0         	
+SAMN07500542                  	0         	
+SAMN07450959                  	0         	
+SAMN07500546                  	0         	
+SAMN07500541                  	0         	
+SAMN13340309                  	0         	
+SAMN07500544                  	0         	
+SAMN07955770                  	0         	
+SAMN02645728                  	0         	
+SAMN14519981                  	0         	
+SAMN14601448                  	0         	
+SAMN14602689                  	0         	
+SAMN07500526                  	0         	
+SAMN13243518                  	0         	
+SAMN07839405                  	0         	
+SAMN10084361                  	0         	
+SAMN37073163                  	0         	
+SAMN37073168                  	0         	
+SAMN37073169                  	0         	
+SAMN37073176                  	0         	
+SAMN37073173                  	0         	
+SAMN37073175                  	0         	
+SAMN07500545                  	0         	
+SAMN37073172                  	0         	
+SAMN09060800                  	0         	
+SAMN06240054                  	0         	
+SAMN04993091                  	0         	
+SAMN37073177                  	0         	
+SAMN16302758                  	0         	
+SAMN09060793                  	0         	
+SAMN37073178                  	0         	
+SAMN07500560                  	0         	
+SAMN07500559                  	0         	
+SAMN14503633                  	0         	
+SAMN14503652                  	0         	
+SAMN37073179                  	0         	
+SAMN37073182                  	0         	
+SAMN07500557                  	0         	
+SAMN37073183                  	0         	
+SAMN07500558                  	0         	
+SAMN07500556                  	0         	
+SAMN09060764                  	0         	
+SAMN37073180                  	0         	
+SAMN37073189                  	0         	
+SAMN37073188                  	0         	
+SAMN37073187                  	0         	
+SAMN07500555                  	0         	
+SAMN07500554                  	0         	
+SAMN37073191                  	0         	
+SAMN37073186                  	0         	
+SAMN37073185                  	0         	
+SAMN07500553                  	0         	
+SAMN07500547                  	0         	
+SAMN11412449                  	0         	
+SAMN11961244                  	0         	
+SAMN37073192                  	0         	
+SAMN11961235                  	0         	
+SAMN04993197                  	0         	
+SAMN11961225                  	0         	
+SAMN15889500                  	0         	
+SAMN09060721                  	0         	
+SAMN15889467                  	0         	
+SAMN15889464                  	5         	GTTTT
+SAMN07500543                  	0         	
+SAMD00078329                  	0         	
+SAMN09060718                  	0         	
+SAMN07500548                  	0         	
+SAMN07500552                  	0         	
+SAMN07500551                  	0         	
+SAMN07500550                  	0         	
+SAMN07500549                  	0         	
+SAMN11494106                  	0         	
+SAMN40589658                  	0         	
+SAMN31098552                  	0         	
+SAMN36377858                  	0         	
+SAMN14049493                  	0         	
+SAMN11494108                  	0         	
+SAMN11494105                  	0         	
+SAMN11494107                  	0         	
+SAMN08347873                  	0         	
+SAMN13714355                  	0         	
+SAMEA114539259                	0         	
+SAMD00498469                  	0         	
+SAMN27683587                  	0         	
+SAMN38761706                  	0         	
+SAMD00499423                  	0         	
+SAMN41769857                  	0         	
+SAMN30414528                  	0         	
+SAMEA8918774                  	0         	
+SAMN30414123                  	0         	
+SAMN20606810                  	0         	
+SAMEA5098032                  	0         	
+SAMEA5098024                  	0         	
+SAMN30414141                  	0         	
+SAMN33277579                  	0         	
+SAMEA104060355                	0         	
+SAMN38146130                  	0         	
+SAMEA5375386                  	0         	
+SAMN33277544                  	0         	
+SAMN27404422                  	0         	
+SAMN02847196                  	0         	
+SAMN18906049                  	0         	
+SAMEA114538996                	0         	
+SAMN08100378                  	0         	
+SAMN31988441                  	0         	
+SAMN28667623                  	0         	
+SAMEA114538995                	0         	
+SAMN27647135                  	0         	
+SAMN30414708                  	0         	
+SAMN30414475                  	0         	
+SAMEA114494594                	0         	
+SAMEA114539253                	0         	
+SAMN30414704                  	0         	
+SAMN30413938                  	0         	
+SAMEA114539252                	0         	
+SAMN14163510                  	0         	
+SAMN31988396                  	0         	
+SAMN31088692                  	0         	
+SAMN30416194                  	0         	
+SAMN31988420                  	0         	
+SAMN31988435                  	0         	
+SAMN31988421                  	0         	
+SAMN31988437                  	0         	
+SAMN31988425                  	0         	
+SAMN31988433                  	0         	
+SAMN31988434                  	0         	
+SAMN31988432                  	0         	
+SAMN07482185                  	5         	GTTTT
+SAMN38266211                  	0         	
+SAMN10587928                  	0         	
+SAMN10088700                  	0         	
+SAMN08015651                  	0         	
+SAMN30414703                  	0         	
+SAMEA7225482                  	0         	
+SAMEA5162778                  	0         	
+SAMN10425190                  	0         	
+SAMN10425189                  	0         	
+SAMN26764391                  	0         	
+SAMN20396757                  	0         	
+SAMN40631751                  	0         	
+SAMN40897199                  	0         	
+SAMN29332565                  	0         	
+SAMN13951926                  	9         	GAATAGCAT
+SAMN38842749                  	0         	
+SAMEA115474550                	0         	
+SAMN16278062                  	0         	
+SAMN16278236                  	2         	CC
+SAMD00195868                  	0         	
+SAMN13264482                  	0         	
+SAMN10142235                  	0         	
+SAMN32316924                  	0         	
+SAMN41606819                  	0         	
+SAMN15315338                  	0         	
+SAMN09658597                  	0         	
+SAMN33441010                  	0         	
+SAMEA8700144                  	2         	CC
+SAMN16552541                  	9         	AGTCACAGG
+SAMN30525445                  	0         	
+SAMN30525474                  	0         	
+SAMN26796307                  	9         	GGTGTGTGC
+SAMN14147011                  	0         	
+SAMN06040402                  	0         	
+SAMEA4532006                  	9         	GGCTTACAC
+SAMN31778815                  	0         	
+SAMEA111503559                	0         	
+SAMEA7225647                  	0         	
+SAMEA2051786                  	0         	
+SAMN29332626                  	9         	GTCGTAGGT
+SAMN14147012                  	0         	
+SAMN30525564                  	0         	
+SAMN14147027                  	0         	
+SAMN19016449                  	9         	ATGCAGCGC
+SAMN31778848                  	0         	
+SAMD00194631                  	0         	
+SAMN06314443                  	0         	
+SAMEA7471040                  	9         	GGCTTACAC
+SAMEA7225584                  	0         	
+SAMN22028932                  	0         	
+SAMN22028933                  	0         	
+SAMD00553969                  	0         	
+SAMN26198715                  	0         	
+SAMN20396724                  	0         	
+SAMD00194385                  	0         	
+SAMN25232826                  	0         	
+SAMEA8271314                  	2         	GC
+SAMEA8271311                  	2         	GC
+SAMD00554017                  	0         	
+SAMN16595335                  	9         	AGGGTAAGG
+SAMN08932735                  	9         	AGGGTAAGG
+SAMEA6832297                  	9         	AGGGTAAGG
+SAMN21238360                  	9         	AGGGTAAGG
+SAMN21238946                  	9         	AGGGTAAGG
+SAMEA5616439                  	0         	
+SAMEA7457081                  	0         	
+SAMEA5616212                  	0         	
+SAMEA5616203                  	0         	
+SAMN13837765                  	0         	
+SAMEA7457152                  	0         	
+SAMEA7457075                  	0         	
+SAMEA5616409                  	0         	
+SAMEA7457220                  	0         	
+SAMEA12546749                 	0         	
+SAMEA7457223                  	0         	
+SAMEA7457078                  	0         	
+SAMEA7457131                  	0         	
+SAMEA5616261                  	0         	
+SAMEA9334667                  	0         	
+SAMEA5616236                  	0         	
+SAMEA7457177                  	0         	
+SAMEA7457166                  	0         	
+SAMEA12546758                 	0         	
+SAMEA9334624                  	0         	
+SAMD00554012                  	9         	GTATTGTTG
+SAMEA7472816                  	0         	
+SAMN34420540                  	0         	
+SAMEA8271310                  	9         	CTGCAATAG
+SAMN26796383                  	2         	CC
+SAMEA8271312                  	9         	CTGCAATAG
+SAMEA1030070                  	0         	
+SAMEA8271315                  	9         	CTGCAATAG
+SAMN26796321                  	0         	
+SAMEA8271313                  	9         	CTGCAATAG
+SAMN35732566                  	0         	
+SAMEA7225652                  	2         	CC
+SAMEA8271316                  	9         	GACAGGTGC
+SAMN09767733                  	2         	CC
+SAMEA8271317                  	0         	
+SAMEA115875146                	10        	GGTGCCATCG
+SAMEA8271319                  	9         	CTGCAATAG
+SAMEA8271318                  	9         	CTGCAATAG
+SAMD00194437                  	9         	TCTCCCTGG
+SAMD00553999                  	9         	GTATTGTTG
+SAMN29332665                  	0         	
+SAMD00623449                  	9         	GTATTGTTG
+SAMN15148600                  	0         	
+SAMD00194646                  	0         	
+SAMD00194374                  	0         	
+SAMN06040385                  	0         	
+SAMD00194627                  	0         	
+SAMEA8515068                  	0         	
+SAMN07692506                  	9         	GAGCCATCC
+SAMD00554009                  	0         	
+SAMD00194351                  	0         	
+SAMN16233206                  	9         	GAGCCATCC
+SAMN09980262                  	0         	
+SAMN16233156                  	0         	
+SAMN16233233                  	9         	GAGCCATCC
+SAMEA8729363                  	0         	
+SAMN37797071                  	0         	
+SAMN21590779                  	0         	
+SAMD00194366                  	0         	
+SAMEA8729350                  	0         	
+SAMN38755522                  	0         	
+SAMN29332598                  	0         	
+SAMN37517042                  	0         	
+SAMN16278235                  	0         	
+SAMN29332597                  	0         	
+SAMD00554048                  	0         	
+SAMD00554057                  	0         	
+SAMEA3918491                  	9         	GTTCCGAAT
+SAMN35768943                  	9         	GTTCCGAAT
+SAMN35769049                  	9         	GTTCCGAAT
+SAMEA1405607                  	9         	GTTCCGAAT
+SAMN05751420                  	9         	GTTCCGAAT
+SAMN24059293                  	9         	GTTCCGAAT
+SAMEA3918418                  	9         	GTTCCGAAT
+SAMN05751250                  	9         	GTTCCGAAT
+SAMN35768970                  	9         	GTTCCGAAT
+SAMEA3918422                  	9         	GTTCCGAAT
+SAMEA3918414                  	9         	GTTCCGAAT
+SAMN05751247                  	9         	GTTCCGAAT
+SAMEA3918429                  	9         	GTTCCGAAT
+SAMD00658916                  	9         	GTTCCGAAT
+SAMEA3918424                  	9         	GTTCCGAAT
+SAMN05751410                  	9         	GTTCCGAAT
+SAMN35769054                  	0         	
+SAMD00623448                  	0         	
+SAMD00492910                  	0         	

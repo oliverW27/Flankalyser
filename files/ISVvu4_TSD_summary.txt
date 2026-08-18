@@ -1,0 +1,833 @@
+TSD Summary for ISVvu4
+========================================
+Total accessions: 819
+With TSD:         470 (57.4%)
+Without TSD:      349 (42.6%)
+
+TSD length breakdown:
+  Length   3:      3 accessions (0.4%)
+  Length   6:      1 accessions (0.1%)
+  Length   7:    465 accessions (56.8%)
+  Length   8:      1 accessions (0.1%)
+
+Per-accession details:
+acc_name                      	tsd_len   	tsd_seq
+SAMN13241735                  	7         	ACTGAAT
+SAMN13241736                  	7         	ATTTAAC
+SAMN13241738                  	0         	
+SAMN25134817                  	7         	GTTAAAA
+SAMN40988618                  	7         	GTTAAAA
+SAMN33218983                  	7         	GTTAAAA
+SAMN34282418                  	7         	GTTAAAA
+SAMN40988691                  	7         	GTTAAAA
+SAMN30020374                  	7         	GTTAAAA
+SAMN02368470                  	7         	GTTAAAA
+SAMN40988626                  	7         	GTTAAAA
+SAMN03358950                  	7         	GTTAAAA
+SAMN02368471                  	7         	GTTAAAA
+SAMN35090263                  	7         	GTTAAAA
+SAMN33219110                  	7         	GTTAAAA
+SAMN09386759                  	7         	GTTAAAA
+SAMN35090278                  	7         	GTTAAAA
+SAMN13241696                  	7         	GTTAAAA
+SAMN38350154                  	7         	GTTAAAA
+SAMN35090266                  	7         	GTTAAAA
+SAMN30498150                  	7         	GTTAAAA
+SAMN28767280                  	7         	GTTAAAA
+SAMN30954080                  	7         	GTTAAAA
+SAMN04498034                  	0         	
+SAMN04498007                  	0         	
+SAMN04498030                  	0         	
+SAMN04498006                  	0         	
+SAMN04498029                  	0         	
+SAMN04498025                  	0         	
+SAMN04498028                  	0         	
+SAMN04498024                  	0         	
+SAMN04498026                  	0         	
+SAMN04498022                  	0         	
+SAMN04498023                  	0         	
+SAMN04498020                  	0         	
+SAMN04498021                  	0         	
+SAMN04498017                  	0         	
+SAMN04498038                  	0         	
+SAMN04498012                  	0         	
+SAMN04498037                  	0         	
+SAMN04498016                  	0         	
+SAMN04498015                  	0         	
+SAMN04498011                  	0         	
+SAMN04498013                  	0         	
+SAMN04498010                  	0         	
+SAMN04498009                  	0         	
+SAMN04498008                  	0         	
+SAMN04498035                  	0         	
+SAMN04498032                  	0         	
+SAMN04498033                  	0         	
+SAMN04498004                  	0         	
+SAMN04498027                  	0         	
+SAMN04498005                  	0         	
+SAMN40988715                  	0         	
+SAMN04498003                  	0         	
+SAMN04498031                  	0         	
+SAMN04498036                  	0         	
+SAMN04498002                  	0         	
+SAMN04498000                  	0         	
+SAMN04498039                  	0         	
+SAMN04498001                  	0         	
+SAMN02368458                  	7         	TATAAGA
+SAMN04498019                  	0         	
+SAMN04498014                  	0         	
+SAMN04498018                  	0         	
+SAMN35090272                  	7         	ATTTAGC
+SAMN40988640                  	7         	GTTAAAA
+SAMN40988643                  	7         	GTTAAAA
+SAMN10255400                  	0         	
+SAMN10240051                  	0         	
+SAMN10240148                  	0         	
+SAMN17808252                  	7         	GCTTAAT
+SAMN35714665                  	7         	GTTTAGC
+SAMN35714668                  	7         	GTTTAGC
+SAMN17808311                  	7         	GTTTAGC
+SAMN03358940                  	7         	GTTAAAA
+SAMN37663479                  	7         	GTTAAAA
+SAMN36715377                  	7         	GTTAAAA
+SAMN02368434                  	7         	GTTAAAA
+SAMN17808260                  	7         	CATTAAT
+SAMN22202788                  	7         	CTTGATT
+SAMD00180673                  	7         	CTTGAAT
+SAMN40988664                  	7         	GTTTATT
+SAMN13241740                  	0         	
+SAMEA115098636                	7         	TTCTAGT
+SAMN09062733                  	7         	TATAAAG
+SAMN06670862                  	7         	ATTTAGC
+SAMN31697737                  	7         	GCTGATG
+SAMN31185955                  	7         	AATAAGA
+SAMN32118241                  	7         	CCAAATG
+SAMN09261044                  	7         	TGTAATT
+SAMN19011166                  	0         	
+SAMEA8271166                  	7         	TTTAAAG
+SAMN29637379                  	7         	AATAAGA
+SAMEA8204180                  	7         	CCTATTC
+SAMN37127550                  	7         	ATTTACC
+SAMD00180646                  	0         	
+SAMN09767757                  	0         	
+SAMN29637513                  	7         	ATTTACC
+SAMN13282679                  	0         	
+SAMN41053858                  	7         	CCAAATG
+SAMN33218978                  	7         	ATTAAAT
+SAMN31697738                  	7         	TCTAAAT
+SAMN13825959                  	7         	CCAAATG
+SAMN41572240                  	7         	CCAAATG
+SAMEA4057597                  	0         	
+SAMN29444635                  	7         	CCAAATG
+SAMN29637435                  	0         	
+SAMN38412799                  	7         	CCTAATT
+SAMN39859446                  	7         	CTTCAGC
+SAMN33218976                  	7         	ATTAAAT
+SAMN42335898                  	0         	
+SAMN32118234                  	7         	AATGTTA
+SAMN18065258                  	0         	
+SAMN34496987                  	0         	
+SAMN09386771                  	0         	
+SAMN21476467                  	0         	
+SAMN14135847                  	0         	
+SAMN25524184                  	0         	
+SAMN40018675                  	0         	
+SAMN13939783                  	0         	
+SAMN31466845                  	0         	
+SAMN15967489                  	0         	
+SAMN16567327                  	0         	
+SAMN21975704                  	0         	
+SAMN28207905                  	0         	
+SAMN28207904                  	0         	
+SAMN40988735                  	0         	
+SAMN40298815                  	0         	
+SAMN23413463                  	0         	
+SAMN12797658                  	0         	
+SAMN28207912                  	0         	
+SAMN13241721                  	0         	
+SAMN26659651                  	0         	
+SAMN37195754                  	7         	CATTAAG
+SAMN23413453                  	7         	CATTAAG
+SAMN09386618                  	0         	
+SAMN32119129                  	0         	
+SAMEA112667506                	7         	AGTAACT
+SAMN39181178                  	0         	
+SAMD00171671                  	7         	AGTAACT
+SAMEA5534157                  	7         	AGTAACT
+SAMN36289159                  	0         	
+SAMEA8204060                  	7         	AATAAGA
+SAMN29637584                  	7         	CGGTAAC
+SAMN32119104                  	7         	CGGTAAC
+SAMN18746884                  	0         	
+SAMN13241636                  	7         	ACTGAAC
+SAMN08476201                  	7         	CGGTAAC
+SAMD00506750                  	7         	GTTTAGT
+SAMN09261042                  	0         	
+SAMN37490883                  	0         	
+SAMN13241637                  	7         	ACTGAAC
+SAMN13241638                  	7         	ACTGAAC
+SAMN28551621                  	7         	CGGTAAC
+SAMN39181179                  	7         	CCTAACT
+SAMEA14321178                 	7         	AATAAGA
+SAMN09261055                  	7         	CTTAAAC
+SAMEA2275599                  	0         	
+SAMN18108651                  	0         	
+SAMN32117932                  	7         	CGGTAAC
+SAMEA8270600                  	0         	
+SAMN36289193                  	7         	CCAAATG
+SAMEA115098654                	7         	AGTCATA
+SAMEA8204036                  	0         	
+SAMEA8271015                  	7         	TTTAAAG
+SAMEA8271209                  	7         	TTTAAAG
+SAMEA1405505                  	7         	CCTATAG
+SAMN42123968                  	7         	CGGTAAC
+SAMEA1405498                  	7         	AGTAAAT
+SAMN32378301                  	7         	CGGTAAC
+SAMEA8271035                  	7         	TTTAAAG
+SAMN37410841                  	0         	
+SAMN41327174                  	0         	
+SAMN22063784                  	7         	ATTAAAG
+SAMN41572239                  	7         	CCAAATG
+SAMN36289113                  	7         	CTTAAAG
+SAMN40217953                  	7         	CGGTAAC
+SAMN36289112                  	7         	GATTAAC
+SAMN21531116                  	7         	CGGTAAC
+SAMN32119094                  	7         	CGGTAAC
+SAMN32119194                  	7         	CGGTAAC
+SAMN09386615                  	7         	CCTTAAT
+SAMN41053812                  	7         	CGGTAAC
+SAMN29637554                  	7         	CATTGTT
+SAMN41053819                  	7         	CGGTAAC
+SAMN37531626                  	7         	CGGTAAC
+SAMN29637414                  	7         	CGGTAAC
+SAMEA8204153                  	7         	CGGTAAC
+SAMN32118002                  	7         	CGGTAAC
+SAMN29637517                  	7         	CGGTAAC
+SAMN42431523                  	7         	CGGTAAC
+SAMN38412717                  	7         	CCAAATG
+SAMN32117995                  	7         	CGGTAAC
+SAMN29637509                  	0         	
+SAMN29637413                  	7         	CGGTAAC
+SAMEA8204164                  	7         	CGGTAAC
+SAMEA8204174                  	0         	
+SAMN40218050                  	7         	ATTAATA
+SAMEA14321152                 	0         	
+SAMN12767274                  	7         	CGGTAAC
+SAMN42017668                  	7         	CGGTAAC
+SAMN09917446                  	7         	CCTAATG
+SAMN30442591                  	7         	CGGTAAC
+SAMN32378296                  	0         	
+SAMD00194707                  	7         	CATCAAT
+SAMN41053876                  	0         	
+SAMN17808344                  	7         	GTTTAGT
+SAMN41053877                  	0         	
+SAMN32119113                  	7         	CGGTAAC
+SAMN33578539                  	7         	TCTAATT
+SAMN13763579                  	0         	
+SAMN33219089                  	0         	
+SAMN13241674                  	0         	
+SAMN13241673                  	0         	
+SAMN18065254                  	0         	
+SAMN40018680                  	0         	
+SAMN34496949                  	0         	
+SAMN12699090                  	0         	
+SAMN32118036                  	7         	GCTGATT
+SAMN32119125                  	0         	
+SAMN20357696                  	7         	CTTAATT
+SAMN20527508                  	7         	ACTGAGT
+SAMN20570681                  	7         	ACTGAGT
+SAMN40988658                  	7         	ACTGAGT
+SAMN33219132                  	7         	ACTGAGT
+SAMN13282691                  	7         	ACTAAGG
+SAMN32378297                  	7         	ACTAAGG
+SAMN37213164                  	7         	ACTTAAA
+SAMN29637588                  	7         	CAATATG
+SAMN36689565                  	7         	ACTAAGG
+SAMN29637386                  	0         	
+SAMN33219112                  	0         	
+SAMN12534780                  	7         	CAATATG
+SAMD00180566                  	0         	
+SAMN18746892                  	7         	GATTATT
+SAMN41053839                  	7         	CGTTAGC
+SAMN32118232                  	7         	CAATATG
+SAMN41012613                  	0         	
+SAMN15524620                  	7         	AATTAAG
+SAMN34159973                  	7         	CGTTAGC
+SAMEA8204031                  	7         	GATTATT
+SAMN37605513                  	7         	CGTTAGC
+SAMN18746899                  	7         	GATTATT
+SAMEA8204179                  	7         	GTTCATC
+SAMN17311147                  	7         	TTTAAAC
+SAMN13241724                  	7         	TTTAACT
+SAMN17311142                  	7         	TTTAAAC
+SAMN29637608                  	7         	GCTAATG
+SAMN32118965                  	0         	
+SAMN17311138                  	7         	TTTAAAC
+SAMN18746904                  	7         	GATTATT
+SAMN18746897                  	0         	
+SAMEA8204200                  	7         	GATTATT
+SAMN41053875                  	0         	
+SAMN32378293                  	7         	ACTAAGG
+SAMN32118033                  	7         	CGTTAGC
+SAMN22168610                  	7         	TATTATT
+SAMEA8271354                  	7         	TATAAAG
+SAMN34496960                  	7         	AAATAGG
+SAMN29637698                  	7         	ACTGAAC
+SAMN32378298                  	7         	ACTAAGG
+SAMEA8271360                  	7         	TATAAAG
+SAMEA8271359                  	7         	TATAAAG
+SAMEA8271355                  	7         	TATAAAG
+SAMEA8204204                  	7         	GATTATT
+SAMEA8271356                  	7         	TATAAAG
+SAMEA4057563                  	7         	CATTAAC
+SAMEA13600410                 	7         	CTTTACT
+SAMN36729067                  	7         	CTTTACT
+SAMN29151905                  	7         	CTTTACT
+SAMD00171663                  	7         	CATTAAC
+SAMD00180551                  	7         	CATTAAC
+SAMN39921576                  	7         	ATTTGTT
+SAMEA1405485                  	7         	TTTAAAT
+SAMN17723464                  	0         	
+SAMN39181742                  	0         	
+SAMD00180517                  	7         	TTTAAAT
+SAMEA1405659                  	0         	
+SAMN32118958                  	7         	TTTAAAT
+SAMEA3356152                  	0         	
+SAMN40218020                  	7         	GGTAATA
+SAMN40988712                  	7         	CCTTAGG
+SAMEA8271321                  	7         	CTTTAAA
+SAMEA8271322                  	7         	CTTTAAA
+SAMEA8271325                  	7         	CTTTAAA
+SAMD00180536                  	7         	GCTAAAG
+SAMN27544067                  	7         	TCTAAAT
+SAMN40988680                  	0         	
+SAMN32118004                  	7         	ACTTATT
+SAMN13388592                  	6         	ATAAAT
+SAMN29637575                  	7         	CCTTAGT
+SAMN27544068                  	7         	TCTAAAT
+SAMN36871291                  	7         	GGTAATA
+SAMN27544089                  	7         	TCTAAAT
+SAMN29637381                  	7         	CTGGATA
+SAMN27544069                  	7         	TCTAAAT
+SAMEA1405510                  	7         	TATAAGC
+SAMN08979258                  	7         	AATAAAT
+SAMN37127653                  	0         	
+SAMN32118003                  	7         	CCTTAGT
+SAMN12661286                  	7         	GGTAATA
+SAMN37127660                  	7         	CTTGAGC
+SAMN12699058                  	0         	
+SAMN26198748                  	0         	
+SAMN40018428                  	7         	CCTAGGT
+SAMN17808321                  	7         	CCTTAAC
+SAMN18746877                  	7         	TGTTAGG
+SAMN07607825                  	7         	CTTAAAA
+SAMN13241633                  	7         	CCTTAAC
+SAMEA8271037                  	7         	CTTCACG
+SAMEA104125080                	7         	TATAAGC
+SAMN32378320                  	0         	
+SAMN29637619                  	0         	
+SAMEA8271017                  	7         	CTTCACG
+SAMN00736148                  	7         	TATAAGC
+SAMN41012601                  	0         	
+SAMN41012599                  	7         	CTGAAAC
+SAMN03358508                  	0         	
+SAMEA104125071                	7         	TATAAGC
+SAMN37196534                  	0         	
+SAMEA104125067                	7         	TATAAGC
+SAMN34159960                  	0         	
+SAMN38412692                  	7         	GATAAAG
+SAMN27544060                  	7         	TCTAAAT
+SAMN36289158                  	7         	AAAAATC
+SAMN22183820                  	7         	CCTTATG
+SAMN33219052                  	0         	
+SAMN33219041                  	0         	
+SAMEA104125068                	7         	TATAAGC
+SAMN27544057                  	7         	TCTAAAT
+SAMN37096631                  	7         	TCTAAAA
+SAMN33219002                  	0         	
+SAMEA8204169                  	7         	CCTAAGG
+SAMN27544059                  	7         	TCTAAAT
+SAMN33219004                  	0         	
+SAMN33218996                  	0         	
+SAMEA104125066                	7         	TATAAGC
+SAMN41053850                  	7         	CTTTAAA
+SAMN27544054                  	7         	TCTAAAT
+SAMN36715380                  	7         	TCTAAAA
+SAMN41053856                  	0         	
+SAMN37529846                  	7         	GGTAATA
+SAMN28100973                  	7         	TCTAAAA
+SAMN42526655                  	7         	GCTTAGC
+SAMEA104124989                	7         	TATAAGC
+SAMN32378299                  	7         	AATTAGG
+SAMEA1405715                  	0         	
+SAMN09767775                  	0         	
+SAMN37847022                  	7         	GGTAATA
+SAMN12504964                  	7         	GGTAATA
+SAMN41053871                  	0         	
+SAMN27544084                  	7         	TCTAAAT
+SAMN32378341                  	7         	GTTTAGT
+SAMN12766992                  	0         	
+SAMD00180660                  	7         	CATTAAC
+SAMN10390786                  	7         	CATTAAC
+SAMN29637549                  	0         	
+SAMN09261051                  	0         	
+SAMEA14321177                 	7         	ATTTGTT
+SAMN29637484                  	7         	TCTAAAT
+SAMEA4673484                  	0         	
+SAMEA14321158                 	7         	ATTTGTT
+SAMN29637482                  	7         	TCTAAAT
+SAMN32118302                  	7         	GTTAGGC
+SAMN13282669                  	7         	CTTGTAT
+SAMN40951181                  	7         	TCTAAAT
+SAMN36289195                  	0         	
+SAMN21439351                  	7         	TCTAAAT
+SAMN32378333                  	0         	
+SAMN25185369                  	0         	
+SAMN38293558                  	0         	
+SAMN10077881                  	7         	AATTAGA
+SAMN29637436                  	7         	TCTAAAT
+SAMN30385188                  	7         	TCTAAAT
+SAMN25185366                  	0         	
+SAMN35042009                  	0         	
+SAMN32119112                  	7         	TCTAAAT
+SAMN32118038                  	0         	
+SAMEA8270908                  	0         	
+SAMN07632714                  	0         	
+SAMN26804320                  	7         	TCTAAAT
+SAMEA8204182                  	7         	TTTAAAC
+SAMN19918868                  	7         	TCTAAAT
+SAMN41834426                  	7         	TATTAAG
+SAMN29637493                  	7         	TCTAAAT
+SAMN36689570                  	7         	TCTAAAT
+SAMN12797599                  	7         	CATTAAT
+SAMD00180635                  	7         	CATTAAC
+SAMD00180631                  	0         	
+SAMN29637496                  	7         	TCTAAAT
+SAMN25185364                  	0         	
+SAMEA8270905                  	0         	
+SAMN25185365                  	0         	
+SAMEA4673066                  	0         	
+SAMN32378326                  	7         	TCTAAAT
+SAMEA8270910                  	0         	
+SAMN28861109                  	7         	TCTAAAT
+SAMN36689559                  	7         	ATTTAGG
+SAMEA8271161                  	0         	
+SAMEA8204160                  	7         	TTTAAAC
+SAMN36289138                  	7         	TTTAAAC
+SAMN11890714                  	7         	TCTAAAT
+SAMEA4673035                  	7         	CAATATG
+SAMEA8204159                  	7         	TTTAAAC
+SAMEA110019874                	7         	TCTAAAT
+SAMN22231999                  	7         	TCTAAAT
+SAMEA112667503                	0         	
+SAMN29637654                  	7         	CTTGTAT
+SAMN32378324                  	7         	TCTAAAT
+SAMN28551617                  	7         	TCTAAAT
+SAMN29637519                  	7         	CTTGTAT
+SAMD00180494                  	0         	
+SAMN32117754                  	7         	CCTTAAA
+SAMN14146908                  	0         	
+SAMN08979135                  	7         	TCTAAAT
+SAMN37693819                  	7         	TCTAAAT
+SAMEA4673477                  	0         	
+SAMN02368459                  	0         	
+SAMEA8270693                  	0         	
+SAMEA8270699                  	0         	
+SAMEA8270697                  	0         	
+SAMEA8270686                  	0         	
+SAMEA8270685                  	0         	
+SAMEA8270666                  	0         	
+SAMEA8270661                  	0         	
+SAMEA8270664                  	0         	
+SAMEA8270663                  	0         	
+SAMN29637521                  	7         	TCTAAAT
+SAMN12648323                  	7         	GTTAGGC
+SAMN11288626                  	0         	
+SAMN29637606                  	7         	CTTGTAT
+SAMEA4673025                  	0         	
+SAMN30282290                  	7         	TCTAAAT
+SAMN29637552                  	7         	GTTAGGC
+SAMD00180567                  	0         	
+SAMEA104147936                	0         	
+SAMN40726558                  	7         	TCTAAAT
+SAMN32118060                  	7         	TCTAAAT
+SAMN12661207                  	7         	CATTAAT
+SAMN10390788                  	0         	
+SAMN20151679                  	7         	TCTAAAT
+SAMN28204805                  	7         	TCTAAAT
+SAMEA8204042                  	7         	ATTTGTT
+SAMEA14370240                 	7         	TCTAAAT
+SAMN30282292                  	7         	TCTAAAT
+SAMN10390787                  	0         	
+SAMEA4673364                  	0         	
+SAMD00180487                  	0         	
+SAMN29637526                  	7         	CCTTAAA
+SAMN10221853                  	0         	
+SAMD00180524                  	0         	
+SAMN32118070                  	7         	GCTAAAA
+SAMD00180541                  	0         	
+SAMN29444634                  	7         	TCTAAAT
+SAMN10390782                  	7         	GTTAATT
+SAMN29637543                  	7         	CATTAAT
+SAMD00171664                  	0         	
+SAMN10390785                  	7         	TCTAAAT
+SAMD00180493                  	0         	
+SAMN41053821                  	7         	CATTAAC
+SAMN41965713                  	7         	CATTAAC
+SAMN41674178                  	7         	CATTAAC
+SAMN41573715                  	7         	CATTATT
+SAMEA1405538                  	7         	ACTTAGT
+SAMEA4057619                  	7         	ACTAAGC
+SAMN32117994                  	7         	ACTGAAT
+SAMD00180578                  	7         	CCATATC
+SAMN32119102                  	7         	TAGTAAA
+SAMEA8270937                  	0         	
+SAMN02368428                  	7         	ATTTGTT
+SAMEA103920816                	0         	
+SAMN32117964                  	7         	CTTTACC
+SAMN11891418                  	7         	TAGTAAA
+SAMN32119193                  	7         	CGTTATT
+SAMN18511394                  	7         	CCAAAGC
+SAMN14135850                  	7         	CCAAAGC
+SAMN13388594                  	7         	TATTAAG
+SAMN08979192                  	7         	CATAAAT
+SAMN08979201                  	0         	
+SAMN29847921                  	7         	TATTAGA
+SAMN37299263                  	0         	
+SAMD00180600                  	0         	
+SAMN27544058                  	7         	TCTAAAT
+SAMN29637523                  	7         	GTTTAAT
+SAMN30410806                  	0         	
+SAMN37663476                  	0         	
+SAMD00180663                  	7         	GGTAAAT
+SAMN36689550                  	7         	TATTAAG
+SAMN20007436                  	7         	CCTTAGG
+SAMN37605490                  	7         	TATTAAG
+SAMN29637594                  	7         	CTATATC
+SAMN14354968                  	7         	TATTAAG
+SAMN40741650                  	0         	
+SAMN11604295                  	7         	TATTAAG
+SAMN37605418                  	7         	TATTAAG
+SAMD00180537                  	0         	
+SAMD00009559                  	7         	TATGAGA
+SAMN37359812                  	0         	
+SAMEA8204136                  	7         	CCTTAGG
+SAMN08979228                  	7         	TATTAAG
+SAMN41012612                  	0         	
+SAMEA112667488                	0         	
+SAMN32118957                  	0         	
+SAMN32378337                  	0         	
+SAMD00180664                  	0         	
+SAMN28767319                  	0         	
+SAMN32117927                  	7         	CTATATC
+SAMN28767368                  	0         	
+SAMEA8270864                  	0         	
+SAMEA8270853                  	0         	
+SAMEA8270867                  	0         	
+SAMEA8204037                  	0         	
+SAMN15524692                  	7         	CCTTAGG
+SAMN15524608                  	7         	CCTTAGG
+SAMN15524700                  	7         	CCTTAGG
+SAMN15524703                  	7         	CCTTAGG
+SAMN15524701                  	7         	CCTTAGG
+SAMN36289127                  	7         	CCTTAGG
+SAMD00180510                  	7         	CCTTAGG
+SAMN15524632                  	7         	CCTTAGG
+SAMN15524633                  	7         	CCTTAGG
+SAMN15524635                  	7         	CCTTAGG
+SAMN08979186                  	7         	CCTTAGG
+SAMN08979245                  	7         	CCTTAGG
+SAMN15524641                  	7         	CCTTAGG
+SAMN15524642                  	7         	CCTTAGG
+SAMN15524647                  	7         	CCTTAGG
+SAMN15524699                  	7         	CCTTAGG
+SAMEA14321153                 	0         	
+SAMN15524676                  	7         	CCTTAGG
+SAMN15524680                  	7         	CCTTAGG
+SAMN15524681                  	7         	CCTTAGG
+SAMN15524697                  	7         	CCTTAGG
+SAMN15524682                  	7         	CCTTAGG
+SAMN15524698                  	7         	CCTTAGG
+SAMN15524696                  	7         	CCTTAGG
+SAMN15524684                  	7         	CCTTAGG
+SAMN15524695                  	7         	CCTTAGG
+SAMEA8204054                  	0         	
+SAMD00180498                  	7         	CCTTAGG
+SAMN17808264                  	7         	CCTTAGG
+SAMN32378348                  	7         	CCTTAGG
+SAMN15524694                  	7         	CCTTAGG
+SAMN15524693                  	7         	CCTTAGG
+SAMEA8204178                  	0         	
+SAMN17808326                  	7         	GGTAAAT
+SAMN15524685                  	7         	CCTTAGG
+SAMN15524687                  	7         	CCTTAGG
+SAMN18746883                  	0         	
+SAMN15524688                  	7         	CCTTAGG
+SAMN15524691                  	7         	CCTTAGG
+SAMN13282675                  	7         	CCTTAGG
+SAMN38412715                  	7         	GTTTATC
+SAMN15524595                  	7         	CCTTAGG
+SAMN15524599                  	7         	CCTTAGG
+SAMN15524690                  	7         	CCTTAGG
+SAMEA4673051                  	7         	CCTTAAA
+SAMEA4673367                  	7         	CCTTAAA
+SAMN13241644                  	0         	
+SAMN13241680                  	0         	
+SAMN33219097                  	0         	
+SAMN33219031                  	0         	
+SAMD00180548                  	0         	
+SAMN25185368                  	0         	
+SAMN42371071                  	0         	
+SAMN29671166                  	0         	
+SAMN32118303                  	0         	
+SAMN22063787                  	0         	
+SAMN22063783                  	0         	
+SAMEA2518991                  	0         	
+SAMN22063786                  	0         	
+SAMEA103920841                	0         	
+SAMN22063785                  	0         	
+SAMN22063789                  	0         	
+SAMN22184126                  	0         	
+SAMN27544055                  	7         	TCTAAAT
+SAMEA3356153                  	0         	
+SAMN27544086                  	7         	TCTAAAT
+SAMN27544072                  	7         	TCTAAAT
+SAMN13291664                  	7         	CTCTATA
+SAMN36289143                  	7         	ACTAAGG
+SAMN29637377                  	7         	CTATATC
+SAMN16790654                  	7         	GCTAAAC
+SAMN32118031                  	0         	
+SAMEA8271249                  	0         	
+SAMEA8271253                  	0         	
+SAMEA8271241                  	0         	
+SAMEA8271250                  	0         	
+SAMEA8271248                  	0         	
+SAMEA8271238                  	0         	
+SAMEA8271247                  	0         	
+SAMEA8271240                  	0         	
+SAMEA8270571                  	0         	
+SAMEA8271251                  	0         	
+SAMEA8271242                  	0         	
+SAMEA8271246                  	0         	
+SAMEA8271245                  	0         	
+SAMEA8270594                  	0         	
+SAMEA8271254                  	0         	
+SAMEA8270598                  	0         	
+SAMEA8270591                  	0         	
+SAMEA8271252                  	0         	
+SAMN32508192                  	0         	
+SAMN37605422                  	0         	
+SAMN36289136                  	0         	
+SAMEA8204063                  	0         	
+SAMEA8270971                  	0         	
+SAMN34159964                  	0         	
+SAMEA14321181                 	0         	
+SAMEA112667500                	0         	
+SAMN36689556                  	0         	
+SAMEA8271344                  	7         	ACTTACG
+SAMEA8204158                  	7         	TTTTAGG
+SAMN32118007                  	7         	TTTTAGG
+SAMN13763545                  	7         	TTTTAGG
+SAMN21020005                  	7         	GGTAAAC
+SAMEA104125103                	7         	GATAAGT
+SAMN32378294                  	7         	AAATATA
+SAMEA2445111                  	7         	AAATATA
+SAMN29637525                  	7         	CATTATC
+SAMN11890734                  	7         	TGTAAAG
+SAMEA1405741                  	7         	TTTGATA
+SAMN29637505                  	0         	
+SAMEA2153274                  	7         	AAATATA
+SAMN11890733                  	7         	TGTAAAG
+SAMEA113558738                	0         	
+SAMEA8204135                  	0         	
+SAMEA8271323                  	0         	
+SAMN41053787                  	7         	AAATATA
+SAMEA115646212                	7         	AAATATA
+SAMN08730470                  	7         	TGTAAAG
+SAMN08730469                  	7         	TGTAAAG
+SAMN13763501                  	7         	AAATATA
+SAMN32117934                  	7         	AAATATA
+SAMEA8204148                  	0         	
+SAMN41053811                  	7         	AAATATA
+SAMN14083404                  	7         	CTTAAAT
+SAMEA14321154                 	0         	
+SAMN07661831                  	7         	TGTAAAG
+SAMN32119098                  	7         	AAATATA
+SAMN17723454                  	0         	
+SAMN32117966                  	7         	AAATATA
+SAMN11890711                  	0         	
+SAMD00057589                  	0         	
+SAMN13282694                  	0         	
+SAMN13282693                  	0         	
+SAMN36689568                  	7         	GCTTACG
+SAMEA8204038                  	0         	
+SAMN32119117                  	7         	AAATATA
+SAMN11801548                  	7         	AAATATA
+SAMD00006230                  	0         	
+SAMN32118069                  	7         	AAATATA
+SAMN34353974                  	7         	AAATATA
+SAMEA8204162                  	7         	AAATATA
+SAMEA8204161                  	7         	AAATATA
+SAMEA2157712                  	0         	
+SAMN32119132                  	7         	AAATATA
+SAMN32117933                  	7         	AAATATA
+SAMN41012650                  	0         	
+SAMN18434346                  	7         	AATAACT
+SAMN18434343                  	7         	AATAACT
+SAMN29637508                  	7         	ATTAATT
+SAMN15054259                  	0         	
+SAMN29637422                  	0         	
+SAMN28454518                  	7         	ATTTAAT
+SAMN36289145                  	7         	ATTAATT
+SAMN10977061                  	7         	GTTTAAA
+SAMN31136784                  	0         	
+SAMN29637430                  	0         	
+SAMN36689567                  	0         	
+SAMN22163833                  	0         	
+SAMEA1405652                  	0         	
+SAMN29637516                  	0         	
+SAMN08979155                  	0         	
+SAMD00180515                  	0         	
+SAMN41012618                  	0         	
+SAMN32118056                  	0         	
+SAMEA4889173                  	0         	
+SAMN18057608                  	0         	
+SAMEA4384428                  	0         	
+SAMN36289142                  	0         	
+SAMN41053824                  	0         	
+SAMEA4384827                  	0         	
+SAMN41164406                  	0         	
+SAMEA8204150                  	0         	
+SAMEA14321182                 	0         	
+SAMEA8204064                  	0         	
+SAMEA8204173                  	0         	
+SAMN13241707                  	7         	AATCATT
+SAMN18524211                  	0         	
+SAMN29637535                  	7         	CTCCAAC
+SAMEA14321165                 	7         	GATGAAT
+SAMD00320796                  	0         	
+SAMN29637534                  	7         	CTCCAAC
+SAMN11895921                  	7         	GGTTAGT
+SAMEA8204049                  	7         	GATGAAT
+SAMD00180588                  	0         	
+SAMN36984568                  	0         	
+SAMN12587870                  	7         	AAGTAAG
+SAMD00180482                  	0         	
+SAMN36689571                  	0         	
+SAMEA4057617                  	0         	
+SAMN10221849                  	0         	
+SAMN41053835                  	0         	
+SAMN41012634                  	0         	
+SAMN40988636                  	0         	
+SAMN41053793                  	0         	
+SAMN38161189                  	7         	CATAGAG
+SAMN37316157                  	7         	TGTAAAT
+SAMN02368431                  	0         	
+SAMEA8271343                  	0         	
+SAMN41012640                  	0         	
+SAMN41012641                  	0         	
+SAMN29637415                  	0         	
+SAMN22043427                  	0         	
+SAMN20505203                  	0         	
+SAMN20342753                  	0         	
+SAMN18510896                  	7         	GGTTATT
+SAMN19796200                  	7         	GGTTATT
+SAMEA8271211                  	3         	ATT
+SAMN20371885                  	7         	CCTAAAT
+SAMN13388565                  	3         	ATT
+SAMN13388574                  	3         	ATT
+SAMN32118059                  	0         	
+SAMN29637382                  	0         	
+SAMN36689566                  	0         	
+SAMEA8270972                  	0         	
+SAMN11407925                  	0         	
+SAMN33219038                  	0         	
+SAMN40988653                  	0         	
+SAMN40988666                  	0         	
+SAMN33218997                  	0         	
+SAMN33219022                  	0         	
+SAMN33219027                  	0         	
+SAMN40988732                  	0         	
+SAMN40988637                  	0         	
+SAMN13241684                  	0         	
+SAMN13241686                  	0         	
+SAMN20090614                  	0         	
+SAMN20090594                  	7         	GTTTAAC
+SAMN09386756                  	0         	
+SAMN02708869                  	7         	AATTAGA
+SAMN03358951                  	0         	
+SAMEA5613899                  	7         	CCCTAGC
+SAMN20090667                  	7         	CTTAAAC
+SAMN37094569                  	7         	TTTTAAT
+SAMN33218990                  	7         	CACAAAA
+SAMN40548975                  	7         	CCTTATT
+SAMN07279752                  	7         	CATAATA
+SAMN17808280                  	7         	GCTGATA
+SAMN05924906                  	7         	CCTTAAT
+SAMN20352734                  	8         	CAATGATG
+SAMN10954690                  	7         	AATTAAC
+SAMN35089555                  	0         	
+SAMN37127655                  	7         	ACTAATT
+SAMN20168220                  	7         	CATGAAT
+SAMN40217955                  	7         	ACTAAAA
+SAMN30854450                  	7         	GCTCAAA
+SAMN29637477                  	7         	ACTAAAA
+SAMN40217957                  	7         	ACTAAAA
+SAMN07279753                  	7         	TCTAATT
+SAMN13649508                  	7         	TCTAATT
+SAMN13649507                  	7         	TCTAATT
+SAMN35830404                  	7         	AATTATC
+SAMN13649506                  	7         	TCTAATT
+SAMN18509355                  	7         	AATTATC
+SAMN27738894                  	7         	ATTAAGG
+SAMN12857421                  	7         	TTTTAAC
+SAMN40041763                  	7         	ATACAAA
+SAMN09296187                  	0         	
+SAMN10096183                  	7         	ATTAAGG
+SAMN06160637                  	7         	AATTATC
+SAMN36517474                  	7         	AATTATC
+SAMN08473268                  	7         	TCTAATT
+SAMN19796170                  	7         	AATTATC
+SAMN10723998                  	7         	CTTTATA
+SAMN10723999                  	7         	CTTTATA
+SAMN19796195                  	0         	
+SAMN08929980                  	7         	TCTCAAT
+SAMN35217003                  	7         	TATTAGA
+SAMN39484818                  	0         	
+SAMN15889572                  	7         	CCTTAGT
+SAMN38225031                  	7         	GTTTAGG
+SAMN08473292                  	0         	
+SAMN31559429                  	7         	ATTTAAA
+SAMN40298831                  	0         	
+SAMN42017664                  	7         	TATGATG
+SAMN36808860                  	0         	
+SAMN19796160                  	0         	
+SAMN42017663                  	7         	TATGATG
+SAMN20168258                  	7         	TATGATG
+SAMN36911437                  	0         	
+SAMN02368278                  	0         	
+SAMN28495001                  	7         	CCTGACA
+SAMN18762048                  	7         	AATGAAC
+SAMN10096185                  	0         	
+SAMN42157424                  	0         	
+SAMN42464183                  	0         	
+SAMN21855654                  	7         	TATGATG
+SAMEA110176648                	7         	TATGATG
+SAMEA110176652                	7         	TATGATG
+SAMN35360790                  	0         	
+SAMN06076976                  	7         	CATAAAG
+SAMN35758953                  	7         	AATGAAC
+SAMN38776991                  	7         	CACTACC
+SAMN37662157                  	0         	
+SAMN19918827                  	0         	
+SAMN42371483                  	0         	
+SAMN06077004                  	7         	GGTAAAG
+SAMN39484810                  	7         	CCTAAAA
+SAMN41602403                  	0         	
+SAMN41694475                  	0         	
+SAMN42589563                  	0         	
+SAMN07279744                  	0         	
+SAMN03941072                  	7         	TATGATG
+SAMN36827152                  	0         	
+SAMN03941073                  	7         	TATGATG
+SAMN36696412                  	0         	
