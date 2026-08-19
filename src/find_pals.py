@@ -4,8 +4,9 @@ Palindrome / inverted-repeat detection module.
 Standalone script: reads a trimmed flanks TSV (acc_name\\tleft\\tright),
 concatenates left+right per accession, searches for inverted repeats with
 optional spacer and mismatches within a configurable window, compares
-against a dinucleotide-shuffled null, and writes a summary + two location
-plots (observed vs null).
+against a dinucleotide-shuffled null, and writes a summary + two plots:
+  - null distribution (observed hits vs. shuffle distribution, with p-value)
+  - arm length distribution (observed vs. null, averaged per shuffle)
 
 Usage:
     python palindrome_analysis.py --input flanks.tsv --mge_name IS10L --outdir results
@@ -110,6 +111,63 @@ def dinucleotide_shuffle(seq, max_attempts=200):
         if len(result) == len(seq):
             return "".join(result)
     raise RuntimeError(f"Dinucleotide shuffle failed after {max_attempts} attempts")
+
+
+# ---------------------------------------------------------------------------
+# Plotting
+# ---------------------------------------------------------------------------
+
+def plot_null_distribution(null_hits, observed_hits, p_val, mge_name, output_path):
+    """Histogram of per-shuffle hit counts, with a line marking the observed value.
+
+    This is the plot that makes the p-value visual: if the observed line sits
+    off to the right of the null histogram, the enrichment is real.
+    """
+    fig, ax = plt.subplots(figsize=(8, 5))
+    lo, hi = min(null_hits + [observed_hits]), max(null_hits + [observed_hits])
+    bins = range(lo, hi + 2)
+    ax.hist(null_hits, bins=bins, color="tab:orange", edgecolor="white",
+             align="left", label="Null (shuffled)")
+    ax.axvline(observed_hits, color="tab:blue", linewidth=2.5,
+               label=f"Observed ({observed_hits})")
+    ax.set_xlabel("Sequences hitting the pattern")
+    ax.set_ylabel("Number of shuffles")
+    ax.set_title(f"{mge_name}: observed vs. null hit distribution (p = {p_val:.4f})")
+    ax.legend()
+    ax.grid(True, axis="y", alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(output_path)
+    plt.close()
+
+
+def plot_arm_length_distribution(obs_arm_lens, null_arm_lens, n_shuffles, mge_name, output_path):
+    """Bar chart of arm-length distribution, observed vs. null.
+
+    Null counts are averaged per shuffle so they're on the same scale as the
+    single observed dataset (raw null counts are summed across all shuffles).
+    """
+    all_arms = sorted(set(obs_arm_lens) | set(null_arm_lens))
+    if not all_arms:
+        return
+    obs_counts = [obs_arm_lens.count(a) for a in all_arms]
+    null_counts = [null_arm_lens.count(a) / n_shuffles for a in all_arms]
+
+    x = range(len(all_arms))
+    width = 0.35
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.bar([i - width / 2 for i in x], obs_counts, width, label="Observed", color="tab:blue")
+    ax.bar([i + width / 2 for i in x], null_counts, width,
+           label="Null (avg per shuffle)", color="tab:orange")
+    ax.set_xticks(list(x))
+    ax.set_xticklabels(all_arms)
+    ax.set_xlabel("Arm length (bp)")
+    ax.set_ylabel("Number of hits")
+    ax.set_title(f"{mge_name}: inverted repeat arm length, observed vs. null")
+    ax.legend()
+    ax.grid(True, axis="y", alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(output_path)
+    plt.close()
 
 
 # ---------------------------------------------------------------------------
@@ -380,6 +438,20 @@ def run_palindrome_analysis(
     except Exception as e:
         logger.exception(f"Failed to write summary: {e}")
 
+    # --- Plots ---
+    try:
+        null_dist_path = out_dir / f"{mge_name}_null_distribution.png"
+        plot_null_distribution(null_hits, observed_hits, p_val, mge_name, null_dist_path)
+        logger.info(f"Null distribution plot written to {null_dist_path}")
+    except Exception as e:
+        logger.exception(f"Failed to write null distribution plot: {e}")
+
+    try:
+        arm_dist_path = out_dir / f"{mge_name}_arm_length_distribution.png"
+        plot_arm_length_distribution(obs_arm_lens, null_arm_lens, n_shuffles, mge_name, arm_dist_path)
+        logger.info(f"Arm length distribution plot written to {arm_dist_path}")
+    except Exception as e:
+        logger.exception(f"Failed to write arm length distribution plot: {e}")
 
     logger.info("Palindrome analysis complete.")
 
