@@ -44,9 +44,9 @@ def test_pair_sequences_matches_by_stripped_rc_suffix():
 def test_pair_sequences_drops_unmatched_and_wrong_length_entries():
     """Left/right entries with no matching accession, or with length !=
     flank_len, should be silently excluded from the combined output --
-    confirm this doesn't silently drop a large fraction of real data without
-    any logging (currently there's no logger call here, unlike most other
-    modules)."""
+    confirm analyse_dna_curvature's paired-count log line reflects the
+    drop (e.g. "Paired X/Y left and Z right flanks...") so a large drop
+    is at least visible, even though _pair_sequences itself logs nothing."""
 
 
 def test_analyse_dna_curvature_end_to_end_smoke(tmp_path):

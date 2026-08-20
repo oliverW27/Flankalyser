@@ -63,6 +63,13 @@ def test_write_tsd_summary_percentages_sum_correctly(tmp_path):
 
 
 def test_run_tsd_analysis_end_to_end_smoke(tmp_path):
-    """Small synthetic left/right/acc_names input should produce TSD.txt,
-    no_TSD.txt, trimmed_TSD.txt under <outdir>/files, and TSD summary/graphs
-    under <outdir>/graphs, without raising."""
+    """Small synthetic left/right/acc_names input should produce TSD.txt and
+    no_TSD.txt under <outdir>/files (trimmed entries are computed in memory
+    by build_split_entries but no longer written to their own file), plus
+    the TSD summary and significance plots under <outdir>/graphs, without
+    raising."""
+
+
+def test_run_tsd_analysis_seed_reproducibility(tmp_path):
+    """Same seed should give identical null_hit_counts / p_value across two
+    runs on the same input."""

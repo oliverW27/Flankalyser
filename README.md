@@ -55,7 +55,7 @@ To run every `flanks_ISFinder_*.txt` file in a directory in one go, there's `run
 
 ## What each step does
 
-- **Nucleotide composition** (always runs) — per-position A/C/G/T frequency either side of the insertion site, with a chi-square test against a flat 25% expectation. Asterisks on the plot mark positions where the base composition looks non-random (* : p < 0.05. ** : p < 0.01. *** : p < 0.005). A nucleotide logo is also generated to more easily read any consensus sequence. The number of unique di-nucleotides is compared between the "inner" and "outer" parts of the flanks to see whether there is any enrichment close to the insertion site.
+- **Nucleotide composition** (always runs) — per-position A/C/G/T frequency either side of the insertion site, with a chi-square test against a flat 25% expectation. Asterisks on the plot mark positions where the base composition looks non-random (* : p < 0.05. ** : p < 0.01. *** : p < 0.001). A nucleotide logo is also generated to more easily read any consensus sequence. The number of unique di-nucleotides is compared between the "inner" and "outer" parts of the flanks to see whether there is any enrichment close to the insertion site.
 
 Note - the nucleotide distribution is calculated based on an "expected" baseline of A/C/T/G being equally common. This is not the case in most bacterial genomes. An additional file `gc_content.tsv` can be passed in to use the actual baseline. See (source here) for information on how to generate this file.
 

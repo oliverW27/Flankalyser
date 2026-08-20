@@ -1,6 +1,11 @@
 # Tests for src/find_pals.py
 # (see also root-level palindrome_test.py, which compares this module against a
 # now-missing src/palindrome_analysis.py "v1" -- those tests currently skip)
+#
+# Note: dinucleotide_shuffle is now defined in src/utils.py and re-exported
+# here via `from src.utils import dinucleotide_shuffle` -- test it either way,
+# find_pals.dinucleotide_shuffle and src.utils.dinucleotide_shuffle are the
+# same function.
 
 
 def test_find_longest_inverted_repeat_perfect_palindrome():

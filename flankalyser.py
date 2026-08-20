@@ -134,6 +134,26 @@ def main():
     parser.add_argument("--analyse_palindromes", action="store_true",
                         help="Detect inverted repeats/palindromes near insertion sites "
                              "(via src.find_pals) and write a summary + significance plots")
+    parser.add_argument("--palindrome_min_arm", type=int, default=6,
+                        help="Minimum inverted-repeat arm length (default: 6)")
+    parser.add_argument("--palindrome_max_spacer", type=int, default=2,
+                        help="Maximum spacer size between inverted-repeat arms (default: 2)")
+    parser.add_argument("--palindrome_max_mismatches", type=int, default=0,
+                        help="Maximum mismatches allowed per arm (default: 0)")
+    parser.add_argument("--palindrome_window_start", type=int, default=None,
+                        help="Palindrome search window start, inclusive (default: whole sequence)")
+    parser.add_argument("--palindrome_window_end", type=int, default=None,
+                        help="Palindrome search window end, exclusive (default: whole sequence)")
+    parser.add_argument("--palindrome_n_shuffles", type=int, default=100,
+                        help="Number of dinucleotide shuffles for the palindrome null (default: 100)")
+    parser.add_argument("--palindrome_min_seq_len", type=int, default=20,
+                        help="Skip concatenated left+right sequences shorter than this (default: 20)")
+    parser.add_argument("--palindrome_centered", action="store_true",
+                        help="Only test the left/right flank boundary as the palindrome centre, "
+                             "instead of searching the whole concatenated sequence")
+    parser.add_argument("--seed", type=int, default=None,
+                        help="Random seed for null-model shuffling (TSD pairing shuffle, "
+                             "palindrome dinucleotide shuffle) -- for reproducible runs")
     parser.add_argument("--analyse_bendability", action="store_true",
                         help="Compute DNA backbone curvature, writhe, and bend-plane angle "
                              "at insertion sites (via src.dna_bendability)")
@@ -212,6 +232,7 @@ def main():
                 args.mge_name,
                 output_dir,
                 min_tsd=args.min_tsd,
+                seed=args.seed,
             )
         except Exception as e:
             logger.exception(f"TSD analysis failed: {e}")
@@ -219,24 +240,19 @@ def main():
     if args.analyse_palindromes:
         log_step(logger, "STEP 5: Palindrome / inverted-repeat analysis")
         try:
-            # Hardcoded for now -- see recommended --palindrome_* CLI args below.
-            # NOTE: centered=True only makes sense once find_pals.py's fixed centre
-            # (currently hardcoded to index 50) is derived from flank_len instead;
-            # left False here so the search covers the whole concatenated sequence
-            # regardless of flank_len.
             run_palindrome_analysis(
                 input_tsv=args.summary_file,
                 mge_name=args.mge_name,
                 output_dir=output_dir,
-                min_arm=6,          # TODO: --palindrome_min_arm (was 3 -- too short, saturated the null)
-                max_spacer=2,       # TODO: --palindrome_max_spacer
-                max_mismatches=0,   # TODO: --palindrome_max_mismatches
-                window_start=None,  # TODO: --palindrome_window_start
-                window_end=None,    # TODO: --palindrome_window_end
-                n_shuffles=100,     # TODO: --palindrome_n_shuffles
-                seed=None,          # TODO: --seed (share with TSD null-model shuffling)
-                min_seq_len=20,     # TODO: --palindrome_min_seq_len
-                centered=False,     # TODO: --palindrome_centered (see NOTE above)
+                min_arm=args.palindrome_min_arm,
+                max_spacer=args.palindrome_max_spacer,
+                max_mismatches=args.palindrome_max_mismatches,
+                window_start=args.palindrome_window_start,
+                window_end=args.palindrome_window_end,
+                n_shuffles=args.palindrome_n_shuffles,
+                seed=args.seed,
+                min_seq_len=args.palindrome_min_seq_len,
+                centered=args.palindrome_centered,
             )
         except Exception as e:
             logger.exception(f"Palindrome analysis failed: {e}")

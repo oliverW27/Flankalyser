@@ -222,8 +222,9 @@ def run_palindrome_analysis(
 ):
     """Run palindrome detection + dinucleotide-shuffled null test.
 
-    If centered=True, only index 50 is tested as the palindrome centre for
-    both observed sequences and all shuffled nulls.
+    If centered=True, only the midpoint of the concatenated left+right
+    sequence (i.e. the left/right flank boundary) is tested as the
+    palindrome centre, for both observed sequences and all shuffled nulls.
     """
     logger = logging.getLogger("palindrome")
 
@@ -247,7 +248,10 @@ def run_palindrome_analysis(
     we = total_len if window_end is None else min(total_len, window_end)
 
     # Fixed centre overrides window-based iteration when --centered is set.
-    fixed_centre = 50 if centered else None
+    # The centre is the left/right flank boundary -- the midpoint of the
+    # concatenated sequence -- not a hardcoded position, so this works
+    # regardless of flank length.
+    fixed_centre = total_len // 2 if centered else None
 
     logger.info(
         f"Loaded {len(seqs)} unique sequences (length {total_len} bp)"
@@ -394,7 +398,7 @@ def run_palindrome_analysis(
         f"Sequences tested:     {len(seqs)} (unique concatenated L+R)",
         f"Sequence length:      {total_len} bp",
         f"Search window:        [{ws}, {we})",
-        f"Centred mode:         {'yes (centre fixed at index 50)' if centered else 'no'}",
+        f"Centred mode:         {f'yes (centre fixed at index {fixed_centre})' if centered else 'no'}",
         f"Pattern minimum:      arm >= {min_arm}, spacer <= {max_spacer}, "
         f"mismatches <= {max_mismatches}",
         f"Null:                 {n_shuffles} dinucleotide shuffles",
@@ -505,7 +509,7 @@ def _parse_args():
     p.add_argument("--min_seq_len", type=int, default=20,
                    help="Skip concatenated sequences shorter than this (default: 20)")
     p.add_argument("--centered", action="store_true",
-                   help="Only test index 50 as the palindrome centre (observed and null)")
+                   help="Only test the left/right flank boundary as the palindrome centre (observed and null)")
     return p.parse_args()
 
 
