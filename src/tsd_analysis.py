@@ -19,8 +19,6 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
-from src.nucl_dist import count_nucl, nucl_dist_stat_sig, calc_nucl_props, graph, adjust_gc_content
-
 logger = logging.getLogger(__name__)
 
 _RC_TABLE = str.maketrans("ACGTacgt", "TGCAtgca")
@@ -161,9 +159,23 @@ def tsd_significance(tsd_results, left_seqs, right_seqs, min_tsd=3, n_shuffles=1
 # Plotting
 # ---------------------------------------------------------------------------
 
+def _sig_stars(p):
+    """Conventional significance stars for a one-sided p-value."""
+    if p < 0.001:
+        return "***"
+    if p < 0.01:
+        return "**"
+    if p < 0.05:
+        return "*"
+    return "ns"
+
+
 def plot_tsd_null_distribution(stats, mge_name, output_path):
     """Histogram of per-shuffle TSD hit counts, with the observed value marked."""
     null_hits, observed = stats["null_hit_counts"], stats["observed_hits"]
+    p_val, enrichment = stats["p_value"], stats["enrichment"]
+    stars = _sig_stars(p_val)
+
     fig, ax = plt.subplots(figsize=(8, 5))
     lo, hi = min(null_hits + [observed]), max(null_hits + [observed])
     ax.hist(null_hits, bins=range(lo, hi + 2), color="tab:orange",
@@ -171,8 +183,11 @@ def plot_tsd_null_distribution(stats, mge_name, output_path):
     ax.axvline(observed, color="tab:blue", linewidth=2.5, label=f"Observed ({observed})")
     ax.set_xlabel("Accessions with a TSD")
     ax.set_ylabel("Number of shuffles")
-    ax.set_title(f"{mge_name}: observed vs. null TSD hits (p = {stats['p_value']:.4f})")
-    ax.legend()
+    ax.set_title(f"{mge_name}: observed vs. null TSD hits (p = {p_val:.4f} {stars})")
+    ax.text(0.98, 0.95, f"Enrichment: {enrichment:.2f}x\np = {p_val:.4f} {stars}",
+            transform=ax.transAxes, ha="right", va="top", fontsize=10,
+            bbox=dict(boxstyle="round", facecolor="white", alpha=0.85))
+    ax.legend(loc="upper left")
     ax.grid(True, axis="y", alpha=0.3)
     plt.tight_layout()
     plt.savefig(output_path)
@@ -180,13 +195,21 @@ def plot_tsd_null_distribution(stats, mge_name, output_path):
 
 
 def plot_tsd_length_distribution(stats, mge_name, output_path):
-    """Bar chart of TSD length distribution, observed vs. null (averaged per shuffle)."""
+    """Bar chart of TSD length distribution, observed vs. null (averaged per shuffle).
+
+    The annotated p-value/enrichment are the overall hit-rate significance
+    (from plot_tsd_null_distribution's test), not a per-length test -- this
+    chart only breaks that overall result down by TSD length.
+    """
     obs_lengths, null_lengths, n_shuffles = stats["obs_lengths"], stats["null_lengths"], stats["n_shuffles"]
     all_lengths = sorted(set(obs_lengths) | set(null_lengths))
     if not all_lengths:
         return
     obs_counts = [obs_lengths.count(l) for l in all_lengths]
     null_counts = [null_lengths.count(l) / n_shuffles for l in all_lengths]
+
+    p_val, enrichment = stats["p_value"], stats["enrichment"]
+    stars = _sig_stars(p_val)
 
     x = range(len(all_lengths))
     width = 0.35
@@ -199,7 +222,10 @@ def plot_tsd_length_distribution(stats, mge_name, output_path):
     ax.set_xlabel("TSD length (bp)")
     ax.set_ylabel("Number of hits")
     ax.set_title(f"{mge_name}: TSD length, observed vs. null")
-    ax.legend()
+    ax.text(0.98, 0.95, f"Overall enrichment: {enrichment:.2f}x\np = {p_val:.4f} {stars}",
+            transform=ax.transAxes, ha="right", va="top", fontsize=10,
+            bbox=dict(boxstyle="round", facecolor="white", alpha=0.85))
+    ax.legend(loc="upper left")
     ax.grid(True, axis="y", alpha=0.3)
     plt.tight_layout()
     plt.savefig(output_path)
@@ -306,56 +332,20 @@ def write_tsd_summary(tsd_results, mge_name, output_dir):
         for r in tsd_results
     ]
 
+    logger.info(
+        f"TSD summary: {tsd_count}/{total} ({tsd_count/total:.1%}) with TSD, "
+        f"{total - tsd_count} ({(total - tsd_count)/total:.1%}) without "
+        "(full length breakdown and per-accession detail in file)"
+    )
     for line in header:
-        logger.info(line)
+        logger.debug(line)
 
-    _write_lines(Path(output_dir) / "files" / f"{mge_name}_TSD_summary.txt", header + detail, "TSD summary")
+    _write_lines(Path(output_dir) / "files" / f"{mge_name}_TSD_SUMMARY.txt", header + detail, "TSD summary")
 
-
-# ---------------------------------------------------------------------------
-# Nucleotide graph runner
-# ---------------------------------------------------------------------------
-
-def _run_nucl_graph(seqs_left, seqs_right, label, flank_len, output_dir,
-                    adjust_proportions=False, adjust_gc=False, gc_content=None):
-    """Run nucleotide distribution counting and graph generation for one group."""
-    if not seqs_left and not seqs_right:
-        logger.warning(f"No sequences for '{label}', skipping graph")
-        return
-    try:
-        left_counts, right_counts = count_nucl(seqs_left, seqs_right, flank_len)
-        left_stats = nucl_dist_stat_sig(left_counts, gc_content=gc_content)
-        right_stats = nucl_dist_stat_sig(right_counts, gc_content=gc_content)
-
-        if adjust_proportions:
-            combined_props = calc_nucl_props(left_counts, right_counts, flank_len)
-        else:
-            default_prop = [0.25] * flank_len + ["nan"] + [0.25] * flank_len
-            combined_props = {n: list(default_prop) for n in ["A", "C", "G", "T"]}
-
-        if adjust_gc:
-            combined_props = adjust_gc_content(combined_props, flank_len)
-
-        graph(
-            flank_len, label, combined_props, left_stats, right_stats,
-            outdir=output_dir,
-            total_left=len(seqs_left), unique_left=len(set(seqs_left)),
-            total_right=len(seqs_right), unique_right=len(set(seqs_right)),
-            gc_content=gc_content,
-        )
-        logger.info(f"Graph generated for '{label}'")
-    except Exception as e:
-        logger.exception(f"Graph failed for '{label}': {e}")
-
-
-# ---------------------------------------------------------------------------
-# Top-level entry point
-# ---------------------------------------------------------------------------
 
 def run_tsd_analysis(
     left_seqs, right_seqs, acc_names, flank_len, mge_name, output_dir,
-    adjust_proportions=False, adjust_gc=False, gc_content=None, min_tsd=3,
-    n_shuffles=100, seed=None,
+    min_tsd=3, n_shuffles=100, seed=None,
 ):
     """Full TSD analysis pipeline: detect, test significance, split, write files, graph."""
     files_dir = Path(output_dir) / "files"
@@ -371,13 +361,13 @@ def run_tsd_analysis(
     logger.info(
         f"TSD significance: observed {stats['observed_hits']}, "
         f"null mean {stats['null_mean']:.2f}, enrichment {stats['enrichment']:.2f}x, "
-        f"p = {stats['p_value']:.4f}"
+        f"p = {stats['p_value']:.4f} {_sig_stars(stats['p_value'])}"
         + (f" (i.e. p < {1 / n_shuffles})" if stats["p_value"] == 0 else "")
     )
     try:
         graphs_dir.mkdir(parents=True, exist_ok=True)
-        plot_tsd_null_distribution(stats, mge_name, graphs_dir / f"{mge_name}_TSD_null_distribution.png")
-        plot_tsd_length_distribution(stats, mge_name, graphs_dir / f"{mge_name}_TSD_length_distribution.png")
+        plot_tsd_null_distribution(stats, mge_name, graphs_dir / f"{mge_name}_TSD_NULL_DIST.png")
+        plot_tsd_length_distribution(stats, mge_name, graphs_dir / f"{mge_name}_TSD_LENGTH_DIST.png")
         logger.info(f"TSD significance plots written to {graphs_dir}")
     except Exception as e:
         logger.exception(f"Failed to write TSD significance plots: {e}")
@@ -386,20 +376,6 @@ def run_tsd_analysis(
 
     _write_summary_file(files_dir / f"{mge_name}_TSD.txt",         tsd_entries,     flank_len)
     _write_summary_file(files_dir / f"{mge_name}_no_TSD.txt",      no_tsd_entries,  flank_len)
-    _write_summary_file(files_dir / f"{mge_name}_trimmed_TSD.txt", trimmed_entries, flank_len)
-
-    for label, entries in [
-        (f"{mge_name}_TSD",         tsd_entries),
-        (f"{mge_name}_NO-TSD",      no_tsd_entries),
-        (f"{mge_name}_TRIMMED-TSD", trimmed_entries),
-    ]:
-        _run_nucl_graph(
-            [e["left"] for e in entries], [e["right"] for e in entries],
-            label, flank_len, output_dir,
-            adjust_proportions=adjust_proportions,
-            adjust_gc=adjust_gc,
-            gc_content=gc_content,
-        )
 
     logger.info("TSD analysis complete.")
     return stats

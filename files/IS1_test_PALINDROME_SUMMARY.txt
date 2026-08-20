@@ -1,0 +1,33 @@
+Palindrome / Inverted-Repeat Analysis: IS1_test
+=======================================================
+Input:                data/flanks_ISFinder_IS1F.txt
+Sequences tested:     38 (unique concatenated L+R)
+Sequence length:      100 bp
+Search window:        [0, 100)
+Centred mode:         no
+Pattern minimum:      arm >= 6, spacer <= 2, mismatches <= 0
+Null:                 100 dinucleotide shuffles
+
+Observed hits:        4/38 (10.5%)
+Null mean hits:       2.76/38 (7.3%)
+Null SD:              1.44
+Null range:           0-6
+Enrichment (hit rate):      1.45x
+Enrichment (arm len):      1.60x
+p-value (one-sided):  0.3100
+
+Hit geometry (best IR per hit sequence):
+                          observed        null
+  arm length mean             7.00        6.33
+  arm length median            7.0         6.0
+  arm length mode                8           6
+  spacer mean                 1.00        0.92
+  spacer median                1.0         1.0
+  spacer mode                    1           1
+
+Arm length distribution (% of hits):
+ arm_len    observed        null
+       6       50.0%       74.3%
+       7        0.0%       19.2%
+       8       50.0%        5.8%
+       9        0.0%        0.7%

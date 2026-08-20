@@ -8,9 +8,12 @@ Writhe and bend plane are computed on the full insertion site sequence
 of the whole target region. Curvature is still plotted positionally.
 """
 
+import logging
 import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 # ----------------------------------------------------------------------------
 # Bolshoi & Trifonov (1989) dinucleotide wedge parameters
@@ -233,6 +236,16 @@ def analyse_dna_curvature(
 
     # --- Build combined sequences for writhe/bend plane ---
     combined_seqs = _pair_sequences(left_seqs, right_seqs, left_names, right_names, flank_len)
+    logger.info(
+        f"Paired {len(combined_seqs)}/{len(left_seqs)} left and {len(right_seqs)} right flanks "
+        f"into full insertion-site sequences (by accession name)"
+    )
+    if not combined_seqs:
+        logger.warning(
+            "No left/right flanks could be paired by accession name -- "
+            "writhe and bend-plane results will be empty (curvature profile is unaffected)"
+        )
+    logger.debug("Building DNA backbone coordinates and computing local curvature...")
 
     # --- Per-position curvature (still per-flank for positional plot) ---
     def _curvature_matrix(seqs, expected_len):
@@ -283,8 +296,9 @@ def analyse_dna_curvature(
     )
     ax.legend(framealpha=0.8)
     ax.grid(True, alpha=0.3)
-    fig.savefig(graphs_dir / f"curvature_{mge_name}.png", dpi=150, bbox_inches="tight")
+    fig.savefig(graphs_dir / f"{mge_name}_CURVATURE.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
+    logger.info(f"Curvature profile plot written to {graphs_dir / f'{mge_name}_CURVATURE.png'}")
 
     # --- Figure 2: Writhe distribution (combined sequences) ---
     fig, ax = plt.subplots(figsize=(8, 4))
@@ -300,8 +314,9 @@ def analyse_dna_curvature(
     )
     ax.legend(framealpha=0.8)
     ax.grid(True, alpha=0.3)
-    fig.savefig(graphs_dir / f"writhe_{mge_name}.png", dpi=150, bbox_inches="tight")
+    fig.savefig(graphs_dir / f"{mge_name}_WRITHE.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
+    logger.info(f"Writhe distribution plot written to {graphs_dir / f'{mge_name}_WRITHE.png'}")
 
     # --- Figure 3: Bend plane orientation (combined sequences) ---
     fig, ax = plt.subplots(figsize=(8, 4))
@@ -316,11 +331,18 @@ def analyse_dna_curvature(
     )
     ax.legend(framealpha=0.8)
     ax.grid(True, alpha=0.3)
-    fig.savefig(graphs_dir / f"bendplane_{mge_name}.png", dpi=150, bbox_inches="tight")
+    fig.savefig(graphs_dir / f"{mge_name}_BENDPLANE.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
+    logger.info(f"Bend plane distribution plot written to {graphs_dir / f'{mge_name}_BENDPLANE.png'}")
 
-    return {
+    result = {
         "n_paired": len(combined_seqs),
         "mean_writhe": float(np.mean(combined_writhes)) if len(combined_writhes) else float("nan"),
         "mean_bend_angle": float(np.mean(combined_bends)) if len(combined_bends) else float("nan"),
     }
+    logger.info(
+        f"Bendability result: mean writhe = {result['mean_writhe']:.4f}, "
+        f"mean bend-plane angle = {result['mean_bend_angle']:.1f}° "
+        f"(n={result['n_paired']} paired insertion-site sequences)"
+    )
+    return result

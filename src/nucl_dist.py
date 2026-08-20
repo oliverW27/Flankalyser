@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 def count_nucl(l_data, r_data, FLANK_LEN):
     """Count nucleotides at each position for left and right flanks."""
-    logger.info("Counting nucleotides for flank sequences...")
+    logger.debug("Counting nucleotides for flank sequences...")
     l_counts = {"A": [0]*FLANK_LEN, "C": [0]*FLANK_LEN, "G": [0]*FLANK_LEN, "T": [0]*FLANK_LEN}
     r_counts = {"A": [0]*FLANK_LEN, "C": [0]*FLANK_LEN, "G": [0]*FLANK_LEN, "T": [0]*FLANK_LEN}
     
@@ -35,37 +35,23 @@ def count_nucl(l_data, r_data, FLANK_LEN):
             elif nucl != "N":
                 logger.warning(f"Unexpected nucleotide '{nucl}' in right flank at position {i}")
                 
-    logger.info("Nucleotide counting complete.")
+    logger.debug("Nucleotide counting complete.")
     return l_counts, r_counts
 
 
-def nucl_dist_stat_sig(data, gc_content=None):
+def nucl_dist_stat_sig(data):
     """Calculate chi-square test p-values for nucleotide distribution at each position.
-    
+
     Args:
         data: Dict with counts for A, C, G, T at each position
-        gc_content: Expected GC content as decimal (e.g., 0.52 for 52%). 
-                    If None, assumes 0.25 for each nucleotide.
-    
+
     Returns:
         List of p-values for each position
     """
-    logger.info("Calculating chi-square test p-values...")
-    
-    # Calculate expected proportions based on GC content
-    if gc_content is not None:
-        expected_props = {
-            'G': gc_content / 2,
-            'C': gc_content / 2,
-            'A': (1 - gc_content) / 2,
-            'T': (1 - gc_content) / 2
-        }
-        logger.info(f"Using GC-adjusted expectations: A={expected_props['A']:.3f}, "
-                    f"C={expected_props['C']:.3f}, G={expected_props['G']:.3f}, T={expected_props['T']:.3f}")
-    else:
-        expected_props = {'A': 0.25, 'C': 0.25, 'G': 0.25, 'T': 0.25}
-        logger.info("Using default equal expectations (25% each)")
-    
+    logger.debug("Calculating chi-square test p-values...")
+
+    expected_props = {'A': 0.25, 'C': 0.25, 'G': 0.25, 'T': 0.25}
+
     observed = np.array([data['A'], data['C'], data['G'], data['T']])
     total_counts = np.sum(observed, axis=0)
     
@@ -89,13 +75,13 @@ def nucl_dist_stat_sig(data, gc_content=None):
             chi2_stats.append(np.nan)
             p_values.append(np.nan)
     
-    logger.info("Chi-square calculations complete.")
+    logger.debug("Chi-square calculations complete.")
     return p_values
 
 
 def calc_nucl_props(l_data, r_data, FLANK_LEN):
     """Calculate nucleotide proportions combining left and right flank data."""
-    logger.info("Calculating combined nucleotide proportions...")
+    logger.debug("Calculating combined nucleotide proportions...")
     combined_dict = {}
     for nucleotide in l_data:
         combined_dict[nucleotide] = l_data[nucleotide] + [np.nan] + r_data[nucleotide]
@@ -113,59 +99,9 @@ def calc_nucl_props(l_data, r_data, FLANK_LEN):
                 logger.debug(f"No counts at locus {i}, assigning NaN proportion")
             combined_proportions[n].append(proportion)
             
-    logger.info("Nucleotide proportion calculation complete.")
+    logger.debug("Nucleotide proportion calculation complete.")
     return combined_proportions
 
-
-def adjust_gc_content(combined_proportions, FLANK_LEN, outer_bp=10):
-    """Adjust nucleotide proportions based on baseline GC content in outer regions.
-    
-    Args:
-        combined_proportions: Dict of nucleotide proportions (includes NaN at center)
-        FLANK_LEN: Length of each flank
-        outer_bp: Number of bp at each outer edge to use for baseline calculation
-    
-    Returns:
-        Adjusted combined_proportions dict
-    """
-    logger.info(f"Adjusting GC content based on outer {outer_bp} bp...")
-    
-    left_outer_start = 0
-    left_outer_end = outer_bp
-    right_outer_start = FLANK_LEN + 1
-    right_outer_end = right_outer_start + outer_bp
-    
-    baseline = {}
-    for nucl in ['A', 'C', 'G', 'T']:
-        left_outer = combined_proportions[nucl][left_outer_start:left_outer_end]
-        right_outer = combined_proportions[nucl][right_outer_start:right_outer_end]
-        
-        all_outer = [v for v in left_outer + right_outer if not np.isnan(v)]
-        if all_outer:
-            baseline[nucl] = np.mean(all_outer)
-        else:
-            baseline[nucl] = 0.25
-            logger.warning(f"No valid outer region data for {nucl}, using 0.25")
-    
-    logger.info(f"Baseline proportions: A={baseline['A']:.3f}, C={baseline['C']:.3f}, "
-                f"G={baseline['G']:.3f}, T={baseline['T']:.3f}")
-    
-    adjustments = {nucl: baseline[nucl] - 0.25 for nucl in ['A', 'C', 'G', 'T']}
-    logger.info(f"Adjustments: A={adjustments['A']:.3f}, C={adjustments['C']:.3f}, "
-                f"G={adjustments['G']:.3f}, T={adjustments['T']:.3f}")
-    
-    adjusted_props = {}
-    for nucl in ['A', 'C', 'G', 'T']:
-        adjusted_props[nucl] = []
-        for val in combined_proportions[nucl]:
-            if np.isnan(val):
-                adjusted_props[nucl].append(np.nan)
-            else:
-                adjusted_val = val - adjustments[nucl]
-                adjusted_props[nucl].append(adjusted_val)
-    
-    logger.info("GC content adjustment complete.")
-    return adjusted_props
 
 
 def get_stats_ast(l_stats, r_stats, n):
@@ -197,10 +133,9 @@ def graph(
     unique_left=None,
     total_right=None,
     unique_right=None,
-    gc_content=None,
 ):
     """Generate nucleotide frequency plot with significance indicators and flank counts."""
-    logger.info(f"Generating nucleotide frequency graph for {IS_NAME}...")
+    logger.debug(f"Generating nucleotide frequency graph for {IS_NAME}...")
     stats_ast = get_stats_ast(l_stats, r_stats, 2*FLANK_LEN)
     x = list(range(-FLANK_LEN, FLANK_LEN + 1))
     colours = {"A": "green", "C": "blue", "G": "orange", "T": "red"}
@@ -222,17 +157,9 @@ def graph(
             linewidth=5,
         )
 
-    # Add horizontal lines for expected GC/AT proportions
-    if gc_content is not None:
-        gc_half = gc_content / 2
-        at_half = (1 - gc_content) / 2
-        plt.axhline(y=gc_half, color='orange', linestyle='--', linewidth=3, 
-                    label=f'Expected G/C ({gc_half:.1%})')
-        plt.axhline(y=at_half, color='green', linestyle=':', linewidth=3,
-                    label=f'Expected A/T ({at_half:.1%})')
-    else:
-        plt.axhline(y=0.25, color='gray', linestyle=':', linewidth=3,
-                    label='Expected (25%)')
+    # Add horizontal line for expected proportion (25% each)
+    plt.axhline(y=0.25, color='gray', linestyle=':', linewidth=3,
+                label='Expected (25%)')
 
     max_y_value = np.nanmax([
         np.nanmax(combined_proportions["A"]),
@@ -267,7 +194,7 @@ def graph(
     plt.grid(True)
     plt.tight_layout()
 
-    outpath = f"{outdir}/graphs/DNA_freq_test_{IS_NAME}.png"
+    outpath = f"{outdir}/graphs/{IS_NAME}_DNA_FREQ.png"
     try:
         plt.savefig(outpath)
         logger.info(f"Saved graph to {outpath}")

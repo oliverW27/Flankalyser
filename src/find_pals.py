@@ -17,12 +17,13 @@ import csv
 import logging
 import random
 import sys
-from collections import defaultdict
 from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+
+from src.utils import dinucleotide_shuffle
 
 _COMPLEMENT = {"A": "T", "T": "A", "G": "C", "C": "G"}
 
@@ -90,39 +91,27 @@ def find_longest_inverted_repeat(seq, max_spacer, min_arm=3, max_mismatches=0,
 
 
 # ---------------------------------------------------------------------------
-# Dinucleotide-preserving shuffle
-# ---------------------------------------------------------------------------
-
-def dinucleotide_shuffle(seq, max_attempts=200):
-    """Shuffle preserving dinucleotide frequencies (Altschul & Erickson 1985)."""
-    seq = seq.upper()
-    for _ in range(max_attempts):
-        edges = defaultdict(list)
-        for i in range(len(seq) - 1):
-            edges[seq[i]].append(seq[i + 1])
-        for base in edges:
-            random.shuffle(edges[base])
-        result = [seq[0]]
-        current = seq[0]
-        while edges[current]:
-            next_base = edges[current].pop()
-            result.append(next_base)
-            current = next_base
-        if len(result) == len(seq):
-            return "".join(result)
-    raise RuntimeError(f"Dinucleotide shuffle failed after {max_attempts} attempts")
-
-
-# ---------------------------------------------------------------------------
 # Plotting
 # ---------------------------------------------------------------------------
 
-def plot_null_distribution(null_hits, observed_hits, p_val, mge_name, output_path):
+def _sig_stars(p):
+    """Conventional significance stars for a one-sided p-value."""
+    if p < 0.001:
+        return "***"
+    if p < 0.01:
+        return "**"
+    if p < 0.05:
+        return "*"
+    return "ns"
+
+
+def plot_null_distribution(null_hits, observed_hits, p_val, mge_name, output_path, enrichment=None):
     """Histogram of per-shuffle hit counts, with a line marking the observed value.
 
     This is the plot that makes the p-value visual: if the observed line sits
     off to the right of the null histogram, the enrichment is real.
     """
+    stars = _sig_stars(p_val)
     fig, ax = plt.subplots(figsize=(8, 5))
     lo, hi = min(null_hits + [observed_hits]), max(null_hits + [observed_hits])
     bins = range(lo, hi + 2)
@@ -132,19 +121,29 @@ def plot_null_distribution(null_hits, observed_hits, p_val, mge_name, output_pat
                label=f"Observed ({observed_hits})")
     ax.set_xlabel("Sequences hitting the pattern")
     ax.set_ylabel("Number of shuffles")
-    ax.set_title(f"{mge_name}: observed vs. null hit distribution (p = {p_val:.4f})")
-    ax.legend()
+    ax.set_title(f"{mge_name}: observed vs. null hit distribution (p = {p_val:.4f} {stars})")
+    annotation = f"p = {p_val:.4f} {stars}"
+    if enrichment is not None:
+        annotation = f"Enrichment: {enrichment:.2f}x\n" + annotation
+    ax.text(0.98, 0.95, annotation, transform=ax.transAxes, ha="right", va="top",
+            fontsize=10, bbox=dict(boxstyle="round", facecolor="white", alpha=0.85))
+    ax.legend(loc="upper left")
     ax.grid(True, axis="y", alpha=0.3)
     plt.tight_layout()
     plt.savefig(output_path)
     plt.close()
 
 
-def plot_arm_length_distribution(obs_arm_lens, null_arm_lens, n_shuffles, mge_name, output_path):
+def plot_arm_length_distribution(obs_arm_lens, null_arm_lens, n_shuffles, mge_name, output_path,
+                                  p_val=None, enrichment=None):
     """Bar chart of arm-length distribution, observed vs. null.
 
     Null counts are averaged per shuffle so they're on the same scale as the
     single observed dataset (raw null counts are summed across all shuffles).
+
+    p_val/enrichment (if given) are the overall hit-rate significance from
+    plot_null_distribution's test, annotated here for reference -- not a
+    separate per-arm-length test.
     """
     all_arms = sorted(set(obs_arm_lens) | set(null_arm_lens))
     if not all_arms:
@@ -163,7 +162,14 @@ def plot_arm_length_distribution(obs_arm_lens, null_arm_lens, n_shuffles, mge_na
     ax.set_xlabel("Arm length (bp)")
     ax.set_ylabel("Number of hits")
     ax.set_title(f"{mge_name}: inverted repeat arm length, observed vs. null")
-    ax.legend()
+    if p_val is not None:
+        stars = _sig_stars(p_val)
+        annotation = f"p = {p_val:.4f} {stars}"
+        if enrichment is not None:
+            annotation = f"Arm-len enrichment: {enrichment:.2f}x\n" + annotation
+        ax.text(0.98, 0.95, annotation, transform=ax.transAxes, ha="right", va="top",
+                fontsize=10, bbox=dict(boxstyle="round", facecolor="white", alpha=0.85))
+    ax.legend(loc="upper left")
     ax.grid(True, axis="y", alpha=0.3)
     plt.tight_layout()
     plt.savefig(output_path)
@@ -315,7 +321,7 @@ def run_palindrome_analysis(
         null_hits.append(count)
         null_arm_totals.append(shuffle_arm_total)
         if (i + 1) % 10 == 0:
-            logger.info(f"  {i+1}/{n_shuffles} shuffles done")
+            logger.debug(f"  {i+1}/{n_shuffles} shuffles done")
 
     # --- Stats ---
     null_mean = sum(null_hits) / len(null_hits) if null_hits else 0.0
@@ -424,13 +430,23 @@ def run_palindrome_analysis(
         obs_pct = 100 * obs_arm_dist.get(a, 0) / len(obs_arm_lens) if obs_arm_lens else 0
         null_pct = 100 * null_arm_dist.get(a, 0) / len(null_arm_lens) if null_arm_lens else 0
         summary_lines.append(f"{a:>8}{obs_pct:>11.1f}%{null_pct:>11.1f}%")
+
+    logger.info(
+        f"Palindrome result: {observed_hits}/{len(seqs)} ({100 * observed_hits / len(seqs):.1f}%) observed "
+        f"vs null mean {null_mean:.2f} ({100 * null_mean / len(seqs):.1f}%); "
+        f"enrichment {hit_enrichment:.2f}x (hit rate), {arm_enrichment:.2f}x (arm length); "
+        f"p = {p_val:.4f} {_sig_stars(p_val)} (full breakdown written to file)"
+    )
     for line in summary_lines:
-        logger.info(line)
+        logger.debug(line)
 
     out_dir = Path(output_dir)
-    out_dir.mkdir(parents=True, exist_ok=True)
+    files_dir = out_dir / "files"
+    graphs_dir = out_dir / "graphs"
+    files_dir.mkdir(parents=True, exist_ok=True)
+    graphs_dir.mkdir(parents=True, exist_ok=True)
 
-    summary_path = out_dir / f"{mge_name}_palindrome_summary.txt"
+    summary_path = files_dir / f"{mge_name}_PALINDROME_SUMMARY.txt"
     try:
         with open(summary_path, "w") as f:
             f.write("\n".join(summary_lines) + "\n")
@@ -440,15 +456,17 @@ def run_palindrome_analysis(
 
     # --- Plots ---
     try:
-        null_dist_path = out_dir / f"{mge_name}_null_distribution.png"
-        plot_null_distribution(null_hits, observed_hits, p_val, mge_name, null_dist_path)
+        null_dist_path = graphs_dir / f"{mge_name}_PALINDROME_NULL_DIST.png"
+        plot_null_distribution(null_hits, observed_hits, p_val, mge_name, null_dist_path,
+                                enrichment=hit_enrichment)
         logger.info(f"Null distribution plot written to {null_dist_path}")
     except Exception as e:
         logger.exception(f"Failed to write null distribution plot: {e}")
 
     try:
-        arm_dist_path = out_dir / f"{mge_name}_arm_length_distribution.png"
-        plot_arm_length_distribution(obs_arm_lens, null_arm_lens, n_shuffles, mge_name, arm_dist_path)
+        arm_dist_path = graphs_dir / f"{mge_name}_PALINDROME_ARM_LEN_DIST.png"
+        plot_arm_length_distribution(obs_arm_lens, null_arm_lens, n_shuffles, mge_name, arm_dist_path,
+                                      p_val=p_val, enrichment=arm_enrichment)
         logger.info(f"Arm length distribution plot written to {arm_dist_path}")
     except Exception as e:
         logger.exception(f"Failed to write arm length distribution plot: {e}")

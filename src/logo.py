@@ -7,13 +7,14 @@ import matplotlib.pyplot as plt
 import logomaker
 
 
-def generate_sequence_logo(left_seqs, right_seqs, output_dir):
+def generate_sequence_logo(left_seqs, right_seqs, output_dir, mge_name):
     """Generate sequence logos for left and right flanks.
-    
+
     Parameters:
     - left_seqs: list of left flank sequences (assumed equal length)
     - right_seqs: list of right flank sequences (assumed equal length)
     - output_dir: directory to save the logo images
+    - mge_name: name of the MGE, used as the output filename prefix
     """
     
     def seqs_to_counts(seqs):
@@ -47,7 +48,7 @@ def generate_sequence_logo(left_seqs, right_seqs, output_dir):
     plt.xlabel("Position")
     plt.ylabel("Frequency")
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/graphs/left_flank_sequence_logo.png")
+    plt.savefig(f"{output_dir}/graphs/{mge_name}_LEFT_LOGO.png")
     plt.close()
     
     # Plot right flank logo
@@ -57,5 +58,5 @@ def generate_sequence_logo(left_seqs, right_seqs, output_dir):
     plt.xlabel("Position")
     plt.ylabel("Frequency")
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/graphs/right_flank_sequence_logo.png")
+    plt.savefig(f"{output_dir}/graphs/{mge_name}_RIGHT_LOGO.png")
     plt.close()

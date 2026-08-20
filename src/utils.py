@@ -1,4 +1,31 @@
 import random
+from collections import defaultdict
+
+
+def dinucleotide_shuffle(seq, max_attempts=200):
+    """Shuffle a sequence while preserving its dinucleotide frequencies (Altschul & Erickson 1985).
+
+    Defined once here so every module that needs a composition-preserving
+    shuffled-sequence null (palindrome detection, melting profile controls,
+    etc.) calls the same implementation instead of each re-implementing it.
+    """
+    seq = seq.upper()
+    for _ in range(max_attempts):
+        edges = defaultdict(list)
+        for i in range(len(seq) - 1):
+            edges[seq[i]].append(seq[i + 1])
+        for base in edges:
+            random.shuffle(edges[base])
+        result = [seq[0]]
+        current = seq[0]
+        while edges[current]:
+            next_base = edges[current].pop()
+            result.append(next_base)
+            current = next_base
+        if len(result) == len(seq):
+            return "".join(result)
+    raise RuntimeError(f"Dinucleotide shuffle failed after {max_attempts} attempts")
+
 
 def generate_position_weighted_random_seq(prop_dict, start, end):
     """
