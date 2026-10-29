@@ -16,24 +16,26 @@ def _count_dinucleotides(seqs):
     return counts, total
 
 
-def analyse_dinucleotide_enrichment_weighted(left_seqs, right_seqs, output_dir, flank_len, mge_name, inner_bp=7):
+def analyse_dinucleotide_enrichment_weighted(left_seqs, right_seqs, output_dir, flank_len, mge_name, inner_bp=10):
     """
-    Dinucleotide enrichment: inner N bp vs outer (flank_len - N) bp of each flank.
-    Inner = closer to insertion site, outer = further away.
+    Dinucleotide enrichment: the inner_bp nearest the insertion site vs. the
+    inner_bp farthest from it -- symmetric, matched-size windows, so the
+    middle of the flank (between the two windows) is left out of both.
+    Inner = closer to insertion site, outer = farthest away.
 
-    NOTE: baseline_props is unused now but kept for interface compatibility.
+    NOTE: flank_len is unused now (the windows are fixed-size from each end,
+    not dependent on total flank length) but kept for interface compatibility.
     """
-    split = flank_len - inner_bp
-
+    dfs = {}
     for flank, seqs in [('left', left_seqs), ('right', right_seqs)]:
         if flank == 'left':
-            # Inner = last 25bp (near insertion), outer = first 25bp
-            inner_seqs = [s[split:] for s in seqs]
-            outer_seqs = [s[:split] for s in seqs]
+            # Inner = last inner_bp (near insertion), outer = first inner_bp (far)
+            inner_seqs = [s[-inner_bp:] for s in seqs]
+            outer_seqs = [s[:inner_bp] for s in seqs]
         else:
-            # Inner = first 25bp (near insertion), outer = last 25bp
-            inner_seqs = [s[:split] for s in seqs]
-            outer_seqs = [s[split:] for s in seqs]
+            # Inner = first inner_bp (near insertion), outer = last inner_bp (far)
+            inner_seqs = [s[:inner_bp] for s in seqs]
+            outer_seqs = [s[-inner_bp:] for s in seqs]
 
         inner_counts, inner_total = _count_dinucleotides(inner_seqs)
         outer_counts, outer_total = _count_dinucleotides(outer_seqs)
@@ -48,10 +50,19 @@ def analyse_dinucleotide_enrichment_weighted(left_seqs, right_seqs, output_dir, 
                 df.loc[a, b] = np.log2(inner_freq / outer_freq)
 
         df.to_csv(f"{output_dir}/files/{flank}_dinucleotide_enrichment.tsv", sep='\t')
+        dfs[flank] = df.astype(float)
 
-        plt.figure(figsize=(6, 5))
-        sns.heatmap(df.astype(float), cmap='coolwarm', center=0, annot=True, fmt=".2f")
-        plt.title(f"{flank.capitalize()} Flank Dinucleotide Enrichment\n(log2 inner/outer)")
-        plt.tight_layout()
-        plt.savefig(f"{output_dir}/graphs/{mge_name}_{flank.upper()}_DINUC_ENRICH.png")
-        plt.close()
+    # One figure, left flank and right flank side by side, sharing a colour scale.
+    vmax = max(dfs['left'].abs().values.max(), dfs['right'].abs().values.max())
+    fig, axes = plt.subplots(1, 2, figsize=(11, 5))
+    for ax, flank in zip(axes, ('left', 'right')):
+        sns.heatmap(dfs[flank], cmap='coolwarm', center=0, vmin=-vmax, vmax=vmax,
+                    annot=True, fmt=".2f", ax=ax, cbar=(flank == 'right'))
+        ax.set_title(f"{flank.capitalize()} flank")
+    fig.suptitle(f"{mge_name} dinucleotide enrichment "
+                 f"(log2 inner/outer, {inner_bp}bp nearest vs. {inner_bp}bp farthest)")
+    fig.tight_layout()
+    fig.savefig(f"{output_dir}/graphs/{mge_name}_DINUC_ENRICH.png")
+    plt.close(fig)
+
+    return dfs

@@ -39,18 +39,31 @@ def count_nucl(l_data, r_data, FLANK_LEN):
     return l_counts, r_counts
 
 
-def nucl_dist_stat_sig(data):
+def nucl_dist_stat_sig(data, gc_content=None):
     """Calculate chi-square test p-values for nucleotide distribution at each position.
 
     Args:
         data: Dict with counts for A, C, G, T at each position
+        gc_content: Expected GC content as decimal (e.g., 0.52 for 52%), used to set
+                    the chi-square test's expected proportions to a given background
+                    distribution instead of a flat 25% each. If None, assumes 0.25.
 
     Returns:
         List of p-values for each position
     """
     logger.debug("Calculating chi-square test p-values...")
 
-    expected_props = {'A': 0.25, 'C': 0.25, 'G': 0.25, 'T': 0.25}
+    if gc_content is not None:
+        expected_props = {
+            'G': gc_content / 2,
+            'C': gc_content / 2,
+            'A': (1 - gc_content) / 2,
+            'T': (1 - gc_content) / 2,
+        }
+        logger.debug(f"Using GC-adjusted expectations: A={expected_props['A']:.3f}, "
+                     f"C={expected_props['C']:.3f}, G={expected_props['G']:.3f}, T={expected_props['T']:.3f}")
+    else:
+        expected_props = {'A': 0.25, 'C': 0.25, 'G': 0.25, 'T': 0.25}
 
     observed = np.array([data['A'], data['C'], data['G'], data['T']])
     total_counts = np.sum(observed, axis=0)
@@ -133,6 +146,7 @@ def graph(
     unique_left=None,
     total_right=None,
     unique_right=None,
+    gc_content=None,
 ):
     """Generate nucleotide frequency plot with significance indicators and flank counts."""
     logger.debug(f"Generating nucleotide frequency graph for {IS_NAME}...")
@@ -157,9 +171,17 @@ def graph(
             linewidth=5,
         )
 
-    # Add horizontal line for expected proportion (25% each)
-    plt.axhline(y=0.25, color='gray', linestyle=':', linewidth=3,
-                label='Expected (25%)')
+    # Add horizontal lines for the expected background proportions
+    if gc_content is not None:
+        gc_half = gc_content / 2
+        at_half = (1 - gc_content) / 2
+        plt.axhline(y=gc_half, color='orange', linestyle='--', linewidth=3,
+                    label=f'Expected G/C ({gc_half:.1%})')
+        plt.axhline(y=at_half, color='green', linestyle=':', linewidth=3,
+                    label=f'Expected A/T ({at_half:.1%})')
+    else:
+        plt.axhline(y=0.25, color='gray', linestyle=':', linewidth=3,
+                    label='Expected (25%)')
 
     max_y_value = np.nanmax([
         np.nanmax(combined_proportions["A"]),

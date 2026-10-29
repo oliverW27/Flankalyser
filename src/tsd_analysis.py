@@ -345,32 +345,49 @@ def write_tsd_summary(tsd_results, mge_name, output_dir):
 
 def run_tsd_analysis(
     left_seqs, right_seqs, acc_names, flank_len, mge_name, output_dir,
-    min_tsd=3, n_shuffles=100, seed=None,
+    min_tsd=3, n_shuffles=100, seed=None, test_significance=False,
 ):
-    """Full TSD analysis pipeline: detect, test significance, split, write files, graph."""
+    """TSD analysis pipeline: detect, split, write files, and (optionally,
+    since it's the expensive part -- O(n_seqs) per shuffle) test the hit
+    rate against a shuffled-pairing null and plot it.
+    """
     files_dir = Path(output_dir) / "files"
     graphs_dir = Path(output_dir) / "graphs"
 
     tsd_results = find_tsds(left_seqs, right_seqs, acc_names, min_tsd=min_tsd)
     write_tsd_summary(tsd_results, mge_name, output_dir)
 
-    stats = tsd_significance(
-        tsd_results, left_seqs, right_seqs,
-        min_tsd=min_tsd, n_shuffles=n_shuffles, seed=seed,
-    )
-    logger.info(
-        f"TSD significance: observed {stats['observed_hits']}, "
-        f"null mean {stats['null_mean']:.2f}, enrichment {stats['enrichment']:.2f}x, "
-        f"p = {stats['p_value']:.4f} {_sig_stars(stats['p_value'])}"
-        + (f" (i.e. p < {1 / n_shuffles})" if stats["p_value"] == 0 else "")
-    )
-    try:
-        graphs_dir.mkdir(parents=True, exist_ok=True)
-        plot_tsd_null_distribution(stats, mge_name, graphs_dir / f"{mge_name}_TSD_NULL_DIST.png")
-        plot_tsd_length_distribution(stats, mge_name, graphs_dir / f"{mge_name}_TSD_LENGTH_DIST.png")
-        logger.info(f"TSD significance plots written to {graphs_dir}")
-    except Exception as e:
-        logger.exception(f"Failed to write TSD significance plots: {e}")
+    stats = {
+        'observed_hits': sum(1 for r in tsd_results if r['tsd_len'] > 0),
+        'total': len(tsd_results),
+        'length_counts': Counter(r['tsd_len'] for r in tsd_results if r['tsd_len'] > 0),
+    }
+
+    if test_significance:
+        sig_stats = tsd_significance(
+            tsd_results, left_seqs, right_seqs,
+            min_tsd=min_tsd, n_shuffles=n_shuffles, seed=seed,
+        )
+        stats.update(sig_stats)
+        logger.info(
+            f"TSD significance: observed {stats['observed_hits']}, "
+            f"null mean {stats['null_mean']:.2f}, enrichment {stats['enrichment']:.2f}x, "
+            f"p = {stats['p_value']:.4f} {_sig_stars(stats['p_value'])}"
+            + (f" (i.e. p < {1 / n_shuffles})" if stats["p_value"] == 0 else "")
+        )
+        try:
+            graphs_dir.mkdir(parents=True, exist_ok=True)
+            plot_tsd_null_distribution(stats, mge_name, graphs_dir / f"{mge_name}_TSD_NULL_DIST.png")
+            plot_tsd_length_distribution(stats, mge_name, graphs_dir / f"{mge_name}_TSD_LENGTH_DIST.png")
+            logger.info(f"TSD significance plots written to {graphs_dir}")
+        except Exception as e:
+            logger.exception(f"Failed to write TSD significance plots: {e}")
+    else:
+        logger.info(
+            f"TSD detection: {stats['observed_hits']}/{stats['total']} "
+            f"({stats['observed_hits'] / stats['total']:.1%}) accessions have a TSD "
+            "(significance test skipped)"
+        )
 
     tsd_entries, no_tsd_entries, trimmed_entries = build_split_entries(tsd_results, flank_len)
 

@@ -3,13 +3,15 @@ Palindrome / inverted-repeat detection module.
 
 Standalone script: reads a trimmed flanks TSV (acc_name\\tleft\\tright),
 concatenates left+right per accession, searches for inverted repeats with
-optional spacer and mismatches within a configurable window, compares
-against a dinucleotide-shuffled null, and writes a summary + two plots:
-  - null distribution (observed hits vs. shuffle distribution, with p-value)
-  - arm length distribution (observed vs. null, averaged per shuffle)
+optional spacer and mismatches, compares against a dinucleotide-shuffled null
+across a range of arm lengths, and writes:
+  - a per-element summary line (inflection length, peak enrichment)
+  - a full enrichment curve TSV
+  - an enrichment ratio plot
+  - a raw counts plot
 
 Usage:
-    python palindrome_analysis.py --input flanks.tsv --mge_name IS10L --outdir results
+    python palindrome_analysis.py --input flanks.tsv --mge_name IS1397 --outdir results
 """
 
 import argparse
@@ -22,6 +24,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import numpy as np
 
 from src.utils import dinucleotide_shuffle
 
@@ -57,7 +60,6 @@ def find_longest_inverted_repeat(seq, max_spacer, min_arm=3, max_mismatches=0,
     best = {"arm_len": 0, "left_start": None, "right_end": None,
             "spacer_size": None, "arm_seq": None, "mismatches": 0}
 
-    # When fixed_centre is set, only test that one position.
     centres = [fixed_centre] if fixed_centre is not None else range(search_start, search_end)
     for centre in centres:
         for spacer_size in range(0, max_spacer + 1):
@@ -91,11 +93,143 @@ def find_longest_inverted_repeat(seq, max_spacer, min_arm=3, max_mismatches=0,
 
 
 # ---------------------------------------------------------------------------
+# Input loading
+# ---------------------------------------------------------------------------
+
+def load_sequences(path, min_len=20):
+    """Load flanks from TSV, pair L+R positionally, concatenate, deduplicate.
+
+    Handles both single-flank rows (acc  left  right) and pipe-separated
+    rows (acc  L1|L2|...  R1|R2|...), pairing by position.
+    Returns list of unique concatenated L+R sequences.
+    """
+    seen = set()
+    with open(path, "r") as f:
+        reader = csv.reader(f, delimiter="\t")
+        for row in reader:
+            if len(row) < 3:
+                continue
+
+            lefts = [s.strip() for s in row[1].split("|")]
+            rights = [s.strip() for s in row[2].split("|")]
+
+            for i in range(min(len(lefts), len(rights))):
+                lf, rf = lefts[i], rights[i]
+
+                # Skip empty, None, or all-N
+                if not lf or not rf:
+                    continue
+                if lf.upper() == 'NONE' or rf.upper() == 'NONE':
+                    continue
+
+                lf_clean = lf.strip("Nn")
+                rf_clean = rf.rstrip("Nn")
+
+                if not lf_clean or not rf_clean:
+                    continue
+                if "N" in lf_clean.upper() or "N" in rf_clean.upper():
+                    continue
+
+                concat = (lf_clean + rf_clean).upper()
+                if len(concat) < min_len:
+                    continue
+
+                seen.add(concat)
+
+    return list(seen)
+
+
+# ---------------------------------------------------------------------------
+# Core analysis
+# ---------------------------------------------------------------------------
+
+def get_max_arm_lengths(seqs, max_spacer, max_mismatches, max_arm, centered=True):
+    """For each sequence, find the longest palindrome at the insertion site.
+    
+    Returns list of arm lengths (0 if no palindrome >= 3bp found).
+    """
+    arm_lengths = []
+    for s in seqs:
+        fixed_centre = len(s) // 2 if centered else None
+        res = find_longest_inverted_repeat(
+            s,
+            max_spacer=max_spacer,
+            min_arm=3,
+            max_mismatches=max_mismatches,
+            fixed_centre=fixed_centre,
+        )
+        arm_lengths.append(min(res["arm_len"], max_arm))
+    return arm_lengths
+
+
+def compute_enrichment_curve(real_arms, shuffled_arms_list, min_arm, max_arm):
+    """Compute enrichment ratio at each arm length threshold.
+    
+    At each threshold, counts how many sequences have a palindrome
+    with arm length >= that threshold, for real vs shuffled.
+    """
+    curve = []
+    for threshold in range(min_arm, max_arm + 1):
+        real_count = sum(1 for a in real_arms if a >= threshold)
+
+        shuf_counts = [sum(1 for a in shuf_arms if a >= threshold)
+                       for shuf_arms in shuffled_arms_list]
+        shuf_mean = np.mean(shuf_counts) if shuf_counts else 0.0
+        shuf_sd = np.std(shuf_counts) if shuf_counts else 0.0
+
+        if shuf_mean > 0:
+            ratio = real_count / shuf_mean
+        elif real_count > 0:
+            ratio = float('inf')
+        else:
+            ratio = 1.0
+
+        curve.append({
+            'arm_length': threshold,
+            'real_count': real_count,
+            'shuffled_mean': shuf_mean,
+            'shuffled_sd': shuf_sd,
+            'ratio': ratio,
+        })
+    return curve
+
+
+def extract_summary(curve, threshold=2.0):
+    """Extract inflection length and peak enrichment from the curve."""
+    inflection = None
+    peak_enrichment = 0.0
+    peak_at_length = None
+
+    for point in curve:
+        ratio = point['ratio']
+        arm = point['arm_length']
+
+        if ratio != float('inf') and ratio > peak_enrichment:
+            peak_enrichment = ratio
+            peak_at_length = arm
+
+        if inflection is None and ratio >= threshold:
+            inflection = arm
+
+    # Handle inf cases
+    if any(p['ratio'] == float('inf') for p in curve):
+        inf_points = [p for p in curve if p['ratio'] == float('inf')]
+        if not peak_at_length or peak_enrichment < 100:
+            peak_enrichment = float('inf')
+            peak_at_length = inf_points[0]['arm_length']
+
+    return {
+        'inflection_length': inflection,
+        'peak_enrichment': peak_enrichment,
+        'peak_at_length': peak_at_length,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Plotting
 # ---------------------------------------------------------------------------
 
 def _sig_stars(p):
-    """Conventional significance stars for a one-sided p-value."""
     if p < 0.001:
         return "***"
     if p < 0.01:
@@ -105,109 +239,77 @@ def _sig_stars(p):
     return "ns"
 
 
-def plot_null_distribution(null_hits, observed_hits, p_val, mge_name, output_path, enrichment=None):
-    """Histogram of per-shuffle hit counts, with a line marking the observed value.
+def plot_palindrome_analysis(curve, mge_name, summary, threshold, output_path):
+    """Combined two-panel figure: raw counts (top) and enrichment ratio (bottom)."""
+    arms = [p['arm_length'] for p in curve]
+    ratios = [p['ratio'] for p in curve]
+    real_counts = [p['real_count'] for p in curve]
+    shuf_means = [p['shuffled_mean'] for p in curve]
+    shuf_sds = [p['shuffled_sd'] for p in curve]
 
-    This is the plot that makes the p-value visual: if the observed line sits
-    off to the right of the null histogram, the enrichment is real.
-    """
-    stars = _sig_stars(p_val)
-    fig, ax = plt.subplots(figsize=(8, 5))
-    lo, hi = min(null_hits + [observed_hits]), max(null_hits + [observed_hits])
-    bins = range(lo, hi + 2)
-    ax.hist(null_hits, bins=bins, color="tab:orange", edgecolor="white",
-             align="left", label="Null (shuffled)")
-    ax.axvline(observed_hits, color="tab:blue", linewidth=2.5,
-               label=f"Observed ({observed_hits})")
-    ax.set_xlabel("Sequences hitting the pattern")
-    ax.set_ylabel("Number of shuffles")
-    ax.set_title(f"{mge_name}: observed vs. null hit distribution (p = {p_val:.4f} {stars})")
-    annotation = f"p = {p_val:.4f} {stars}"
-    if enrichment is not None:
-        annotation = f"Enrichment: {enrichment:.2f}x\n" + annotation
-    ax.text(0.98, 0.95, annotation, transform=ax.transAxes, ha="right", va="top",
-            fontsize=10, bbox=dict(boxstyle="round", facecolor="white", alpha=0.85))
-    ax.legend(loc="upper left")
-    ax.grid(True, axis="y", alpha=0.3)
-    plt.tight_layout()
-    plt.savefig(output_path)
-    plt.close()
+    # Cap inf for plotting
+    max_finite = max((r for r in ratios if r != float('inf')), default=10)
+    plot_cap = max_finite * 1.5
+    plot_ratios = [min(r, plot_cap) if r != float('inf') else plot_cap
+                   for r in ratios]
 
-
-def plot_arm_length_distribution(obs_arm_lens, null_arm_lens, n_shuffles, mge_name, output_path,
-                                  p_val=None, enrichment=None):
-    """Bar chart of arm-length distribution, observed vs. null.
-
-    Null counts are averaged per shuffle so they're on the same scale as the
-    single observed dataset (raw null counts are summed across all shuffles).
-
-    p_val/enrichment (if given) are the overall hit-rate significance from
-    plot_null_distribution's test, annotated here for reference -- not a
-    separate per-arm-length test.
-    """
-    all_arms = sorted(set(obs_arm_lens) | set(null_arm_lens))
-    if not all_arms:
-        return
-    obs_counts = [obs_arm_lens.count(a) for a in all_arms]
-    null_counts = [null_arm_lens.count(a) / n_shuffles for a in all_arms]
-
-    x = range(len(all_arms))
+    x = np.arange(len(arms))
     width = 0.35
-    fig, ax = plt.subplots(figsize=(8, 5))
-    ax.bar([i - width / 2 for i in x], obs_counts, width, label="Observed", color="tab:blue")
-    ax.bar([i + width / 2 for i in x], null_counts, width,
-           label="Null (avg per shuffle)", color="tab:orange")
-    ax.set_xticks(list(x))
-    ax.set_xticklabels(all_arms)
-    ax.set_xlabel("Arm length (bp)")
-    ax.set_ylabel("Number of hits")
-    ax.set_title(f"{mge_name}: inverted repeat arm length, observed vs. null")
-    if p_val is not None:
-        stars = _sig_stars(p_val)
-        annotation = f"p = {p_val:.4f} {stars}"
-        if enrichment is not None:
-            annotation = f"Arm-len enrichment: {enrichment:.2f}x\n" + annotation
-        ax.text(0.98, 0.95, annotation, transform=ax.transAxes, ha="right", va="top",
-                fontsize=10, bbox=dict(boxstyle="round", facecolor="white", alpha=0.85))
-    ax.legend(loc="upper left")
-    ax.grid(True, axis="y", alpha=0.3)
+
+    fig, (ax_counts, ax_enrich) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
+
+    # --- Top panel: raw counts ---
+    ax_counts.bar(x - width/2, real_counts, width, label='Real', color='#2166ac')
+    ax_counts.bar(x + width/2, shuf_means, width, label='Shuffled (mean)',
+                  color='tab:orange', yerr=shuf_sds, capsize=2)
+    ax_counts.set_ylabel('Sequences with palindrome ≥ arm length')
+    ax_counts.set_title(f'{mge_name}: palindrome counts and enrichment by arm length')
+    ax_counts.legend(loc='upper right', fontsize=8)
+    ax_counts.grid(True, axis='y', alpha=0.3)
+
+    # --- Bottom panel: enrichment ratio ---
+    ax_enrich.bar(x, plot_ratios, width * 2, color='#2166ac', alpha=0.8, edgecolor='white')
+
+    ax_enrich.axhline(1.0, color='grey', linestyle='--', linewidth=1, alpha=0.6,
+                      label='No enrichment')
+    ax_enrich.axhline(threshold, color='red', linestyle='--', linewidth=1, alpha=0.6,
+                      label=f'Threshold ({threshold}x)')
+
+    if summary['inflection_length'] is not None:
+        infl_idx = arms.index(summary['inflection_length'])
+        ax_enrich.axvline(infl_idx, color='green', linestyle='--',
+                          linewidth=1.5, alpha=0.7,
+                          label=f'Inflection (arm = {summary["inflection_length"]})')
+        # Also mark on top panel
+        ax_counts.axvline(infl_idx, color='green', linestyle='--',
+                          linewidth=1.5, alpha=0.4)
+
+    for i, r in enumerate(ratios):
+        if r == float('inf'):
+            ax_enrich.annotate('∞', xy=(i, plot_ratios[i]),
+                               ha='center', va='bottom', fontsize=10, color='red')
+
+    ax_enrich.set_xticks(x)
+    ax_enrich.set_xticklabels(arms)
+    ax_enrich.set_xlabel('Minimum arm length (bp)')
+    ax_enrich.set_ylabel('Enrichment (real / shuffled)')
+    ax_enrich.legend(loc='upper left', fontsize=8)
+    ax_enrich.grid(True, axis='y', alpha=0.3)
+
+    # Annotation
+    infl_str = str(summary['inflection_length']) if summary['inflection_length'] else 'none'
+    peak_str = (f"{summary['peak_enrichment']:.1f}x"
+                if summary['peak_enrichment'] != float('inf') else '∞')
+    peak_at = str(summary['peak_at_length']) if summary['peak_at_length'] else '—'
+    ax_enrich.text(0.98, 0.95,
+                   f"Inflection: {infl_str} bp\nPeak: {peak_str} at {peak_at} bp",
+                   transform=ax_enrich.transAxes, ha='right', va='top', fontsize=9,
+                   bbox=dict(boxstyle='round', facecolor='white', alpha=0.85))
+
     plt.tight_layout()
-    plt.savefig(output_path)
+    plt.savefig(output_path, dpi=200, bbox_inches='tight')
     plt.close()
 
-
-# ---------------------------------------------------------------------------
-# Input loading
-def load_sequences(path, min_len=20):
-    """Load (acc, left, right) from TSV; strip trailing Ns from right flank, dedupe.
-
-    Returns list of (acc, concat_seq).
-    """
-    seqs = []
-    seen = set()
-    with open(path, "r") as f:
-        reader = csv.reader(f, delimiter="\t")
-        for row in reader:
-            if len(row) < 3:
-                continue
-            acc, left, right = row[0], row[1], row[2]
-            # Skip multi-segment rows
-            if "|" in left or "|" in right:
-                continue
-            # Strip trailing Ns from right (TSD trim padding)
-            right_clean = right.rstrip("Nn")
-            left_clean = left.rstrip("Nn").lstrip("Nn")
-            # Reject if any internal Ns remain
-            if "N" in left_clean.upper() or "N" in right_clean.upper():
-                continue
-            concat = (left_clean + right_clean).upper()
-            if len(concat) < min_len:
-                continue
-            if concat in seen:
-                continue
-            seen.add(concat)
-            seqs.append((acc, concat))
-    return seqs
 
 # ---------------------------------------------------------------------------
 # Main analysis
@@ -215,267 +317,106 @@ def load_sequences(path, min_len=20):
 
 def run_palindrome_analysis(
     input_tsv, mge_name, output_dir,
-    min_arm=3, max_spacer=2, max_mismatches=0,
-    window_start=None, window_end=None,
-    n_shuffles=100, seed=None, min_seq_len=20,
-    centered=False,
+    min_arm=3, max_arm=25, max_spacer=2, max_mismatches=0,
+    n_shuffles=100, threshold=2.0, seed=42,
+    min_seq_len=20, centered=True,
 ):
-    """Run palindrome detection + dinucleotide-shuffled null test.
-
-    If centered=True, only the midpoint of the concatenated left+right
-    sequence (i.e. the left/right flank boundary) is tested as the
-    palindrome centre, for both observed sequences and all shuffled nulls.
-    """
+    """Run palindrome enrichment analysis across arm lengths."""
     logger = logging.getLogger("palindrome")
 
     if seed is not None:
         random.seed(seed)
 
-    entries = load_sequences(input_tsv, min_len=min_seq_len)
-    if not entries:
+    seqs = load_sequences(input_tsv, min_len=min_seq_len)
+    if not seqs:
         logger.error(f"No valid sequences loaded from {input_tsv}")
-        return
+        return None
 
-    seqs = [s for _, s in entries]
-    total_len = len(seqs[0])
-    # Sanity check: all same length?
-    if not all(len(s) == total_len for s in seqs):
-        logger.warning("Sequences have variable lengths; using max length for plots.")
-        total_len = max(len(s) for s in seqs)
-
-    # Window defaults to full sequence
-    ws = 0 if window_start is None else max(0, window_start)
-    we = total_len if window_end is None else min(total_len, window_end)
-
-    # Fixed centre overrides window-based iteration when --centered is set.
-    # The centre is the left/right flank boundary -- the midpoint of the
-    # concatenated sequence -- not a hardcoded position, so this works
-    # regardless of flank length.
-    fixed_centre = total_len // 2 if centered else None
-
+    seq_len = len(seqs[0])
+    logger.info(f"Loaded {len(seqs)} unique sequences ({seq_len} bp)")
     logger.info(
-        f"Loaded {len(seqs)} unique sequences (length {total_len} bp)"
-    )
-    logger.info(
-        f"Pattern: arm >= {min_arm}, spacer <= {max_spacer}, "
-        f"mismatches <= {max_mismatches}, window [{ws}, {we})"
-        + (f", fixed centre = {fixed_centre}" if centered else "")
+        f"Settings: arm {min_arm}-{max_arm}, spacer <= {max_spacer}, "
+        f"mismatches <= {max_mismatches}, {n_shuffles} shuffles, "
+        f"centred={'yes' if centered else 'no'}"
     )
 
-   
-    # --- Observed ---
-    observed_hits = 0
-    obs_positions = []
-    obs_arm_lens = []
-    obs_spacers = []
-    for acc, s in entries:
-        res = find_longest_inverted_repeat(
-            s, max_spacer=max_spacer, min_arm=min_arm,
-            max_mismatches=max_mismatches,
-            search_start=ws, search_end=we,
-            fixed_centre=fixed_centre,
-        )
-        if res["arm_len"] >= min_arm:
-            observed_hits += 1
-            obs_positions.append((
-                res["left_start"], res["right_end"],
-                res["arm_len"], res["spacer_size"],
-            ))
-            obs_arm_lens.append(res["arm_len"])
-            obs_spacers.append(res["spacer_size"])
+    # --- Real sequences ---
+    logger.info("Scanning real sequences...")
+    real_arms = get_max_arm_lengths(seqs, max_spacer, max_mismatches, max_arm, centered)
 
-    logger.info(
-        f"Observed: {observed_hits}/{len(seqs)} "
-        f"({100 * observed_hits / len(seqs):.1f}%) hit the pattern"
-    )
-
-    # --- Null ---
-    logger.info(f"Running {n_shuffles} dinucleotide shuffles...")
-    null_hits = []
-    null_positions = []
-    null_arm_lens = []       # arm lens of hits only (for geometry stats)
-    null_spacers = []
-    null_arm_totals = []     # per-shuffle sum of arm lens across ALL sequences (non-hits = 0)
-    pos_sample_cap = min(200, len(seqs))
-
+    # --- Shuffled controls ---
+    logger.info(f"Scanning {n_shuffles} shuffled replicates...")
+    shuffled_arms_list = []
     for i in range(n_shuffles):
-        count = 0
-        shuffle_arm_total = 0
-        for idx, s in enumerate(seqs):
+        shuffled_seqs = []
+        for s in seqs:
             try:
-                shuffled = dinucleotide_shuffle(s)
+                shuffled_seqs.append(dinucleotide_shuffle(s))
             except RuntimeError:
-                continue
-            res = find_longest_inverted_repeat(
-                shuffled, max_spacer=max_spacer, min_arm=min_arm,
-                max_mismatches=max_mismatches,
-                search_start=ws, search_end=we,
-                fixed_centre=fixed_centre,
-            )
-            if res["arm_len"] >= min_arm:
-                count += 1
-                shuffle_arm_total += res["arm_len"]
-                null_arm_lens.append(res["arm_len"])
-                null_spacers.append(res["spacer_size"])
-                if idx < pos_sample_cap:
-                    null_positions.append((
-                        res["left_start"], res["right_end"],
-                        res["arm_len"], res["spacer_size"],
-                    ))
-        null_hits.append(count)
-        null_arm_totals.append(shuffle_arm_total)
+                shuffled_seqs.append(s)
+        shuf_arms = get_max_arm_lengths(shuffled_seqs, max_spacer, max_mismatches,
+                                         max_arm, centered)
+        shuffled_arms_list.append(shuf_arms)
         if (i + 1) % 10 == 0:
-            logger.debug(f"  {i+1}/{n_shuffles} shuffles done")
+            logger.info(f"  {i+1}/{n_shuffles} shuffles done")
 
-    # --- Stats ---
-    null_mean = sum(null_hits) / len(null_hits) if null_hits else 0.0
-    null_min = min(null_hits) if null_hits else 0
-    null_max = max(null_hits) if null_hits else 0
-    if len(null_hits) > 1:
-        null_var = sum((x - null_mean) ** 2 for x in null_hits) / (len(null_hits) - 1)
-        null_sd = null_var ** 0.5
-    else:
-        null_sd = 0.0
-    p_val = (
-        sum(n >= observed_hits for n in null_hits) / n_shuffles
-        if n_shuffles > 0 else 1.0
-    )
-    # Hit-count enrichment (how many more sequences hit the threshold)
-    hit_enrichment = observed_hits / null_mean if null_mean > 0 else float("inf")
+    # --- Enrichment curve ---
+    curve = compute_enrichment_curve(real_arms, shuffled_arms_list, min_arm, max_arm)
+    summary = extract_summary(curve, threshold)
 
-    # Arm-length-weighted enrichment: mean arm len per sequence (non-hits = 0).
-    # Reflects both frequency and strength, so a longer null arm deflates the score.
-    obs_arm_total = sum(obs_arm_lens)
-    obs_arm_mean_all = obs_arm_total / len(seqs)
-    null_arm_mean_all = (sum(null_arm_totals) / len(null_arm_totals)) / len(seqs) if null_arm_totals else 0.0
-    arm_enrichment = obs_arm_mean_all / null_arm_mean_all if null_arm_mean_all > 0 else float("inf")
+    summary['n_seqs'] = len(seqs)
+    summary['pct_at_inflection'] = None
+    if summary['inflection_length'] is not None:
+        real_count_at_infl = next((p['real_count'] for p in curve
+                                    if p['arm_length'] == summary['inflection_length']), None)
+        if real_count_at_infl is not None:
+            summary['pct_at_inflection'] = real_count_at_infl / len(seqs) * 100
 
-    # Geometry stats
-    def _mean(xs):
-        return sum(xs) / len(xs) if xs else 0.0
-
-    def _median(xs):
-        if not xs:
-            return 0.0
-        s = sorted(xs)
-        m = len(s) // 2
-        return s[m] if len(s) % 2 else (s[m - 1] + s[m]) / 2
-
-    def _mode(xs):
-        if not xs:
-            return None
-        counts = {}
-        for x in xs:
-            counts[x] = counts.get(x, 0) + 1
-        return max(counts, key=counts.get)
-
-    obs_arm_mean = _mean(obs_arm_lens)
-    obs_arm_med = _median(obs_arm_lens)
-    obs_arm_mode = _mode(obs_arm_lens)
-    obs_sp_mean = _mean(obs_spacers)
-    obs_sp_med = _median(obs_spacers)
-    obs_sp_mode = _mode(obs_spacers)
-
-    null_arm_mean = _mean(null_arm_lens)
-    null_arm_med = _median(null_arm_lens)
-    null_arm_mode = _mode(null_arm_lens)
-    null_sp_mean = _mean(null_spacers)
-    null_sp_med = _median(null_spacers)
-    null_sp_mode = _mode(null_spacers)
-
-    # Arm length breakdown (observed)
-    obs_arm_dist = {}
-    for a in obs_arm_lens:
-        obs_arm_dist[a] = obs_arm_dist.get(a, 0) + 1
-    null_arm_dist = {}
-    for a in null_arm_lens:
-        null_arm_dist[a] = null_arm_dist.get(a, 0) + 1
-
-    summary_lines = [
-        f"Palindrome / Inverted-Repeat Analysis: {mge_name}",
-        "=" * 55,
-        f"Input:                {input_tsv}",
-        f"Sequences tested:     {len(seqs)} (unique concatenated L+R)",
-        f"Sequence length:      {total_len} bp",
-        f"Search window:        [{ws}, {we})",
-        f"Centred mode:         {f'yes (centre fixed at index {fixed_centre})' if centered else 'no'}",
-        f"Pattern minimum:      arm >= {min_arm}, spacer <= {max_spacer}, "
-        f"mismatches <= {max_mismatches}",
-        f"Null:                 {n_shuffles} dinucleotide shuffles",
-        "",
-        f"Observed hits:        {observed_hits}/{len(seqs)} "
-        f"({100 * observed_hits / len(seqs):.1f}%)",
-        f"Null mean hits:       {null_mean:.2f}/{len(seqs)} "
-        f"({100 * null_mean / len(seqs):.1f}%)",
-        f"Null SD:              {null_sd:.2f}",
-        f"Null range:           {null_min}-{null_max}",
-        f"Enrichment (hit rate):{hit_enrichment:>10.2f}x"
-        if null_mean > 0 else "Enrichment (hit rate): inf",
-        f"Enrichment (arm len): {arm_enrichment:>9.2f}x"
-        if null_arm_mean_all > 0 else "Enrichment (arm len): inf",
-        f"p-value (one-sided):  {p_val:.4f}"
-        + (f"  (i.e. p < {1 / n_shuffles})" if p_val == 0 else ""),
-        "",
-        "Hit geometry (best IR per hit sequence):",
-        f"{'':<22}{'observed':>12}{'null':>12}",
-        f"{'  arm length mean':<22}{obs_arm_mean:>12.2f}{null_arm_mean:>12.2f}",
-        f"{'  arm length median':<22}{obs_arm_med:>12.1f}{null_arm_med:>12.1f}",
-        f"{'  arm length mode':<22}{str(obs_arm_mode):>12}{str(null_arm_mode):>12}",
-        f"{'  spacer mean':<22}{obs_sp_mean:>12.2f}{null_sp_mean:>12.2f}",
-        f"{'  spacer median':<22}{obs_sp_med:>12.1f}{null_sp_med:>12.1f}",
-        f"{'  spacer mode':<22}{str(obs_sp_mode):>12}{str(null_sp_mode):>12}",
-        "",
-        "Arm length distribution (% of hits):",
-        f"{'arm_len':>8}{'observed':>12}{'null':>12}",
-    ]
-
-    all_arms = sorted(set(list(obs_arm_dist.keys()) + list(null_arm_dist.keys())))
-    for a in all_arms:
-        obs_pct = 100 * obs_arm_dist.get(a, 0) / len(obs_arm_lens) if obs_arm_lens else 0
-        null_pct = 100 * null_arm_dist.get(a, 0) / len(null_arm_lens) if null_arm_lens else 0
-        summary_lines.append(f"{a:>8}{obs_pct:>11.1f}%{null_pct:>11.1f}%")
-
+    peak_str = (f"{summary['peak_enrichment']:.1f}x"
+                if summary['peak_enrichment'] != float('inf') else 'inf')
     logger.info(
-        f"Palindrome result: {observed_hits}/{len(seqs)} ({100 * observed_hits / len(seqs):.1f}%) observed "
-        f"vs null mean {null_mean:.2f} ({100 * null_mean / len(seqs):.1f}%); "
-        f"enrichment {hit_enrichment:.2f}x (hit rate), {arm_enrichment:.2f}x (arm length); "
-        f"p = {p_val:.4f} {_sig_stars(p_val)} (full breakdown written to file)"
+        f"Result: inflection={summary['inflection_length']}, "
+        f"peak={peak_str} at {summary['peak_at_length']}bp"
     )
-    for line in summary_lines:
-        logger.debug(line)
 
+    # --- Output ---
     out_dir = Path(output_dir)
     files_dir = out_dir / "files"
     graphs_dir = out_dir / "graphs"
     files_dir.mkdir(parents=True, exist_ok=True)
     graphs_dir.mkdir(parents=True, exist_ok=True)
 
-    summary_path = files_dir / f"{mge_name}_PALINDROME_SUMMARY.txt"
-    try:
-        with open(summary_path, "w") as f:
-            f.write("\n".join(summary_lines) + "\n")
-        logger.info(f"Summary written to {summary_path}")
-    except Exception as e:
-        logger.exception(f"Failed to write summary: {e}")
+    # Parameter suffix so different parameter combos never overwrite each other
+    param_suffix = f"arm{min_arm}_mm{max_mismatches}_sp{max_spacer}"
 
-    # --- Plots ---
-    try:
-        null_dist_path = graphs_dir / f"{mge_name}_PALINDROME_NULL_DIST.png"
-        plot_null_distribution(null_hits, observed_hits, p_val, mge_name, null_dist_path,
-                                enrichment=hit_enrichment)
-        logger.info(f"Null distribution plot written to {null_dist_path}")
-    except Exception as e:
-        logger.exception(f"Failed to write null distribution plot: {e}")
+    # Summary line (appends to running file, one file per parameter combo)
+    summary_path = files_dir / f"palindrome_enrichment_summary_{param_suffix}.tsv"
+    write_header = not summary_path.exists()
+    with open(summary_path, "a") as f:
+        if write_header:
+            f.write("element\tn_seqs\tinflection_length\tpeak_enrichment\tpeak_at_length\n")
+        infl_str = str(summary['inflection_length']) if summary['inflection_length'] else 'none'
+        f.write(f"{mge_name}\t{len(seqs)}\t{infl_str}\t{peak_str}\t"
+                f"{summary['peak_at_length']}\n")
+    logger.info(f"Summary appended to {summary_path}")
 
-    try:
-        arm_dist_path = graphs_dir / f"{mge_name}_PALINDROME_ARM_LEN_DIST.png"
-        plot_arm_length_distribution(obs_arm_lens, null_arm_lens, n_shuffles, mge_name, arm_dist_path,
-                                      p_val=p_val, enrichment=arm_enrichment)
-        logger.info(f"Arm length distribution plot written to {arm_dist_path}")
-    except Exception as e:
-        logger.exception(f"Failed to write arm length distribution plot: {e}")
+    # Full curve
+    curve_path = files_dir / f"{mge_name}_PALINDROME_ENRICHMENT_CURVE_{param_suffix}.tsv"
+    with open(curve_path, "w") as f:
+        f.write("element\tarm_length\treal_count\tshuffled_mean\tshuffled_sd\tratio\n")
+        for p in curve:
+            ratio_str = f"{p['ratio']:.2f}" if p['ratio'] != float('inf') else 'inf'
+            f.write(f"{mge_name}\t{p['arm_length']}\t{p['real_count']}\t"
+                    f"{p['shuffled_mean']:.2f}\t{p['shuffled_sd']:.2f}\t{ratio_str}\n")
+    logger.info(f"Enrichment curve written to {curve_path}")
+
+    # Plot (combined counts + enrichment)
+    plot_path = graphs_dir / f"{mge_name}_PALINDROME_ENRICHMENT_{param_suffix}.png"
+    plot_palindrome_analysis(curve, mge_name, summary, threshold, plot_path)
+    logger.info(f"Palindrome plot written to {plot_path}")
 
     logger.info("Palindrome analysis complete.")
+    return summary
 
 
 # ---------------------------------------------------------------------------
@@ -484,7 +425,7 @@ def run_palindrome_analysis(
 
 def _parse_args():
     p = argparse.ArgumentParser(
-        description="Detect inverted repeats in flank TSV and compare to dinucleotide-shuffled null."
+        description="Palindromic enrichment by arm length, compared to dinucleotide-shuffled null."
     )
     p.add_argument("--input", "-i", required=True,
                    help="Trimmed flanks TSV: acc_name<TAB>left<TAB>right")
@@ -493,23 +434,23 @@ def _parse_args():
     p.add_argument("--outdir", "-o", default=".",
                    help="Output directory (default: current)")
     p.add_argument("--min_arm", type=int, default=3,
-                   help="Minimum arm length (default: 3)")
+                   help="Minimum arm length to report (default: 3)")
+    p.add_argument("--max_arm", type=int, default=25,
+                   help="Maximum arm length to scan (default: 25)")
     p.add_argument("--max_spacer", type=int, default=2,
                    help="Maximum spacer size (default: 2)")
     p.add_argument("--max_mismatches", type=int, default=0,
                    help="Maximum mismatches per arm (default: 0)")
-    p.add_argument("--window_start", type=int, default=None,
-                   help="Window start (inclusive); default: 0")
-    p.add_argument("--window_end", type=int, default=None,
-                   help="Window end (exclusive); default: full sequence")
     p.add_argument("--n_shuffles", type=int, default=100,
                    help="Number of null shuffles (default: 100)")
-    p.add_argument("--seed", type=int, default=None,
-                   help="Random seed (optional)")
+    p.add_argument("--threshold", type=float, default=2.0,
+                   help="Enrichment ratio threshold for inflection (default: 2.0)")
+    p.add_argument("--seed", type=int, default=42,
+                   help="Random seed (default: 42)")
     p.add_argument("--min_seq_len", type=int, default=20,
-                   help="Skip concatenated sequences shorter than this (default: 20)")
-    p.add_argument("--centered", action="store_true",
-                   help="Only test the left/right flank boundary as the palindrome centre (observed and null)")
+                   help="Skip sequences shorter than this (default: 20)")
+    p.add_argument("--no_centered", action="store_true",
+                   help="Search full sequence instead of only insertion midpoint")
     return p.parse_args()
 
 
@@ -518,21 +459,21 @@ def main():
     logging.basicConfig(
         level=logging.INFO,
         format="%(levelname)s: %(message)s",
-        stream=sys.stdout,
+        stream=sys.stderr,
     )
     run_palindrome_analysis(
         input_tsv=args.input,
         mge_name=args.mge_name,
         output_dir=args.outdir,
         min_arm=args.min_arm,
+        max_arm=args.max_arm,
         max_spacer=args.max_spacer,
         max_mismatches=args.max_mismatches,
-        window_start=args.window_start,
-        window_end=args.window_end,
         n_shuffles=args.n_shuffles,
+        threshold=args.threshold,
         seed=args.seed,
         min_seq_len=args.min_seq_len,
-        centered=args.centered,
+        centered=not args.no_centered,
     )
 
 
