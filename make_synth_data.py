@@ -77,7 +77,7 @@ def nucl_preference(input_file, flank_len, n, specificity: int):
 if __name__ == '__main__':
     # Make test_data directory
     file_path = Path("test_data")
-    file_path.parent.mkdir(parents=True, exist_ok=True)
+    file_path.mkdir(parents=True, exist_ok=True)
 
     ### No preference at all
     no_preference("test_data/flanks_no_preference.txt", FLANK_LEN, N)

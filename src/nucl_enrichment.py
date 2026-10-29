@@ -16,15 +16,12 @@ def _count_dinucleotides(seqs):
     return counts, total
 
 
-def analyse_dinucleotide_enrichment_weighted(left_seqs, right_seqs, output_dir, flank_len, mge_name, inner_bp=10):
+def analyse_dinucleotide_enrichment_weighted(left_seqs, right_seqs, output_dir, mge_name, inner_bp=10):
     """
     Dinucleotide enrichment: the inner_bp nearest the insertion site vs. the
     inner_bp farthest from it -- symmetric, matched-size windows, so the
     middle of the flank (between the two windows) is left out of both.
     Inner = closer to insertion site, outer = farthest away.
-
-    NOTE: flank_len is unused now (the windows are fixed-size from each end,
-    not dependent on total flank length) but kept for interface compatibility.
     """
     dfs = {}
     for flank, seqs in [('left', left_seqs), ('right', right_seqs)]:
@@ -49,8 +46,8 @@ def analyse_dinucleotide_enrichment_weighted(left_seqs, right_seqs, output_dir, 
                 outer_freq = (outer_counts.get(dinuc, 0) + 0.5) / (outer_total + 8)
                 df.loc[a, b] = np.log2(inner_freq / outer_freq)
 
-        df.to_csv(f"{output_dir}/files/{flank}_dinucleotide_enrichment.tsv", sep='\t')
-        dfs[flank] = df.astype(float)
+        df.to_csv(f"{output_dir}/files/{mge_name}_{flank.upper()}_DINUC_ENRICHMENT.tsv", sep='\t')
+        dfs[flank] = df
 
     # One figure, left flank and right flank side by side, sharing a colour scale.
     vmax = max(dfs['left'].abs().values.max(), dfs['right'].abs().values.max())
@@ -64,5 +61,3 @@ def analyse_dinucleotide_enrichment_weighted(left_seqs, right_seqs, output_dir, 
     fig.tight_layout()
     fig.savefig(f"{output_dir}/graphs/{mge_name}_DINUC_ENRICH.png")
     plt.close(fig)
-
-    return dfs
