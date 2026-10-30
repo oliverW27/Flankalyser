@@ -6,16 +6,19 @@
 
 
 ## Quick start
-Flankalyser looks for patterns around the insertion site of a (mobile) genetic element, using its flanking sequences from many genomes. By default it reports the base composition at each position (with significance), a sequence logo and dinucleotide enrichment near the insertion site. Optionally, it can also detect target site duplications (TSDs), looks for palindromes, and profiles DNA bendability and melting.
+Flankalyser looks for patterns around the insertion site of a (mobile) genetic element, using its flanking sequences from many genomes. By default it reports the base composition at each position (with significance), a sequence logo and dinucleotide enrichment near the insertion site. Optionally, it can also detect target site duplications (TSDs), look for palindromes, and profile DNA bendability and melting.
 
 You need:
 - the conda environment (see [Dependencies](#dependencies))
 - a tab-separated file of left and right flanks for one element (see [Input](#input))
-- This code base
+- This codebase
 
 ```bash
-python flankalyser.py --mge_name IS26 --summary_file examples/flanks_IS26_subset.txt --flank_len 50 --outdir results \
-    --analyse_TSDs --analyse_palindromes --analyse_bendability --analyse_melting
+python flankalyser.py --mge_name IS26 \
+  --summary_file examples/real_examples/flanks_IS26_subset.txt \
+  --flank_len 50 --outdir results \
+  --analyse_TSDs --analyse_palindromes \
+  --analyse_bendability --analyse_melting
 ```
 
 Graphs are written to `results/graphs/`, tables to `results/files/`, and a log of the run to `results/`. See [Output](#output) for details.
@@ -35,12 +38,12 @@ conda env create -f env.yml
 conda activate flankalyser
 ```
 ## Input
-The input file must contain the flanking contexts of a given MGE in the following, tab-delimated format:
+The input file must contain the flanking contexts of a given MGE in the following, tab-delimited format:
 
 ```tsv
 [unique ID]   [left flank 1]|[optional: left flank 2]|...   [right flank 1]|[optional: right flank 2]...
 ```
-All flanks must be of the same length, but may be padded with `N`. Note the `--flank-len` argument must be accurate for the actual length of the flanks, else all input will be skipped.
+All flanks must be of the same length, but may be padded with `N`. Note the `--flank_len` argument must be accurate for the actual length of the flanks, else all input will be skipped.
 
 **Valid input** (N and invalid characters are ignored):
 ```tsv
@@ -64,7 +67,7 @@ accession_3    AGNCCC    AGCTTA|ATTGGG
 - `accession_3`: different numbers of left and right flanks. All three flanks are used in the analyses that look at each flank on its own. The TSD and palindrome analyses pair the flanks in order (`AGNCCC` with `AGCTTA`) and leave out the unpaired `ATTGGG`.
 
 The expected way of data generation for this tool is using [LexicMap](https://github.com/shenwei356/LexicMap) to query a database of assemblies, such as [AllTheBacteria](https://allthebacteria.org/).
-A script `convert_lexicmap_fmt` is provided in `helpers/` to convert the output format to one compatible with Flankalyser.
+A script `convert_lexicmap_fmt.py` is provided in `helpers/` to convert the output format to one compatible with Flankalyser.
 
 ### Example input generation workflow
 ```bash
@@ -90,6 +93,40 @@ python3 convert_lexicmap_fmt.py --tsv output.fasta.lexicmap.tsv \
  --flank_len 50
 
 ```
+
+### GC background file (`--gc_file`, optional)
+The nucleotide composition test (step 2 of the [analysis](#analysis-steps)) asks whether the base proportions at each position differ from what is *expected*. By default, Flankalyser expects 25% of each base. Most bacterial genomes are not 50% GC, so in a genome with 35% GC every position will look AT-rich and come out significant, even with no target-site preference at all (see the `flanks_low_AT` and `flanks_high_AT` [toy examples](#toy-examples)). The GC file gives the expected GC content of the genomes the element is found in. The expected proportions then become A = T = (100 − GC)/2 % and C = G = GC/2 %, both for the significance test and for the baseline in the `DNA_FREQ` graph.
+
+The file is tab-separated with a header line. Flankalyser looks for the row whose **second column exactly matches `--mge_name`** and reads the GC % (0–100) from the **third column**. Any other columns are ignored. Elements not found in the file fall back to 25% per base, with a warning.
+
+```tsv
+family	element	mean_gc	std_gc	n_accessions
+IS21	IS100	50.8	1.07	65531
+IS3	IS1397	50.58	0.74	42529
+...
+```
+
+`examples/real_examples/element_gc.tsv` has the values for the four [real examples](#real-examples).
+
+**How the background was calculated** for the examples:
+1. For each genome (assembly) that contains the element, calculate the GC % of the whole assembly, with all contigs joined and only A/C/G/T counted.
+2. Take the mean of these values over all genomes carrying the element, counting each genome once, however many copies of the element it has.
+
+For example, step 1 for one gzipped assembly:
+```python
+import gzip
+
+def genome_gc(fasta_gz):
+    gc = acgt = 0
+    with gzip.open(fasta_gz, "rt") as f:
+        for line in f:
+            if not line.startswith(">"):
+                seq = line.strip().upper()
+                gc += seq.count("G") + seq.count("C")
+                acgt += sum(seq.count(b) for b in "ACGT")
+    return 100 * gc / acgt
+```
+
 ## Options
 
 | Option | Type | Required | Default |
@@ -111,7 +148,7 @@ python3 convert_lexicmap_fmt.py --tsv output.fasta.lexicmap.tsv \
 | `--analyse_melting` | flag | no | off |
 
 ## Analysis steps
-Steps 1-3 always run; steps 4-7 are switched on with their `--analyse_xxx` option. In all steps, only **unique flanks** are counted even if they appear in multiple rows under different IDs. This is done as not every context represents a unique insertion event (could be due to e.g., resequencing the same isolate, or clonal expansion). The exception to this is for TSD and palindromic analysis, here **unique left/right pairs** are used.
+Steps 1-3 always run; steps 4-7 are switched on with their `--analyse_xxx` option. In all steps, only **unique flanks** are counted even if they appear in multiple rows under different IDs. This is done as not every context represents a unique insertion event (could be due to e.g., resequencing of the same isolate, or clonal expansion). The exception to this is for TSD and palindromic analysis, here **unique left/right pairs** are used.
 Several steps compare the real flanks with **dinucleotide-shuffled** copies of them. Shuffling destroys the order of the sequence but keeps its exact dinucleotide counts (after Altschul & Erickson, 1985), so the shuffled copies have the same base composition as the real flanks.
 
 ### 1. Input parsing
@@ -181,7 +218,7 @@ Elements with fewer than 100 unique left or right flanks are skipped. You can ed
 
 ## Examples
 ### Toy examples
-`helpers/make_synth_data.py` makes five synthetic datasets of 1,000 random flank pairs (50 bp each), each with a different kind of insertion-site preference built in. The number and length of the flanks can be changed with `N` and `FLANK_LEN` at the top of the script. The sequences are random, so exact numbers will differ slightly between runs.
+`helpers/make_synth_data.py` is provided to make synthetic data - five example inputs of various target site patterns are present, but playing around with different types of preference patterns may be helpful to understand real results. The number and length of the flanks can be changed with `N` and `FLANK_LEN` at the top of the script. The sequences are random, so exact numbers will differ slightly between runs.
 
 ```bash
 for f in examples/toy_examples/*.txt; do
@@ -193,7 +230,7 @@ done
 
 | Dataset | How it is made | What it shows |
 |---|---|---|
-| `flanks_no_preference` | Every base random (25% each) | At every position, each nucleotide is equally common - there is *NO target site motif*. This is a baseline against which to compare any other results to!
+| `flanks_no_preference` | Every base random (25% each) | At every position, each nucleotide is equally common - there is *NO target site motif*. This is a baseline against which to compare any other results!
 | `flanks_low_AT`, `flanks_high_AT` | Every base drawn with 20% or 75% A+T | A composition bias across the whole flank. These datasets also have more chance TSDs (around 5% of sites vs. 1.5%), but `--tsd_test_significance` then shows that the background is just as high. |
 | `flanks_strong_short_seq` | `CTAG` directly left of the insertion site in 80% of flanks | A strong, short target-site preference: positions −4 to −1 are highly significant, the left logo spells `CTAG`, and `CT`, `TA` and `AG` are about 2× enriched near the insertion site in the left flank only. |
 | `flanks_weak_long_seq` | 15 bp motif `GCCGATCGCATCGGC` spanning the insertion site in 10% of flanks | A weak, long preference: most motif positions are still significant with 1,000 flanks, despite the motif being present in only 10% of them. The motif is also an inverted repeat (`GCCGAT`, 3 bp spacer `CGC`, `ATCGGC`), so it isn't found with the default `--palindrome_max_spacer 2`. With `--palindrome_max_spacer 3`, palindromes are about 2.3× enriched from an arm length of 6 bp. |
@@ -203,9 +240,11 @@ done
 
 ```bash
 for n in IS1397 IS100 IS26 IS91; do
-    python flankalyser.py --mge_name $n --summary_file examples/real_examples/flanks_${n}_subset.txt --flank_len 50 \
-        --outdir examples/real_examples --analyse_TSDs --tsd_test_significance \
-        --analyse_palindromes --analyse_bendability --analyse_melting
+    python flankalyser.py --mge_name $n \
+      --summary_file examples/real_examples/flanks_${n}_subset.txt --flank_len 50 \
+      --outdir examples/real_examples --analyse_TSDs --tsd_test_significance \
+      --analyse_palindromes --analyse_bendability --analyse_melting \
+      --gc_file examples/real_examples/element_gc.tsv 
 done
 ```
 
@@ -214,4 +253,4 @@ done
 | `flanks_IS1397_subset.txt` | A palindromic target ([a REP in E. coli](https://pmc.ncbi.nlm.nih.gov/articles/PMC169884/)). Long inverted repeats are strongly enriched. Short TSDs (mostly 3-4 bp) are found at 32% of sites, as has been [reported](https://pmc.ncbi.nlm.nih.gov/articles/PMC95333/). |
 | `flanks_IS100_subset.txt` | A strong TSD with little target sequence preference. 5 bp TSDs (and some 6 bp) are found at 68% of sites. 10-bp AT peaks are visible in the bending graph, which indicates it inserts into bent DNA |
 | `flanks_IS26_subset.txt` | An 8 bp TSD at only a small fraction of sites - IS26 rearranges its insertion contexts which disrupts these TSDs. Many positions near the site are significant, but no base is more than 15% above expected, so the target preference is weak. |
-| `flanks_IS91_subset.txt` | A target motif without a TSD, this element does not create them. IS91 has a strong preference to [insert next to the GTTC motif](https://pubmed.ncbi.nlm.nih.gov/2552258/) observed in the sequence logo and nucleotide distribution graph |
+| `flanks_IS91_subset.txt` | A target motif without a TSD, this element does not create them. IS91 has a strong preference to [insert next to the GTTC motif](https://pubmed.ncbi.nlm.nih.gov/2552258/), seen here as its reverse complement `GAAC` at positions +1 to +4 in the right-flank sequence logo and nucleotide distribution graph |

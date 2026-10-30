@@ -75,23 +75,23 @@ def nucl_preference(input_file, flank_len, n, specificity: int):
 
 
 if __name__ == '__main__':
-    # Make test_data directory
-    file_path = Path("test_data")
+    # Write to examples/toy_examples/ in the repo, wherever the script is run from
+    file_path = Path(__file__).resolve().parent.parent / "examples" / "toy_examples"
     file_path.mkdir(parents=True, exist_ok=True)
 
     ### No preference at all
-    no_preference("test_data/flanks_no_preference.txt", FLANK_LEN, N)
+    no_preference(file_path / "flanks_no_preference.txt", FLANK_LEN, N)
 
 
     ###  Nucleotide preferences ###
     # Contexts are 20% AT
-    nucl_preference("test_data/flanks_low_AT.txt", FLANK_LEN, N, 20)
+    nucl_preference(file_path / "flanks_low_AT.txt", FLANK_LEN, N, 20)
     # Contexts are 75% AT
-    nucl_preference("test_data/flanks_high_AT.txt", FLANK_LEN, N, 75)
+    nucl_preference(file_path / "flanks_high_AT.txt", FLANK_LEN, N, 75)
 
 
     #### Sequence preferences ###
     # Inserts downstream of "CTAG" 80% of the time
-    seq_preference("test_data/flanks_strong_short_seq.txt", FLANK_LEN, N, 80, "CTAG", "l")
+    seq_preference(file_path / "flanks_strong_short_seq.txt", FLANK_LEN, N, 80, "CTAG", "l")
     # Inserts into "GCCGATCGCATCGGC" 10% of the time
-    seq_preference("test_data/flanks_weak_long_seq.txt", FLANK_LEN, N, 10, "GCCGATCGCATCGGC", "both")
+    seq_preference(file_path / "flanks_weak_long_seq.txt", FLANK_LEN, N, 10, "GCCGATCGCATCGGC", "both")
