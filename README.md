@@ -23,6 +23,12 @@ python flankalyser.py --mge_name IS26 \
 
 Graphs are written to `results/graphs/`, tables to `results/files/`, and a log of the run to `results/`. See [Output](#output) for details.
 
+To run every `.txt` flank file in a folder, use `run_flankalyser_multi.sh` from the repository root, giving the folder, the flank length and the output directory:
+```bash
+bash run_flankalyser_multi.sh examples/real_examples 50 results
+```
+Each file's name without `.txt` is used as its `--mge_name`, e.g. `flanks_IS26_subset.txt` gives outputs named `flanks_IS26_subset_...`.
+
 ## Dependencies
 This tool was tested with Python 3.12 and requires:
   - numpy

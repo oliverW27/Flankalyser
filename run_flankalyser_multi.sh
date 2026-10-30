@@ -5,6 +5,6 @@ FLANK_LEN=$2
 OUTDIR=$3
 for file in $FLANKS_DIR/*.txt; do
     [ -e "$file" ] || continue
-    base=$(basename "$file")
+    base=$(basename "$file" .txt)
     python3 flankalyser.py --mge_name "${base}" --summary_file "$file" --flank_len "$FLANK_LEN" --outdir "$OUTDIR"
 done
