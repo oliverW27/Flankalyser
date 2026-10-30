@@ -96,16 +96,13 @@ def _mean_profiles(seqs, flank_len):
     return (real_sum / n, shuf_sum / n, n) if n else None
 
 
-def run_bendability_analysis(left_seqs, right_seqs, flank_len, mge_name, output_dir, seed=None):
+def run_bendability_analysis(left_seqs, right_seqs, flank_len, mge_name, output_dir):
     """Plot the mean local bend profile of each flank against a dinucleotide-shuffled
     control, to <output_dir>/graphs/<mge_name>_BEND_PROFILE.png.
 
     left_seqs / right_seqs are the unique flank sequences from flankalyser.py's
     extract_unique_sequences. Flanks containing anything other than A/C/G/T are skipped.
     """
-    if seed is not None:
-        random.seed(seed)
-
     fig, ax = plt.subplots(figsize=(10, 4))
     # Bend at a base needs the base either side, so each flank loses its outermost base
     # at both ends: left covers -(flank_len - 1)..-2, right covers +2..+(flank_len - 1)

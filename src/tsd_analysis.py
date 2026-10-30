@@ -44,7 +44,7 @@ def unique_pairs(left_data, right_data, acc_names, flank_len):
 
     Each insertion site counts once however many genomes it appears in, as in
     the rest of the pipeline. Pipe-separated segments are paired by position;
-    'none' and wrong-length segments are skipped.
+    wrong-length segments are skipped.
 
     Returns:
         list of (left, right)

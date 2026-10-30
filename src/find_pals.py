@@ -3,7 +3,7 @@ Palindrome / inverted-repeat enrichment analysis.
 
 Pairs left+right flanks into insertion-site sequences, finds the longest
 inverted repeat in each, and compares how many sequences have one at least
-N bp long against a dinucleotide-shuffled null, for every N from MIN_ARM to
+N bp long against a dinucleotide-shuffled null, for every N from min_arm to
 MAX_ARM. Writes the full enrichment curve and a plot of real vs. shuffled counts
 by arm length.
 """
@@ -18,15 +18,15 @@ from src.utils import COMPLEMENT, dinucleotide_shuffle, pair_flanks
 
 logger = logging.getLogger(__name__)
 
-MIN_ARM = 3    # shortest arm counted as a palindrome, and the start of the enrichment curve
+N_SHUFFLES = 100  # enough for a stable inflection point; fewer lets it shift by 1 bp between runs
 MAX_ARM = 50   # longer arms are counted as this length
 INF = float('inf')
 
 
-def longest_arm(seq, max_spacer, max_mismatches):
+def longest_arm(seq, max_spacer, max_mismatches, min_arm):
     """Arm length of the longest inverted repeat in seq (arms are reverse
     complements, separated by a spacer of 0..max_spacer nt), trying every
-    position as the centre. Returns 0 if none is at least MIN_ARM long."""
+    position as the centre. Returns 0 if none is at least min_arm long."""
     n = len(seq)
     best = 0
     for centre in range(n):
@@ -45,19 +45,19 @@ def longest_arm(seq, max_spacer, max_mismatches):
                 l -= 1
                 r += 1
             best = max(best, arm_len)
-    return best if best >= MIN_ARM else 0
+    return best if best >= min_arm else 0
 
 
-def get_max_arm_lengths(seqs, max_spacer, max_mismatches):
+def get_max_arm_lengths(seqs, max_spacer, max_mismatches, min_arm):
     """Longest palindrome arm in each sequence, capped at MAX_ARM."""
-    return [min(longest_arm(s, max_spacer, max_mismatches), MAX_ARM) for s in seqs]
+    return [min(longest_arm(s, max_spacer, max_mismatches, min_arm), MAX_ARM) for s in seqs]
 
 
-def compute_enrichment_curve(real_arms, shuffled_arms_list):
-    """For each arm length from MIN_ARM to MAX_ARM, count how many sequences
+def compute_enrichment_curve(real_arms, shuffled_arms_list, min_arm):
+    """For each arm length from min_arm to MAX_ARM, count how many sequences
     have a palindrome at least that long, real vs. shuffled."""
     curve = []
-    for arm_length in range(MIN_ARM, MAX_ARM + 1):
+    for arm_length in range(min_arm, MAX_ARM + 1):
         real_count = sum(1 for a in real_arms if a >= arm_length)
         shuf_counts = [sum(1 for a in shuf_arms if a >= arm_length)
                        for shuf_arms in shuffled_arms_list]
@@ -140,7 +140,7 @@ def plot_palindrome_analysis(curve, mge_name, summary, output_path):
 
 
 def run_palindrome_analysis(left_data, right_data, flank_len, mge_name, output_dir,
-                            max_spacer, max_mismatches, n_shuffles, threshold):
+                            min_arm, max_spacer, max_mismatches, threshold):
     """Palindrome enrichment pipeline: pair flanks, scan real and shuffled
     sequences, then write the curve TSV and plot.
 
@@ -155,33 +155,33 @@ def run_palindrome_analysis(left_data, right_data, flank_len, mge_name, output_d
 
     logger.info(f"Loaded {len(seqs)} unique sequences ({len(seqs[0])} bp)")
     logger.info(
-        f"Settings: arm {MIN_ARM}-{MAX_ARM}, spacer <= {max_spacer}, "
-        f"mismatches <= {max_mismatches}, {n_shuffles} shuffles"
+        f"Settings: arm {min_arm}-{MAX_ARM}, spacer <= {max_spacer}, "
+        f"mismatches <= {max_mismatches}, {N_SHUFFLES} shuffles"
     )
 
     logger.info("Scanning real sequences...")
-    real_arms = get_max_arm_lengths(seqs, max_spacer, max_mismatches)
+    real_arms = get_max_arm_lengths(seqs, max_spacer, max_mismatches, min_arm)
 
     # Fall back to the real sequence if a shuffle fails (rare; see utils.dinucleotide_shuffle)
-    logger.info(f"Scanning {n_shuffles} shuffled replicates...")
+    logger.info(f"Scanning {N_SHUFFLES} shuffled replicates...")
     shuffled_arms_list = []
-    for i in range(n_shuffles):
+    for i in range(N_SHUFFLES):
         shuffled_seqs = []
         for s in seqs:
             try:
                 shuffled_seqs.append(dinucleotide_shuffle(s))
             except RuntimeError:
                 shuffled_seqs.append(s)
-        shuffled_arms_list.append(get_max_arm_lengths(shuffled_seqs, max_spacer, max_mismatches))
+        shuffled_arms_list.append(get_max_arm_lengths(shuffled_seqs, max_spacer, max_mismatches, min_arm))
         if (i + 1) % 10 == 0:
-            logger.info(f"  {i+1}/{n_shuffles} shuffles done")
+            logger.info(f"  {i+1}/{N_SHUFFLES} shuffles done")
 
-    curve = compute_enrichment_curve(real_arms, shuffled_arms_list)
+    curve = compute_enrichment_curve(real_arms, shuffled_arms_list, min_arm)
     summary = extract_summary(curve, threshold)
 
     # % of sequences with a palindrome at least as long as the inflection arm length
     infl = summary['inflection_length']
-    pct_str = f"{curve[infl - MIN_ARM]['real_count'] / len(seqs):.1%}" if infl is not None else "NA"
+    pct_str = f"{curve[infl - min_arm]['real_count'] / len(seqs):.1%}" if infl is not None else "NA"
     logger.info(
         f"Result: inflection={infl}, % at inflection={pct_str}, "
         f"peak={_fmt_ratio(summary['peak_enrichment'])} at {summary['peak_at_length']}bp"
@@ -190,7 +190,7 @@ def run_palindrome_analysis(left_data, right_data, flank_len, mge_name, output_d
     files_dir = Path(output_dir) / "files"
     graphs_dir = Path(output_dir) / "graphs"
     # Different parameter combinations get their own files, so they never overwrite each other
-    param_suffix = f"mm{max_mismatches}_sp{max_spacer}"
+    param_suffix = f"arm{min_arm}_mm{max_mismatches}_sp{max_spacer}"
 
     curve_path = files_dir / f"{mge_name}_PALINDROME_ENRICHMENT_CURVE_{param_suffix}.tsv"
     with open(curve_path, "w") as f:

@@ -4,17 +4,17 @@ Analyses flanking sequences from TETyper output files.
 """
 
 import argparse
+from datetime import datetime
+from importlib import metadata
 from pathlib import Path
 import logging
+import shlex
 import sys
-
-# Plots are only saved to file, never shown, so use a backend that doesn't need a display.
-# Must be set before any module below imports matplotlib.pyplot.
 import matplotlib
 matplotlib.use("Agg")
 
 # Custom module imports
-from src.find_pals import run_palindrome_analysis
+from src.find_pals import run_palindrome_analysis, MAX_ARM
 from src.tsd_analysis import run_tsd_analysis
 from src.nucl_dist import (count_nucl, graph_nucl_dist, nucl_dist_stat_sig, calc_nucl_props,
                            expected_proportions)
@@ -71,7 +71,7 @@ def log_step(logger, title):
 
 
 def extract_unique_sequences(l_data, r_data, acc_names, flank_len, logger, exclude_n=False):
-    """Extract unique sequences from flanking data, excluding 'None' entries."""
+    """Extract unique flank sequences of the expected length (optionally excluding any with N)."""
 
     def _contains_n(seq):
         """Check if sequence contains any N characters."""
@@ -88,8 +88,6 @@ def extract_unique_sequences(l_data, r_data, acc_names, flank_len, logger, exclu
                 continue
             segments = sequence.split('|')
             for segment in segments:
-                if segment == 'none':
-                    continue
                 if len(segment) != flank_len:
                     logger.warning(
                         f"Sequence length mismatch for {names[i]} in {label}: "
@@ -117,57 +115,120 @@ def extract_unique_sequences(l_data, r_data, acc_names, flank_len, logger, exclu
     return l_uniq, r_uniq
 
 
+def setup_logging(outdir, mge_name):
+    """Send log messages to the screen and to <outdir>/<mge_name>_<YYYYmmdd-HHMMSS>.log.
+
+    The file copy adds a timestamp to each line; the screen output is unchanged.
+    Returns the logger and the path to the log file.
+    """
+    Path(outdir).mkdir(parents=True, exist_ok=True)
+    log_path = Path(outdir) / f"{mge_name}_{datetime.now():%Y%m%d-%H%M%S}.log"
+
+    screen = logging.StreamHandler()
+    screen.setFormatter(logging.Formatter('%(levelname)s: %(message)s'))
+    file = logging.FileHandler(log_path)
+    file.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s',
+                                        datefmt='%Y-%m-%d %H:%M:%S'))
+    logging.basicConfig(level=logging.INFO, handlers=[screen, file])
+    logger = logging.getLogger(__name__)
+
+    # Python warnings (e.g. from numpy or matplotlib) normally print straight to the screen;
+    # send them through logging instead so they also reach the log file
+    logging.captureWarnings(True)
+
+    # Same for crashes that nothing else catches: log the traceback rather than only printing it
+    def log_uncaught(exc_type, exc_value, exc_tb):
+        if issubclass(exc_type, KeyboardInterrupt):
+            logger.error("Interrupted by user")
+            return
+        logger.critical("Unexpected error -- run stopped",
+                        exc_info=(exc_type, exc_value, exc_tb))
+    sys.excepthook = log_uncaught
+
+    return logger, log_path
+
+
+def log_run_info(logger, log_path):
+    """Record the command, Python and package versions at the top of the log."""
+    versions = []
+    for pkg in ("numpy", "pandas", "scipy", "matplotlib", "seaborn", "logomaker"):
+        try:
+            versions.append(f"{pkg} {metadata.version(pkg)}")
+        except metadata.PackageNotFoundError:
+            versions.append(f"{pkg} not found")
+    logger.info(f"Command: {shlex.join(sys.argv)}")
+    logger.info(f"Python {sys.version.split()[0]}; " + ", ".join(versions))
+    logger.info(f"Log file: {log_path}")
+
+
 def main():
     """Main pipeline execution."""
 
-    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
-    logger = logging.getLogger(__name__)
-
-    parser = argparse.ArgumentParser(description="Analyse flanking sequences from TETyper output")
+    parser = argparse.ArgumentParser(description="Analyse flanking sequences of MGEs")
     parser.add_argument("--mge_name", required=True,
-                        help="Name of the MGE (used in graphs and output files)")
+                        help="Name of the element; used in graph titles, output file names "
+                             "and the log file name, and to look up its GC content in --gc_file")
     parser.add_argument("--summary_file", required=True,
-                        help="Path to TETyper summary file")
+                        help="Tab-separated input file, one line per genome: name, left flank, "
+                             "right flank. A field may hold several flanks separated by '|'. "
+                             "Missing sequence should be filled with N to the full flank length. "
+                             "Bases are converted to uppercase, and any character other than "
+                             "A/C/G/T/N is treated as N")
     parser.add_argument("--flank_len", required=True, type=int,
-                        help="Flanking region length used for TETyper")
+                        help="Length of each flank in bp; flanks of any other length are skipped")
     parser.add_argument("--outdir", required=True,
-                        help="The directory this program will be run in")
+                        help="Output directory (created if needed). Results go in graphs/ and "
+                             "files/, and the log file goes in the directory itself")
     parser.add_argument("--exclude_n", action="store_true",
-                        help="Exclude sequences containing N characters (partial flanks)")
+                        help="Leave out flanks containing N in the nucleotide-composition "
+                             "and sequence-logo steps, and in the 100-unique-flank minimum "
+                             "(the other analyses always leave out flanks, or TSDs, containing N)")
     parser.add_argument("--gc_file",
-                        help="TSV file with expected background GC content per element "
-                             "(element name in column 2, GC%% in column 3), used to adapt "
-                             "the nucleotide-composition significance test and graph "
-                             "baseline to the element's actual background instead of a "
-                             "flat 25%% per base")
+                        help="TSV file with a header line and the expected background GC content "
+                             "per element (element name in column 2, GC%% in column 3). Sets the "
+                             "expected base proportions for the nucleotide-composition test and "
+                             "graph, instead of a flat 25%% per base. Elements not in the file "
+                             "fall back to 25%% per base")
     parser.add_argument("--analyse_TSDs", action="store_true",
-                        help="Detect TSDs at each unique insertion site and write a TSD summary")
+                        help="Find the longest target site duplication at each unique left/right "
+                             "flank pair and write a TSD summary")
     parser.add_argument("--min_tsd", type=int, default=3,
-                        help="Minimum TSD length to consider (default: 3; maximum is fixed at 25)")
+                        help="Minimum TSD length to count, with --analyse_TSDs "
+                             "(default: 3; maximum is fixed at 25)")
     parser.add_argument("--tsd_test_significance", action="store_true",
-                        help="Also test the TSD hit rate against the same flanks with the "
-                             "boundary shifted 10-25 bp, add the result to the TSD summary, "
-                             "and plot it by TSD length (default: off)")
+                        help="With --analyse_TSDs, also test the TSD hit rate against the same "
+                             "flanks with the boundary shifted 10-25 bp, add the result to the "
+                             "TSD summary, and plot TSD lengths observed vs. shifted")
     parser.add_argument("--analyse_palindromes", action="store_true",
-                        help="Detect inverted repeats/palindromes near insertion sites "
-                             "(via src.find_pals) and write the enrichment curve + plot")
+                        help="Join each unique left/right flank pair, find the longest inverted "
+                             "repeat in it, and compare against dinucleotide-shuffled sequences; "
+                             "writes the enrichment curve and a plot. Pairs containing N are skipped")
+    parser.add_argument("--palindrome_min_arm", type=int, default=3,
+                        help="Shortest inverted-repeat arm in bp to count as a palindrome, and the "
+                             "first arm length on the enrichment curve, with --analyse_palindromes "
+                             "(default: 3)")
     parser.add_argument("--palindrome_max_spacer", type=int, default=2,
-                        help="Maximum spacer size between inverted-repeat arms (default: 2)")
+                        help="Maximum spacer between the two inverted-repeat arms in bp, with "
+                             "--analyse_palindromes (default: 2)")
     parser.add_argument("--palindrome_max_mismatches", type=int, default=0,
-                        help="Maximum mismatches allowed per arm (default: 0)")
-    parser.add_argument("--palindrome_n_shuffles", type=int, default=100,
-                        help="Number of dinucleotide shuffles for the palindrome null (default: 100)")
-    parser.add_argument("--seed", type=int, default=None,
-                        help="Random seed for the bendability shuffle and downsampling "
-                             "-- for reproducible runs")
+                        help="Maximum non-complementary base pairs allowed between the two arms "
+                             "of an inverted repeat, with --analyse_palindromes (default: 0)")
     parser.add_argument("--analyse_bendability", action="store_true",
-                        help="Plot the mean local DNA bend profile across insertion sites "
-                             "vs. a dinucleotide-shuffled control (via src.dna_bendability)")
+                        help="Plot the mean local DNA bend profile (Goodsell & Dickerson "
+                             "nucleosome model) of each flank vs. a dinucleotide-shuffled control. "
+                             "Flanks containing N are skipped; at most 5000 randomly chosen "
+                             "flanks per side are used")
     parser.add_argument("--analyse_melting", action="store_true",
-                        help="Plot the nearest-neighbour ΔG melting profile of each flank "
-                             "vs. a dinucleotide-shuffled control (via src.temperature_annealing_calc)")
+                        help="Plot the nearest-neighbour stacking ΔG profile (SantaLucia 1998) "
+                             "of each flank vs. a dinucleotide-shuffled control. "
+                             "Flanks containing N are skipped")
     args = parser.parse_args()
+    if not 1 <= args.palindrome_min_arm <= MAX_ARM:
+        parser.error(f"--palindrome_min_arm must be between 1 and {MAX_ARM}")
     output_dir = args.outdir
+
+    logger, log_path = setup_logging(output_dir, args.mge_name)
+    log_run_info(logger, log_path)
 
     # Read in files
     log_step(logger, "STEP 1: Parsing input")
@@ -196,7 +257,6 @@ def main():
                f"{len(right_seqs)} unique right flanks (minimum {MIN_UNIQUE_FLANKS} "
                f"required) -- no results generated.")
         logger.warning(msg)
-        print(msg)
         sys.exit(0)
 
     try:
@@ -302,9 +362,9 @@ def main():
             left_data, right_data, args.flank_len,
             mge_name=args.mge_name,
             output_dir=output_dir,
+            min_arm=args.palindrome_min_arm,
             max_spacer=args.palindrome_max_spacer,
             max_mismatches=args.palindrome_max_mismatches,
-            n_shuffles=args.palindrome_n_shuffles,
             threshold=2.0,
         )
         except Exception as e:
@@ -315,7 +375,6 @@ def main():
         try:
             run_bendability_analysis(
                 left_seqs, right_seqs, args.flank_len, args.mge_name, output_dir,
-                seed=args.seed,
             )
         except Exception as e:
             logger.exception(f"Bendability analysis failed: {e}")

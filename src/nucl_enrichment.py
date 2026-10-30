@@ -1,8 +1,12 @@
+import logging
+from collections import Counter
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from collections import Counter
+
+logger = logging.getLogger(__name__)
 
 
 def _count_dinucleotides(seqs):
@@ -22,9 +26,17 @@ def analyse_dinucleotide_enrichment_weighted(left_seqs, right_seqs, output_dir, 
     inner_bp farthest from it -- symmetric, matched-size windows, so the
     middle of the flank (between the two windows) is left out of both.
     Inner = closer to insertion site, outer = farthest away.
+
+    Flanks containing N are always left out: missing sequence is padded with N
+    at the outer end, so it would otherwise dilute the outer window and make
+    every dinucleotide look enriched near the insertion site.
     """
     dfs = {}
     for flank, seqs in [('left', left_seqs), ('right', right_seqs)]:
+        usable = [s for s in seqs if 'N' not in s.upper()]
+        logger.info(f"Dinucleotide enrichment: {len(usable)}/{len(seqs)} {flank} flanks "
+                    f"usable (N-free)")
+        seqs = usable
         if flank == 'left':
             # Inner = last inner_bp (near insertion), outer = first inner_bp (far)
             inner_seqs = [s[-inner_bp:] for s in seqs]
