@@ -4,9 +4,21 @@
 <h1 align="center">Flankalyser</h1>
 <p align="center">Analysis of the DNA flanking bacterial transposable elements</p>
 
-## About
 
-This tool takes in "flanks", i.e. the DNA sequences surrounding some genetic element such as a transposon, gene, or motif. Output includes information and graphs on palindromic content, physical properties (e.g., bendability), nucleotide and dinucleotide enrichment, as well as (specific to transposons) target site duplication detection.
+## Quick start
+Flankalyser looks for patterns around the insertion site of a (mobile) genetic element, using its flanking sequences from many genomes. By default it reports the base composition at each position (with significance), a sequence logo and dinucleotide enrichment near the insertion site. Optionally, it can also detect target site duplications (TSDs), looks for palindromes, and profiles DNA bendability and melting.
+
+You need:
+- the conda environment (see [Dependencies](#dependencies))
+- a tab-separated file of left and right flanks for one element (see [Input](#input))
+- This code base
+
+```bash
+python flankalyser.py --mge_name IS26 --summary_file examples/flanks_IS26_subset.txt --flank_len 50 --outdir results \
+    --analyse_TSDs --analyse_palindromes --analyse_bendability --analyse_melting
+```
+
+Graphs are written to `results/graphs/`, tables to `results/files/`, and a log of the run to `results/`. See [Output](#output) for details.
 
 ## Dependencies
 This tool was tested with Python 3.12 and requires:
@@ -41,7 +53,7 @@ accession_5    agcttt    tgcnnn
 - `accession_4`: characters not in [A,G,C,T] are converted to N
 - `accession_5`: lower-case nucleotides are fine!
 
-**Problem input** (logs a warning):
+**Problematic input** (logs a warning):
 ```tsv
 accession_1    NNAGCT
 accession_2    ACG    AGTTTT
@@ -98,6 +110,43 @@ python3 convert_lexicmap_fmt.py --tsv output.fasta.lexicmap.tsv \
 | `--analyse_bendability` | flag | no | off |
 | `--analyse_melting` | flag | no | off |
 
+## Analysis steps
+Steps 1-3 always run; steps 4-7 are switched on with their `--analyse_xxx` option. In all steps, only **unique flanks** are counted even if they appear in multiple rows under different IDs. This is done as not every context represents a unique insertion event (could be due to e.g., resequencing the same isolate, or clonal expansion). The exception to this is for TSD and palindromic analysis, here **unique left/right pairs** are used.
+Several steps compare the real flanks with **dinucleotide-shuffled** copies of them. Shuffling destroys the order of the sequence but keeps its exact dinucleotide counts (after Altschul & Erickson, 1985), so the shuffled copies have the same base composition as the real flanks.
+
+### 1. Input parsing
+- Bases are converted to upper case, and any character other than A/C/G/T/N is replaced with N.
+- Flanks that aren't `--flank_len` long are skipped with a warning.
+- Elements with fewer than 100 unique left or right flanks are skipped (see [Output](#output)).
+- With `--exclude_n`, flanks containing N are left out of steps 2 and 3. The other steps always leave them out de facto.
+
+### 2. Nucleotide composition
+- Counts A, C, G and T at each position of the left and right flanks (Ns are not counted).
+- Tests each position with a chi-square goodness-of-fit test against the expected base proportions: 25% each by default, or A = T = (1 − GC)/2 and C = G = GC/2 if the element's GC content is given with `--gc_file`.
+- Significance is Bonferroni-corrected for the number of positions tested (2 × `--flank_len`). In the graph, `*`, `**` and `***` mark corrected p < 0.05, 0.01 and 0.001.
+
+### 3. Sequence logo and dinucleotide enrichment
+- **Sequence logo:** the base frequencies from step 2, drawn with [logomaker](https://logomaker.readthedocs.io/).
+- **Dinucleotide enrichment:** for each flank, compares how often each of the 16 possible dinucleotides occurs in the 10 bp nearest the insertion site vs. the 10 bp farthest from it. The result is log2(inner frequency / outer frequency), with a pseudocount of 0.5 per dinucleotide; positive values mean the dinucleotide is more common near the insertion site.
+
+### 4. TSDs (`--analyse_TSDs`)
+- For each unique left/right flank pair, finds the longest exact match between the end of the left flank and the start of the right flank, from `--min_tsd` up to 25 bp. A TSD can't contain N.
+- **Significance (`--tsd_test_significance`):** the same search is repeated with the boundary moved 10–25 bp into the left flank and 10–25 bp into the right flank (32 shifted boundaries). Matches found there are not real TSDs, so the average number of sites with a match per shifted boundary is the background. The observed number is compared to it with a one-sided binomial test, and reported as an enrichment (observed ÷ background) and p-value.
+
+### 5. Palindromes (`--analyse_palindromes`)
+- Joins each unique left/right flank pair into one sequence (pairs containing N are skipped) and finds the longest palindrome in it. Every position is tried as the centre, with a spacer of 0 to `--palindrome_max_spacer` bp between the two arms, and arms are extended outwards while the bases are complementary, allowing up to `--palindrome_max_mismatches` mismatched pairs.
+- For each arm length from `--palindrome_min_arm` to 50 bp, counts how many sequences have an inverted repeat at least that long, in the real sequences and in 100 dinucleotide-shuffled copies of them.
+- **Enrichment** at each arm length is the real count ÷ the mean shuffled count. The **inflection point** is the shortest arm length with at least 2× enrichment, i.e. the length from which palindromes are clearly more common than chance. This metric is somewhat arbitrary and should only be interpreted together with the nucleotide distribution graph and palindrome distribution and count.
+
+### 6. DNA bendability (`--analyse_bendability`)
+- Uses the trinucleotide nucleosome-positioning model of Goodsell & Dickerson (1994). Each trinucleotide is given a roll angle (0–10°) according to how strongly it prefers to face away from the histone core, with a constant twist of 34.3° per base step.
+- The base pair frames are built up step by step along each flank, and the local bend at a position is the angle between the base pair normals one step either side of it.
+- The mean bend at each position is plotted for the real flanks and for one dinucleotide-shuffled copy of each flank. Flanks containing N are skipped, and at most 5000 randomly chosen flanks per side are used. There is no significance test.
+
+### 7. DNA melting (`--analyse_melting`)
+- Gives each dinucleotide step its nearest-neighbour stacking free energy (ΔG°37, SantaLucia 1998 unified parameters). Less negative ΔG means the DNA is easier to melt.
+- The mean ΔG at each position is plotted for the real flanks (with a standard-error band) and for dinucleotide-shuffled copies. Flanks containing N are skipped.
+
 ## Output
 Everything is written to `--outdir`, with file names starting with `--mge_name`:
 
@@ -131,3 +180,38 @@ Elements with fewer than 100 unique left or right flanks are skipped. You can ed
 | `MGE_MELTING_PROFILE.png` | `--analyse_melting` | Mean stacking ΔG per position, real vs. dinucleotide-shuffled |
 
 ## Examples
+### Toy examples
+`helpers/make_synth_data.py` makes five synthetic datasets of 1,000 random flank pairs (50 bp each), each with a different kind of insertion-site preference built in. The number and length of the flanks can be changed with `N` and `FLANK_LEN` at the top of the script. The sequences are random, so exact numbers will differ slightly between runs.
+
+```bash
+for f in examples/toy_examples/*.txt; do
+    python flankalyser.py --mge_name $(basename $f .txt) --summary_file $f --flank_len 50 \
+        --outdir examples/toy_examples --analyse_TSDs --tsd_test_significance \
+        --analyse_palindromes --analyse_bendability --analyse_melting
+done
+```
+
+| Dataset | How it is made | What it shows |
+|---|---|---|
+| `flanks_no_preference` | Every base random (25% each) | At every position, each nucleotide is equally common - there is *NO target site motif*. This is a baseline against which to compare any other results to!
+| `flanks_low_AT`, `flanks_high_AT` | Every base drawn with 20% or 75% A+T | A composition bias across the whole flank. These datasets also have more chance TSDs (around 5% of sites vs. 1.5%), but `--tsd_test_significance` then shows that the background is just as high. |
+| `flanks_strong_short_seq` | `CTAG` directly left of the insertion site in 80% of flanks | A strong, short target-site preference: positions −4 to −1 are highly significant, the left logo spells `CTAG`, and `CT`, `TA` and `AG` are about 2× enriched near the insertion site in the left flank only. |
+| `flanks_weak_long_seq` | 15 bp motif `GCCGATCGCATCGGC` spanning the insertion site in 10% of flanks | A weak, long preference: most motif positions are still significant with 1,000 flanks, despite the motif being present in only 10% of them. The motif is also an inverted repeat (`GCCGAT`, 3 bp spacer `CGC`, `ATCGGC`), so it isn't found with the default `--palindrome_max_spacer 2`. With `--palindrome_max_spacer 3`, palindromes are about 2.3× enriched from an arm length of 6 bp. |
+
+### Real examples
+`examples/real_examples/` contains four real datasets, each a random subset of 1,000 unique insertion sites (left/right flank pairs, 50 bp) from flanks extracted from [AllTheBacteria](https://allthebacteria.org/) with the workflow above. Whole rows were kept, so genomes sharing the same insertion site are still in the files. The shuffled controls are random, so palindrome, bendability and melting results will differ slightly between runs.
+
+```bash
+for n in IS1397 IS100 IS26 IS91; do
+    python flankalyser.py --mge_name $n --summary_file examples/real_examples/flanks_${n}_subset.txt --flank_len 50 \
+        --outdir examples/real_examples --analyse_TSDs --tsd_test_significance \
+        --analyse_palindromes --analyse_bendability --analyse_melting
+done
+```
+
+| Dataset | What it shows |
+|---|---|
+| `flanks_IS1397_subset.txt` | A palindromic target ([a REP in E. coli](https://pmc.ncbi.nlm.nih.gov/articles/PMC169884/)). Long inverted repeats are strongly enriched. Short TSDs (mostly 3-4 bp) are found at 32% of sites, as has been [reported](https://pmc.ncbi.nlm.nih.gov/articles/PMC95333/). |
+| `flanks_IS100_subset.txt` | A strong TSD with little target sequence preference. 5 bp TSDs (and some 6 bp) are found at 68% of sites. 10-bp AT peaks are visible in the bending graph, which indicates it inserts into bent DNA |
+| `flanks_IS26_subset.txt` | An 8 bp TSD at only a small fraction of sites - IS26 rearranges its insertion contexts which disrupts these TSDs. Many positions near the site are significant, but no base is more than 15% above expected, so the target preference is weak. |
+| `flanks_IS91_subset.txt` | A target motif without a TSD, this element does not create them. IS91 has a strong preference to [insert next to the GTTC motif](https://pubmed.ncbi.nlm.nih.gov/2552258/) observed in the sequence logo and nucleotide distribution graph |
